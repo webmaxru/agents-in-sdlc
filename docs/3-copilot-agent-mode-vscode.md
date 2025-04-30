@@ -67,7 +67,7 @@ The initial implementation of the website is functional, but we want to enhance 
    ```
 
 > [!NOTE]
-> Do you notice notice anything about this prompt? What context is it missing? How could you improve the prompt to get a better response from Copilot? Hint: Which repository are you referring to?
+> Do you notice anything about this prompt? What context is it missing? How could you improve the prompt to get a better response from Copilot? Hint: Which repository are you referring to?
 
 You'll notice that GitHub Copilot made a tool call similar to our previous exercise, using the `list_issues` tool to get the list of issues from the GitHub repository. But with the power of AI, it has even gone and prioritized the items for us, based on the ones that it thinks will be most useful to the user.
 

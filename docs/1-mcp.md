@@ -64,13 +64,13 @@ Once you have the extension installed, you may need to authenticate with your Gi
 
     ![Example of Copilot Chat Agent Mode with tools icon](images/copilot-agent-mode.png)
 
-6. Typically, the number of tools available will be set to 0 when setting up a new project, as we have not configured any MCP servers yet. But to help you get started, we have created a `.vscode/mcp.json` file with an example configuration for the [GitHub MCP server](https://github.com/github/github-mcp-server). Let's go and explore that next.
+6. Typically, the number of tools available will be set to 0 when setting up a new project, as we have not configured any MCP servers yet. But to help you get started, we have created a **.vscode/mcp.json** file with an example configuration for the [GitHub MCP server](https://github.com/github/github-mcp-server). Let's go and explore that next.
 
 ## Setting up the GitHub MCP server
 
-To recap, the `.vscode/mcp.json` file is used to configure the MCP servers that are available in this Visual Studio Code Workspace. The MCP servers provide access to external tools and resources that GitHub Copilot can use to perform actions on your behalf.
+To recap, the **.vscode/mcp.json** file is used to configure the MCP servers that are available in this Visual Studio Code Workspace. The MCP servers provide access to external tools and resources that GitHub Copilot can use to perform actions on your behalf.
 
-1. Open up the `.vscode/mcp.json` file in your repository.
+1. Open the **.vscode/mcp.json** file in your repository.
 2. You should see a JSON structure similar to the following:
 
     ```json
@@ -102,7 +102,7 @@ To recap, the `.vscode/mcp.json` file is used to configure the MCP servers that 
     }
     ```
 
-The **inputs** section defines the inputs that the MCP server will require. In this case, we are asking for a GitHub Personal Access Token, which is required to authenticate with the GitHub API. The `password` field is set to `true`, which means that the input will be masked when you enter it.
+The **inputs** section defines the inputs that the MCP server will require. In this case, we are asking for a GitHub Personal Access Token, which is required to authenticate with the GitHub API. The **password** field is set to **true**, which means that the input will be masked when you enter it.
 
 > [!IMPORTANT]
 > Make sure that you do not share your GitHub Personal Access Token with anyone, as it provides access to your GitHub account and repositories. Treat it like a password and keep it secure. That means you should not check it into source control or share it with anyone else.

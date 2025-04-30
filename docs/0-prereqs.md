@@ -4,12 +4,14 @@ Before starting the lab, please ensure you have completed the following setup st
 
 ## Setting up the Lab Repository
 
-1. Navigate to [github.com](https://github.com)
-2. Sign in to your GitHub Account.
-3. Navigate to the [GitHub Repository for this lab](https://github.com/github-samples/agents-in-sdlc).
-4. Create your own copy of the repository by clicking the **Use this template** button on the lab repository page. Then click **Create a new repository**.
+1. Navigate to the [GitHub Repository for this lab](https://github.com/github-samples/agents-in-sdlc).
+2. Create your own copy of the repository by clicking the **Use this template** button on the lab repository page. Then click **Create a new repository**.
 
     ![Use this template button](images/use-template.png)
+
+3. For labs at Microsoft build, please choose `Microsoft-Build-2025` as the GitHub organization. Set the repository name to something you'll remember for the rest of the lab, but be aware that name is visible to all other users also using the GitHub org.
+
+    ![Input the repository template settings](images/repository-template-settings.png)
 
 > [!NOTE]
 > This will create a new repository in your account with the same files and structure as the original lab repository.

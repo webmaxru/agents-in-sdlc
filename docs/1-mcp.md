@@ -56,7 +56,7 @@ Once you have the extension installed, you may need to authenticate with your Gi
 
     ![Example of Copilot Chat window](images/copilot-chat-window.png)
 
-4. Switch to agent mode by clicking on the dropdown in the Copilot Chat window and selecting **Agent**.
+4. Switch to agent mode by clicking on the dropdown in the Copilot Chat window and selecting **Agent**. Set the model to **Claude 3.5 Sonnet**.
 
     ![Example of switching to Agent Mode](images/copilot-agent-mode-dropdown.png)
 
@@ -107,16 +107,16 @@ The **inputs** section defines the inputs that the MCP server will require. In t
 > [!IMPORTANT]
 > Make sure that you do not share your GitHub Personal Access Token with anyone, as it provides access to your GitHub account and repositories. Treat it like a password and keep it secure. That means you should not check it into source control or share it with anyone else.
 
-The **servers** section defines the MCP server that you want to use. In this case, we are using the GitHub MCP server, which is run in a Docker container. The `command` field specifies the command to run the MCP server, and the `args` field specifies the arguments to pass to the command. The `env` field specifies the environment variables to set when running the MCP server. The `GITHUB_PERSONAL_ACCESS_TOKEN` environment variable is set to the value of the `github_token` input, which is provided by the user when prompted.
+The **servers** section defines the MCP server that you want to use. In this case, we are using the GitHub MCP server, which is run in a Docker container. The **command** field specifies the command to run the MCP server, and the **args** field specifies the arguments to pass to the command. The **env** field specifies the environment variables to set when running the MCP server. The **GITHUB_PERSONAL_ACCESS_TOKEN** environment variable is set to the value of the **github_token** input, which is provided by the user when prompted.
 
-1. To start the GitHub MCP server, click on the "Start" button above the GitHub server entry in the `.vscode/mcp.json` file.
+1. To start the GitHub MCP server, click on **Start** above the GitHub server entry in the **.vscode/mcp.json** file.
 2. You should see a prompt asking for the GitHub Personal Access Token.
 
 > [!NOTE]
-> If you are using a GitHub Codespace, you can use the `GITHUB_TOKEN` environment variable as your Personal Access Token.
+> **If you are using a GitHub Codespace**, you can use the GITHUB_TOKEN environment variable as your Personal Access Token.
 >
 > 1. Open the terminal in your Codespace.
-> 2. Run the following command to print the value of the `GITHUB_TOKEN` environment variable:
+> 2. Run the following command to print the value of the GITHUB_TOKEN environment variable:
 > ```bash
 > echo $GITHUB_TOKEN
 > ```
@@ -133,7 +133,7 @@ The **servers** section defines the MCP server that you want to use. In this cas
 > [!IMPORTANT]
 > Do not share your Personal Access Token with anyone, as it provides access to your GitHub account and repositories. 
 >
-> Treat it like a password and keep it secure. That includes not checking it into source control; do not paste it directly into the `.vscode/mcp.json` file.
+> Treat it like a password and keep it secure. That includes not checking it into source control; **do not paste it directly into the .vscode/mcp.json file**.
 
 4. The GitHub MCP server should start up, and you should now see the number of tools available in the Copilot Chat window increase from 0. This indicates that the AI agent is now able to access the GitHub MCP server and perform actions on your behalf.
 
@@ -145,11 +145,11 @@ The **servers** section defines the MCP server that you want to use. In this cas
 
 Now that you have set up the GitHub MCP server, you can use Copilot Agent mode to create a backlog of tasks for use in the rest of the lab.
 
-1. Navigate to the Copilot Chat pane. Select **Agent** from the dropdown list.
+1. Navigate to the Copilot Chat pane. Select **Agent** from the dropdown list. Set the model to **Claude 3.5 Sonnet**.
 
     ![Example of the Copilot Chat pane with Agent Mode selected](images/copilot-agent-mode-dropdown.png)
 
-2. Type or paste the following prompt. Note that you will need to replace **organization-name/repository** with the name of your GitHub repository:
+2. Type or paste the following prompt. Note that you will need to replace **micro/repository** with the name of your GitHub repository, e.g. Microsoft-Build-2025/your-repo-name:
 
 ```markdown
 Create GitHub issues for our Tailspin Toys backlog in the **organization-name/repository** repo.  Each issue should include:

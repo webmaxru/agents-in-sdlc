@@ -9,7 +9,7 @@ Before starting the lab, please ensure you have completed the following setup st
 
     ![Use this template button](images/use-template.png)
 
-3. For labs at Microsoft build, please choose `Microsoft-Build-2025` as the GitHub organization. Set the repository name to something you'll remember for the rest of the lab, but be aware that name is visible to all other users also using the GitHub org.
+3. For labs at Microsoft build, please choose **Microsoft-Build-2025** as the GitHub organization. Set the repository name to something you'll remember for the rest of the lab, but be aware that name is visible to all other users also using the GitHub org.
 
     ![Input the repository template settings](images/repository-template-settings.png)
 

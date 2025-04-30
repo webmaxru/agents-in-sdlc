@@ -22,7 +22,7 @@ We will be using this newly created repository to complete the lab exercises.
 
 Next up, we will be using a GitHub Codespace to complete the lab exercises. GitHub Codespaces are a cloud-based development environment that allows you to write, run, and debug code directly in your browser. It provides a fully-featured IDE with support for multiple programming languages, extensions, and tools.
 
-A GitHub Codespace is typically configured using the `.devcontainer/devcontainer.json` that contains the configuration files for the Codespace, specifying the base image, extensions, and settings for the Codespace. If there is no devcontainer configuration, the Codespace will spin up using a [universal (default) container image](https://github.com/devcontainers/images/tree/main/src/universal).
+A GitHub Codespace is typically configured using the **.devcontainer/devcontainer.json** that contains the configuration files for the Codespace, specifying the base image, extensions, and settings for the Codespace. If there is no devcontainer configuration, the Codespace will spin up using a [universal (default) container image](https://github.com/devcontainers/images/tree/main/src/universal).
 
 1. Navigate to your newly created repository.
 2. Click on the green **Code** button.

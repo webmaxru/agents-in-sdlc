@@ -5,7 +5,7 @@ Before starting the lab, please ensure you have completed the following setup st
 ## Setting up the Lab Repository
 
 1. Navigate to the [GitHub Repository for this lab](https://github.com/github-samples/agents-in-sdlc).
-2. Create your own copy of the repository by clicking the **Use this template** button on the lab repository page. Then click **Create a new repository**.
+2. Create your own copy of the repository by selecting the **Use this template** button on the lab repository page. Then select **Create a new repository**.
 
     ![Use this template button](images/use-template.png)
 
@@ -14,22 +14,20 @@ Before starting the lab, please ensure you have completed the following setup st
     ![Input the repository template settings](images/repository-template-settings.png)
 
 > [!NOTE]
-> This will create a new repository in your account with the same files and structure as the original lab repository.
+> This will create a new repository with the same files and structure as the original lab repository.
 
 We will be using this newly created repository to complete the lab exercises.
 
 ## Creating a GitHub Codespace
 
-Next up, we will be using a GitHub Codespace to complete the lab exercises. GitHub Codespaces are a cloud-based development environment that allows you to write, run, and debug code directly in your browser. It provides a fully-featured IDE with support for multiple programming languages, extensions, and tools.
-
-A GitHub Codespace is typically configured using the **.devcontainer/devcontainer.json** that contains the configuration files for the Codespace, specifying the base image, extensions, and settings for the Codespace. If there is no devcontainer configuration, the Codespace will spin up using a [universal (default) container image](https://github.com/devcontainers/images/tree/main/src/universal).
+Next up, we will be using a GitHub Codespace to complete the lab exercises. [GitHub Codespaces](https://github.com/features/codespaces) are a cloud-based development environment that allows you to write, run, and debug code directly in your browser. It provides a fully-featured IDE with support for multiple programming languages, extensions, and tools.
 
 1. Navigate to your newly created repository.
-2. Click on the green **Code** button.
+2. Select the green **Code** button.
 
-    ![Click on the Code button](images/code-button.png)
+    ![Select the Code button](images/code-button.png)
 
-3. Select the **Codespaces** tab and click the **+** button to create a new Codespace.
+3. Select the **Codespaces** tab and select the **+** button to create a new Codespace.
 
     ![Create a new Codespace](images/create-codespace.png)
 
@@ -39,4 +37,4 @@ A GitHub Codespace is typically configured using the **.devcontainer/devcontaine
 
 ## Setup Complete
 
-Congratulations, you have created a copy of the lab repository! Now, let's move on to the next step, learning about Model Context Protocol (MCP) and how you can provide GitHub Copilot Agent Mode access to a suite of tools.
+Congratulations, you have created a copy of the lab repository! Now, let's move on to the [next step](./1-mcp.md), utilizing Model Context Protocol (MCP) to provide GitHub Copilot Agent Mode access to a suite of tools.

@@ -121,25 +121,22 @@ In addition, the tests need to run (and pass) before we merge everything into ou
 
 ## Reviewing and merging changes
 
-1. Navigate to the **Source Control** panel in the Codespace and review the changes made by Copilot. Once you're happy, stage the changes. You can then generate a commit message using the **Sparkle** button.
+With our changes created locally we're ready to create a pull request (PR) to allow for our team to review our suggested changes and work through our DevOps process. We can of course create the PR using the existing tools, including the repository on github.com or inside VS Code. But as we've already seen MCP allows us to perform additional operations like interacting with our repository on github.com. Let's create the PR through Copilot via MCP!
+
+1. Navigate to the **Source Control** panel in the Codespace and review the changes made by Copilot.
+2. Stage the changes by selecting the **+** icon.
+3. Generate a commit message using the **Sparkle** button.
 
    ![Screenshot of the Source Control panel showing the changes made](images/source-control-changes-agent-mode.png)
 
-2. Once you have committed your changes, you can push them to the repository.
-
-3. At this point we want to create a Pull Request (PR) to merge the changes into the main branch of the repository. We have multiple options for this:
-
-  - We could create a pull request via the GitHub UI in the browser.
-  - We could use the GitHub Extension in our Codespace to create the pull request.
-  - Or, you may remember that we installed the GitHub MCP Server in the first exercise. So why not ask Copilot to create a Pull Request
-
-4. Navigate to the **Copilot Chat** panel and ask Copilot to create a PR for you (**Make sure to update the repository name placeholder to the correct repository**):
+4. Once you have committed your changes, you can push them to the repository.
+5. Navigate to the **Copilot Chat** panel and ask Copilot to create a PR for you, replacing **<YOUR_REPOSITORY_PATH>** with the organization/name of your repository:
 
    ```plaintext
    I need you to create a pull request, please complete the following steps:
 
-   1. Review the files that have changed in my local `exercises-2-and-3` branch. Summarize the overall changes based on file changes and commit messages.
-   2. Use the previous description to create a pull request to my repository **owner/name**.
+   1. Review the files that have changed in my local `add-filters` branch. Summarize the overall changes based on file changes and commit messages.
+   2. Use the previous description to create a pull request to my repository at <YOUR_REPOSITORY_PATH>.
    ```
 
 > [!NOTE]
@@ -147,4 +144,4 @@ In addition, the tests need to run (and pass) before we merge everything into ou
 
 ## Summary
 
-Congratulations! In this exercise, we explored how to use GitHub Copilot Agent Mode to add new capabilities to the Tailspin Toys website. We learned how to run the website, explore its functionality, and use GitHub Copilot to create new features based on our backlog.
+Congratulations! In this exercise, we explored how to use GitHub Copilot Agent Mode to add new capabilities to the Tailspin Toys website. We learned how to run the website, explore its functionality, and use GitHub Copilot to create new features and generate a PR based on our backlog.

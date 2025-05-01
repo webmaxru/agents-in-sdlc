@@ -30,7 +30,7 @@ We're going to be making some code changes, so we should follow our usual practi
 3. Create and switch to a new branch by running the following command in the terminal:
 
    ```bash
-   git checkout -b exercises-2-and-3
+   git checkout -b add-filters
    ```
 
 ## Custom instructions

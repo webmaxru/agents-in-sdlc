@@ -1,5 +1,7 @@
 # Exercise 1: Setting up the backlog with Copilot Agent Mode and GitHub's MCP Server
 
+## Scenario
+
 You are a part-time developer for Tailspin Toys - a crowdfunding platform for board games with a developer theme. An initial site has been created, with an ability to list games and display details. Your organization is keen to add functionality as quickly as possible to the site to help drive more backers to more games.
 
 In this first exercise, you will set up your backlog of work for the rest of the lab. But rather than creating the issues through the GitHub User Interface, you will use GitHub Copilot Chat Agent Mode and the GitHub Model Context Protocol (MCP) server to create the issues for you. 
@@ -13,7 +15,7 @@ By the end of this exercise, you will have created a backlog of GitHub Issues fo
 
 ## What is Model Context Protocol (MCP)?
 
-Model Context Protocol (MCP) provides AI agents with a way to communicate with external tools and services. In the past, you may have interacted with AI agents that could only respond to your queries based on the information they had been trained on, or by using [Retrieval-Augmented Generation (RAG)](https://en.wikipedia.org/wiki/Retrieval-augmented_generation) techniques.
+[Model Context Protocol (MCP)](https://github.blog/ai-and-ml/llms/what-the-heck-is-mcp-and-why-is-everyone-talking-about-it/) provides AI agents with a way to communicate with external tools and services. In the past, you may have interacted with AI agents that could only respond to your queries based on the information they had been trained on, or by using [Retrieval-Augmented Generation (RAG)](https://en.wikipedia.org/wiki/Retrieval-augmented_generation) techniques.
 
 However, with MCP, AI agents can now communicate with external tools and services in real-time. This allows them to access up-to-date information (**using resources**) and perform actions on your behalf (**using tools**). This means that AI agents can now be more useful and effective in helping you with your tasks.
 
@@ -21,7 +23,7 @@ These tools and resources are accessed through an MCP server, which acts as a br
 
 ![Diagram showing the inner works of agent mode and how it interacts with context, LLM and tools - including tools contributed by MCP servers and VS Code extensions](images/mcp-diagram.png)
 
-Existing MCP servers include:
+Popular existing MCP servers include:
 
 - **[GitHub MCP Server](https://github.com/github/github-mcp-server)**: This server provides access to a set of APIs for managing your GitHub repositories. It allows the AI agent to perform actions such as creating new repositories, updating existing ones, and managing issues and pull requests.
 - **[Playwright MCP Server](https://github.com/microsoft/playwright-mcp)**: This server provides browser automation capabilities using Playwright. It allows the AI agent to perform actions such as navigating to web pages, filling out forms, and clicking buttons.
@@ -34,8 +36,6 @@ MCP servers are designed to be modular and extensible, allowing developers to cr
 
 They are compatible with AI agents that support the MCP protocol, including GitHub Copilot Chat and other third-party tools. This means that rather than writing an integration for each AI agent, you can write a single integration for the MCP server and have it work with a number of compatible AI agents.
 
-[Learn more about Model Context Protocol (MCP) on the GitHub Blog](https://github.blog/ai-and-ml/llms/what-the-heck-is-mcp-and-why-is-everyone-talking-about-it/)
-
 ## What is GitHub Copilot Chat Agent Mode?
 
 Agent Mode in GitHub Copilot Chat transforms Copilot into an AI agent that can perform actions on your behalf. This mode allows you to interact with Copilot in a more dynamic way, enabling it to use tools and execute tasks, like running tests or terminal commands, reading problems from the editor, and using those insights to update your code. This allows for a more interactive and collaborative workflow, enabling you to leverage the capabilities of AI in your development process.
@@ -43,11 +43,11 @@ Agent Mode in GitHub Copilot Chat transforms Copilot into an AI agent that can p
 To access GitHub Copilot Chat Agent Mode, you need to have the GitHub Copilot Chat extension installed in your IDE (which should already be the case if you using a GitHub Codespace!).
 
 > [!TIP]
-> If you do not have the GitHub Copilot Chat extension installed, you can [install it from the Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot). Or open the Extensions view in Visual Studio Code, search for **GitHub Copilot Chat**, and click **Install**.
+> If you do not have the GitHub Copilot Chat extension installed, you can [install it from the Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot). Or open the Extensions view in Visual Studio Code, search for **GitHub Copilot Chat**, and select **Install**.
 
 Once you have the extension installed, you may need to authenticate with your GitHub account to enable it.
 
-1. Click on the Copilot Chat icon at the top of your Visual Studio Code window.
+1. Select on the Copilot Chat icon at the top of your Visual Studio Code window.
 2. If you are not already authenticated, you will be prompted to sign in to your GitHub account. Follow the instructions to authenticate.
 
     ![Example of Copilot Chat authentication prompt](images/copilot-authentication.png)
@@ -56,7 +56,7 @@ Once you have the extension installed, you may need to authenticate with your Gi
 
     ![Example of Copilot Chat window](images/copilot-chat-window.png)
 
-4. Switch to agent mode by clicking on the dropdown in the Copilot Chat window and selecting **Agent**. Set the model to **Claude 3.5 Sonnet**.
+4. Switch to agent mode by selecting the dropdown in the Copilot Chat window and selecting **Agent**. Set the model to **Claude 3.5 Sonnet**.
 
     ![Example of switching to Agent Mode](images/copilot-agent-mode-dropdown.png)
 
@@ -149,13 +149,13 @@ Now that you have set up the GitHub MCP server, you can use Copilot Agent mode t
 
     ![Example of the Copilot Chat pane with Agent Mode selected](images/copilot-agent-mode-dropdown.png)
 
-2. Type or paste the following prompt. Note that you will need to replace **micro/repository** with the name of your GitHub repository, e.g. Microsoft-Build-2025/your-repo-name:
+2. Type or paste the following prompt to create a the issues we'll be working on in the lab:
 
 ```markdown
-Create GitHub issues for our Tailspin Toys backlog in the **organization-name/repository** repo.  Each issue should include:
+Create GitHub issues for our Tailspin Toys backlog in my repo. Each issue should include:
 - A clear title
 - A brief description of the task and why it is important to the project
-- A checkbox list of acceptance criteria / definition of done
+- A checkbox list of acceptance criteria
 
 From our recent planning meeting, the upcoming backlog includes the following tasks:
 
@@ -195,7 +195,7 @@ From our recent planning meeting, the upcoming backlog includes the following ta
 
 ![Example of allowing Copilot to automatically create issues](images/create-issue-allow.png)
 
-5. Navigate to your GitHub repository and check the issues tab. You should see a list of issues that have been created by Copilot. Each issue should include a clear title and a checkbox list of acceptance criteria / definition of done.
+5. Navigate to your GitHub repository and check the issues tab. You should see a list of issues that have been created by Copilot. Each issue should include a clear title and a checkbox list of acceptance criteria.
 
 You should notice that the issues are fairly detailed. This is where we benefit from the power of Large Language Models (LLMs) and Model Context Protocol (MCP), as it has been able to create a clear initial issue description.
 
@@ -212,7 +212,7 @@ To recap, in this exercise we have:
 
 With the GitHub MCP server configured, you can now use GitHub Copilot Chat Agent Mode to perform additional actions on your behalf, like creating new repositories, managing pull requests, and searching for information across your repositories.
 
-You can now continue to the next exercise, where you will learn how to use GitHub Copilot Chat Agent Mode to make changes to your codebase and begin implementing the tasks in your backlog.
+You can now continue to the next exercise, where you will learn how to [provide Copilot guidance with custom instructions](./2-custom-instructions.md) to ensure code is generated following your organization's defined patterns and practices.
 
 ### Optional: Bonus Exercise – Setting up the Microsoft Playwright MCP server
 

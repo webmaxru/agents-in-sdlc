@@ -34,6 +34,18 @@ Next up, we will be using a codespace to complete the lab exercises. [GitHub Cod
 
     ![Screenshot showing the codespace when ready](images/codespace-startup.png)
 
+## Update and restart extensions
+
+The setup process for the codespace will install and setup [VS Code extensions](https://code.visualstudio.com/docs/configure/extensions/extension-marketplace). As with any software, updates may be needed. When your codespace is created we'll need to ensure everything is up-to-date.
+
+1. Select **Extensions** on the workbench on the left side of your codespace.
+
+    ![Screenshot of the extensions window with multiple extensions showing either Update or Reload Window buttons](./images/extensions-updates.png)
+
+2. Select **Update** on any extensions with an **Update** button. Repeat as necessary.
+3. Select **Reload Window** on any extensions with a **Reload Window** button to reload the codespace.
+4. When prompted by a dialog, select **Reload** to reload the window. This will ensure the latest version is being used.
+
 ## Setup Complete
 
 Congratulations, you have created a copy of the lab repository! Now, let's move on to the [next step](./1-mcp.md), utilizing Model Context Protocol (MCP) to provide GitHub Copilot Agent Mode access to a suite of tools.

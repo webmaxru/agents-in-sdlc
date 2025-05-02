@@ -41,8 +41,8 @@ To make running the website easier, we have provided a script that will start bo
    Client (Astro) server running at: http://localhost:4321
    ```
 
-   > [!NOTE]
-   > If a dialog box opens prompting you to open a browser window for http://localhost:5100 close it by selecting the **x**.
+> [!NOTE]
+> If a dialog box opens prompting you to open a browser window for http://localhost:5100 close it by selecting the **x**.
 
 4. Open the website by using <kbd>Ctrl</kbd>-**Click** (or <kbd>Cmd</kbd>-**Click** on a Mac) on the client address (http://localhost:4321) in the terminal.
 
@@ -119,8 +119,8 @@ In addition, the tests need to run (and pass) before we merge everything into ou
 
 8. Explore the generated code for any potential issues.
 
-   > [!IMPORTANT]
-   > Remember, it's always important to review the code that Copilot or any AI tools  generate.
+> [!IMPORTANT]
+> Remember, it's always important to review the code that Copilot or any AI tools  generate.
 
 9.  Return to the browser with the website running. Explore the new functionality!
 10. Once you've confirmed everything works and reviewed the code, select **Keep** and **Done** in the Copilot Chat window.

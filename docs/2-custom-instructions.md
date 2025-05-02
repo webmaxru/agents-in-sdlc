@@ -87,8 +87,8 @@ If we look at the requirements from above, we see we want to include docstrings 
    Create a new endpoint to return a list of all publishers. It should include the name and id.
    ```
 
-   > [!TIP]
-   > You can cycle through previous prompts by using the up and down arrows on your keyboard.
+> [!TIP]
+> You can cycle through previous prompts by using the up and down arrows on your keyboard.
 
 7. Notice how the newly generated code includes a docstring inside the function which resembles the following:
 
@@ -126,8 +126,8 @@ We want to create a new endpoint to list all publishers, and to follow the same 
 7. If prompted to allow the codespace to see text and images copied to the clipboard, press **Allow**.
 8. Select **Prompt** from the dropdown at the top of your codespace.
 
-   > [!TIP]
-   > If the list of options is long, you can type **prompt** to filter to the Prompt option then select **Prompt**.
+> [!TIP]
+> If the list of options is long, you can type **prompt** to filter to the Prompt option then select **Prompt**.
 
 9.  Select **create-endpoint .github/prompts** to add the prompt file to the context.
 

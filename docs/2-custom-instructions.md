@@ -3,9 +3,10 @@
 As with much of life in general, context is key when working with generative AI. If you're performing a task which needs to be completed a particular way, or a piece of background information is important, we want to ensure Copilot has access to that information. There's a couple of mechanisms we have to ensure Copilot not only knows what we want it to do but how we want it to do it - [custom instructions](https://code.visualstudio.com/docs/copilot/copilot-customization) and [prompt files](https://code.visualstudio.com/docs/copilot/copilot-customization#_reusable-prompt-files-experimental).
 
 In this exercise, you will learn:
-- How to provide Copilot with project-specific context, coding guidelines and documentation standards using custom instructions
-- How to use prompt files to guide Copilot for repetitive or templated tasks
-- The difference between repository-wide instructions and task-specific prompts
+
+- how to provide Copilot with project-specific context, coding guidelines and documentation standards using custom instructions
+- how to use prompt files to guide Copilot for repetitive or templated tasks
+- the difference between repository-wide instructions and task-specific prompts
 
 ## Scenario
 
@@ -13,7 +14,7 @@ As any good dev shop, a set of guidelines and requirements have been put forth f
 
 - API always needs unit tests
 - UI should be in dark mode and have a modern feel
-- Documentation should be added to code
+- documentation should be added to code
 
 Through the use of custom instructions and prompt files you'll ensure Copilot has the right information to perform the tasks in alignment with the practices highlighted.
 
@@ -24,21 +25,13 @@ Through the use of custom instructions and prompt files you'll ensure Copilot ha
 
 We're going to be making some code changes, so we should follow our usual practice of creating a new branch to work in. This will allow us to make changes without affecting the main branch until we're ready.
 
-1. Click on the branch name in the bottom left corner of the Codespace.
+1. Return to your codespace from the previous exercise.
+2. Open a new terminal window inside your codespace by selecting <kbd>Ctl</kbd>+<kbd>\`</kbd>.
+3. Create and switch to a new branch by running the following command in the terminal:
 
-   ![Screenshot of the branch name being highlighted in the bottom left corner of the Codespace](images/change-branch-1.png)
-
-2. Select **Create new branch**.
-
-   ![Screenshot of the Create new branch option being highlighted](images/change-branch-2.png)
-
-3. Name the branch **exercises-2-and-3** and select **Create branch**.
-
-   ![Screenshot of the Create new branch dialog](images/change-branch-3.png)
-
-4. The branch name should have updated in the bottom left corner of the Codespace.
-
-   ![Screenshot of the branch name being highlighted in the bottom left corner of the Codespace](images/change-branch-4.png)
+   ```bash
+   git checkout -b add-filters
+   ```
 
 ## Custom instructions
 
@@ -122,7 +115,7 @@ We want to create a new endpoint to list all publishers, and to follow the same 
 
    ![Screenshot of the Edit mode being highlighted in the Copilot Chat panel](images/copilot-edits.png)
 
-6. Add the prompt file to the chat by clicking the **Add Context** button, select **Prompt** and select **.github/prompts/create-endpoint.prompt.md**.
+6. Add the prompt file to the chat by selecting the **Add Context** button, select **Prompt** from the dropdown at the top of your codespace, and select **.github/prompts/create-endpoint.prompt.md**.
 
    ![Screenshot showing the prompt file being added into Copilot Chat](images/copilot-add-prompt-file.png)
 
@@ -134,12 +127,14 @@ Create a new endpoint to return a list of all publishers. It should include the 
 
 8. Copilot generates the files. Notice how it generates updates for **app.py** as well as new files for the blueprint and tests for the publishers endpoint.
 9. After reviewing the code, select **Keep** and **Done** in Copilot Chat to accept the changes.
-10. Navigate to the **Source Control** panel in the Codespace and review the changes made by Copilot. Once you're happy, stage the changes. You can then generate a commit message using the **Sparkle** button.
+10. Navigate to the **Source Control** panel in the Codespace and review the changes made by Copilot.
+11. Stage the changes by selecting the **+** icon in the **Source Control** panel.
+11. Generate a commit message using the **Sparkle** button.
 
    ![Screenshot of the Source Control panel showing the changes made](images/source-control-changes.png)
 
-11. Commit the changes to your repository.
+11. Commit the changes to your repository by selecting **Commit**.
 
 ## Summary
 
-Congratulations! You explored how to ensure Copilot has the right context to generate code following the practices your organization has set forth. This can be done at a repository level with custom instructions, or on a task basis with prompt files.
+Congratulations! You explored how to ensure Copilot has the right context to generate code following the practices your organization has set forth. This can be done at a repository level with custom instructions, or on a task basis with prompt files. Next we'll use [agent mode to add functionality to the site](./3-copilot-agent-mode-vscode.md).

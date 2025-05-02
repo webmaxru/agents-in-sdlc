@@ -4,7 +4,14 @@
   "postCreateCommand": "./scripts/setup-env.sh",
   "customizations": {
     "vscode": {
-      "extensions": []
+      "extensions": [
+        "ms-dotnettools.csharp",
+        "GitHub.copilot",
+        "GitHub.copilot-chat",
+        "ms-python.vscode-pylance",
+        "svelte.svelte-vscode",
+        "astro-build.astro-vscode"
+      ]
     }
   },
   "features": {

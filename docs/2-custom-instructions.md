@@ -40,51 +40,57 @@ Custom instructions allow you to provide context and preferences to Copilot chat
 > [!NOTE]
 > Custom instructions are sent with **every** prompt to Copilot chat. As a result, it's best to keep the content focused on guidelines and information relevant to the entire project rather than specific tasks. For specific tasks you can create prompt files, which we'll cover a little later in this exercise.
 
-## Create custom instructions for your project
+## Using GitHub Copilot Chat without custom instructions
 
 To see the impact of custom instructions, we will start by sending a prompt before creating the file. We'll then create the file, send the same prompt again, and note the difference.
 
 1. Open the GitHub codespace if not already open. Feel free to close any open files from the previous exercise.
 2. Open **server/routes/games.py**.
-3. Open **Copilot chat** and ensure **Ask** is selected from modes.
-4. Create a new chat session if needed using the **New Chat** button, to make sure you are not bringing any previous context.
+3. Open **Copilot chat** 
+4. Create a new chat session by selecting the **New Chat** button, which will remove any previous context.
+5. Select **Ask** is from the modes dropdown.
 
    ![Screenshot of the New Chat button being highlighted in the Copilot Chat panel](images/copilot-new-chat.png)
 
-5. Send the following prompt to create a new endpoint to return all publishers:
+6. Send the following prompt to create a new endpoint to return all publishers:
 
    ```plaintext
    Create a new endpoint to return a list of all publishers. It should include the name and id.
    ```
 
-5. Notice the generated code includes [type hints](https://docs.python.org/3/library/typing.html) because the existing code uses them. Copilot uses the current file for context when creating code, and will work to follow the practices it sees in use.
-6. Notice the generated code **does not** include a docstring. Copilot is again following the patterns it sees us using, and since docstrings don't already exist it doesn't generate them.
+7. Notice the generated code includes [type hints](https://docs.python.org/3/library/typing.html) because the existing code uses them. By default, Copilot uses the current file for context when creating code, and will work to follow the practices it sees in use.
+8. Notice the generated code **does not** include a docstring. Copilot is again following the patterns it sees us using, and since docstrings don't already exist it doesn't generate them.
 
-If we look at the requirements from above, we see we want to include docstrings for functions. Let's create the custom instructions file with this information, as well as an overview of what we're building in our project. Providing background to Copilot will allow it to generate better suggestions.
+## Adding code requirements and standards to custom instructions 
 
-7. Open **.github/copilot-instructions.md**.
-8. Add the following to the bottom of the file to add the requirement for docstrings
+If we look at the requirements from above, we see we want to include docstrings for functions. Let's update the custom instructions file with this information to ensure the generated suggestions follow our desired practices. We'll then run the same prompt to notice the impact it had on the suggestion.
 
-```markdown
-## Code guidelines
+1. Open **.github/copilot-instructions.md**.
+2. Add the following to the bottom of the file to add the requirement for docstrings
 
-- Create docstrings for Python
-- Add JSDoc notes to JavaScript
-```
+   ```markdown
+   ## Code guidelines
 
-9. Save the file.
-10. Open **server/routes/games.py** again to ensure focus for Copilot chat is on our API.
-11. Select **New Chat** in Copilot chat to clear the buffer and start a new conversation.
+   - Create docstrings for Python
+   - Add JSDoc notes to JavaScript
+   ```
+
+3. Close the file, saving if prompted.
+4. Open **server/routes/games.py** again to ensure focus for Copilot chat is on our API.
+5. Select **New Chat** in Copilot chat to clear the buffer and start a new conversation.
 
    ![Screenshot of the New Chat button being highlighted in the Copilot Chat panel](images/copilot-new-chat.png)
 
-12. Send the same prompt as before to create the endpoint.
+6. Send the same prompt as before to create the endpoint.
 
    ```plaintext
    Create a new endpoint to return a list of all publishers. It should include the name and id.
    ```
 
-13. Notice how the newly generated code includes a docstring inside the function which resembles the following:
+   > [!TIP]
+   > You can cycle through previous prompts by using the up and down arrows on your keyboard.
+
+7. Notice how the newly generated code includes a docstring inside the function which resembles the following:
 
    ```python
    """
@@ -95,7 +101,8 @@ If we look at the requirements from above, we see we want to include docstrings 
    """
    ```
 
-14. Don't implement Copilot's suggested changes, as we will be doing that in the next section. But from this section, you can see how the custom instructions file has provided Copilot with the context it needs to generate code that follows the established guidelines.
+8. Also note how the existing code isn't updated, but of course we could ask Copilot to perform that operation if we so desired!
+9.  Don't implement Copilot's suggested changes, as we will be doing that in the next section. But from this section, you can see how the custom instructions file has provided Copilot with the context it needs to generate code that follows the established guidelines.
 
 ## Prompt files for tasks
 
@@ -111,29 +118,44 @@ We want to create a new endpoint to list all publishers, and to follow the same 
 
 3. Open **server/app.py**.
 4. Return to Copilot Chat and select **New Chat** to start a new session.
-5. Select **Edit** from the mode dropdown.
+5. Select **Edit** from the mode dropdown, which will allow Copilot to update multiple files.
 
    ![Screenshot of the Edit mode being highlighted in the Copilot Chat panel](images/copilot-edits.png)
 
-6. Add the prompt file to the chat by selecting the **Add Context** button, select **Prompt** from the dropdown at the top of your codespace, and select **create-endpoint .github/prompts**.
+6. Select the **Add Context** button to open the context dialog
+7. If prompted to allow the codespace to see text and images copied to the clipboard, press **Allow**.
+8. Select **Prompt** from the dropdown at the top of your codespace.
+
+   > [!TIP]
+   > If the list of options is long, you can type **prompt** to filter to the Prompt option then select **Prompt**.
+
+9.  Select **create-endpoint .github/prompts** to add the prompt file to the context.
 
    ![Screenshot showing the prompt file being added into Copilot Chat](images/copilot-add-prompt-file.png)
 
-7. Send the same prompt as before to generate the desired endpoint:
+10. Send the same prompt as before to generate the desired endpoint:
 
    ```plaintext
    Create a new endpoint to return a list of all publishers. It should include the name and id.
    ```
 
-8. Copilot generates the files. Notice how it generates updates for **app.py** as well as new files for the blueprint and tests for the publishers endpoint.
-9. After reviewing the code, select **Keep** and **Done** in Copilot Chat to accept the changes.
-10. Navigate to the **Source Control** panel in the Codespace and review the changes made by Copilot.
-11. Stage the changes by selecting the **+** icon in the **Source Control** panel.
-11. Generate a commit message using the **Sparkle** button.
+11. Copilot generates the files. Notice how it generates updates for **app.py**, as well as new files for the blueprint in **games.py** and tests in **test_games.py** for the publishers endpoint.
+12. After reviewing the code, select **Keep** and **Done** in Copilot Chat to accept the changes.
+13. Open a terminal window by selecting <kbd>Ctl</kbd>+<kbd>\`</kbd>.
+14. Run the tests by running the script with the following command:
+
+   ```sh
+   ./scripts/run-server-tests.sh
+   ```
+
+15. Ensure all tests pass. Re-prompt Copilot Chat as needed to ensure the code is correct.
+16. Once correct, and all tests pass, open the **Source Control** panel in the Codespace and review the changes made by Copilot.
+18. Stage the changes by selecting the **+** icon in the **Source Control** panel.
+19. Generate a commit message using the **Sparkle** button.
 
    ![Screenshot of the Source Control panel showing the changes made](images/source-control-changes.png)
 
-11. Commit the changes to your repository by selecting **Commit**.
+20. Commit the changes to your repository by selecting **Commit**.
 
 ## Summary
 

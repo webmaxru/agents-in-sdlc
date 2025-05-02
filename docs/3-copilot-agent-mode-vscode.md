@@ -41,6 +41,9 @@ To make running the website easier, we have provided a script that will start bo
    Client (Astro) server running at: http://localhost:4321
    ```
 
+   > [!NOTE]
+   > If a dialog box opens prompting you to open a browser window for http://localhost:5100 close it by selecting the **x**.
+
 4. Open the website by using <kbd>Ctrl</kbd>-**Click** (or <kbd>Cmd</kbd>-**Click** on a Mac) on the client address (http://localhost:4321) in the terminal.
 
 > [!NOTE]
@@ -71,7 +74,11 @@ The initial implementation of the website is functional, but we want to enhance 
    Please show me the backlog of items from my repository at <YOUR_REPOSITORY_PATH>. Help me prioritize them based on those which will be most useful to the user.
    ```
 
-You'll notice that GitHub Copilot made a tool call similar to our previous exercise, using the `list_issues` tool to get the list of issues from the GitHub repository. But with the power of AI, it has even gone and prioritized the items for us, based on the ones that it thinks will be most useful to the user.
+4. Notice GitHub Copilot identifies `list_issues` as the MCP command to run to access the right information.
+5. Select **Continue** to run the command to list all issues.
+6. Review the generated list of issues.
+
+Notice how Copilot has even prioritized the items for us, based on the ones that it thinks will be most useful to the user.
 
 ## Implement the filtering functionality
 
@@ -83,47 +90,44 @@ To implement filtering, no less than three separate updates will need to be made
 
 In addition, the tests need to run (and pass) before we merge everything into our Codebase. Copilot Agent Mode can perform these tasks for us! Let's add the functionality.
 
-1. Open Copilot Chat. Create a new chat session if needed using the **New Chat** button, to make sure you are not bringing any previous context.
-
-   ![Screenshot of the New Chat button being highlighted in the Copilot Chat panel](images/copilot-new-chat.png)
-
-2. Select **Add Context**, **Prompt file**, and **create-endpoint.prompt.md** as the prompt file.
+1. Select **Add Context**, **Prompt file**, and **create-endpoint.prompt.md** as the prompt file.
 
    ![Screenshot showing an example of selecting the prompt file](images/copilot-add-prompt-file.png)
 
-3. Select **Agent** mode.
+2. Ensure **Agent** mode is still selected.
 
    ![Screenshot showing an example of switching to Agent Mode](images/copilot-agent-mode-dropdown.png)
 
-4. Select **Claude 3.5** for the model.
-5. Prompt Copilot to implement the functionality based on the issue we created earlier by using the following prompt:
+3. Ensure **Claude 3.5** is still selected for the model.
+4. Prompt Copilot to implement the functionality based on the issue we created earlier by using the following prompt, replacing **<YOUR_REPOSITORY_PATH>** with the organization/name of your repository which you noted earlier:
 
    ```plaintext
-   Please update the site to include filtering by publisher and category based on the requirements from the related GitHub issue in the backlog of my repo.
+   Please update the site to include filtering by publisher and category based on the requirements from the related GitHub issue in the backlog of <YOUR_REPOSITORY_PATH>.
    ```
 
-6. Watch as Copilot begins by exploring the project, locating the files associated with the desired functionality. You should see it finding both the API and UI definitions, as well as the tests. It then begins modifying the files and running the tests.
+5. Watch as Copilot begins by exploring the project, locating the files associated with the desired functionality. You should see it finding both the API and UI definitions, as well as the tests. It then begins modifying the files and running the tests.
 
    ![Screenshot showing Copilot exploring the project files](images/copilot-agent-mode-explores.png)
 
-7. As prompted by Copilot, select **Run** to run the tests.
+6. As prompted by Copilot, select **Continue** to run the tests.
 
    ![Screenshot showing a dialog in the Copilot Chat pane asking the user to confirm they are happy to run tests](images/copilot-agent-mode-run-tests.png)
 
-8. Copilot may work back and forth between code generation and tests until it completes the task and doesn't detect any errors.
+7. Copilot may work back and forth between code generation and tests until it completes the task and doesn't detect any errors.
 
    ![Screenshot showing a complete Chat session with Copilot Agent Mode](images/copilot-agent-mode-proposed-changes.png)
 
-9. Explore the generated code for any potential issues.
+8. Explore the generated code for any potential issues.
 
    > [!IMPORTANT]
    > Remember, it's always important to review the code that Copilot or any AI tools  generate.
 
-10. Return to the browser with the website running. Explore the new functionality!
+9.  Return to the browser with the website running. Explore the new functionality!
+10. Once you've confirmed everything works and reviewed the code, select **Keep** and **Done** in the Copilot Chat window.
 
-## Reviewing and merging changes
+## Publish the branch
 
-With our changes created locally we're ready to create a pull request (PR) to allow for our team to review our suggested changes and work through our DevOps process. We can of course create the PR using the existing tools, including the repository on github.com or inside VS Code. But as we've already seen MCP allows us to perform additional operations like interacting with our repository on github.com. Let's create the PR through Copilot via MCP!
+With our changes created locally we're ready to create a pull request (PR) to allow for our team to review our suggested changes and work through our DevOps process. The first step in that process is to publish the branch. Let's take care of that first.
 
 1. Navigate to the **Source Control** panel in the Codespace and review the changes made by Copilot.
 2. Stage the changes by selecting the **+** icon.
@@ -131,15 +135,21 @@ With our changes created locally we're ready to create a pull request (PR) to al
 
    ![Screenshot of the Source Control panel showing the changes made](images/source-control-changes-agent-mode.png)
 
-4. Once you have committed your changes, you can push them to the repository.
-5. Navigate to the **Copilot Chat** panel and ask Copilot to create a PR for you, replacing **<YOUR_REPOSITORY_PATH>** with the organization/name of your repository which you noted earlier:
+4. Select **Publish** to push the branch to your repository.
+
+## Create the pull request
+
+There are several ways to create a pull request, including through github.com and the GitHub command-line interface (CLI). But since we're already working with GitHub Copilot, let's let it create the PR for us! We can have it find the relevant issue and create the PR with an association to the located issue. 
+
+1. Navigate to the **Copilot Chat** panel and ask Copilot to create a PR for you, replacing **<YOUR_REPOSITORY_PATH>** with the organization/name of your repository which you noted earlier:
 
    ```plaintext
-   I need you to create a pull request, please complete the following steps:
-
-   1. Review the files that have changed in my local `add-filters` branch. Summarize the overall changes based on file changes and commit messages.
-   2. Use the previous description to create a pull request to my repository at <YOUR_REPOSITORY_PATH>.
+   Find the issue related to filtering by category and publisher on <YOUR_REPOSITORY_PATH>. Create a new pull request for the current add-filters branch, and associate it with the correct issue.
    ```
+
+6. As needed, select **Continue** to allow Copilot to perform the tasks necessary to gather information and perform operations.
+7. Notice how Copilot searches through the issues, finds the right one, and  creates the PR.
+8. Select the link generated by Copilot to review your pull request!
 
 ## Summary
 

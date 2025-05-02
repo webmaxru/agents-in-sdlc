@@ -163,9 +163,8 @@ Now that you have set up the GitHub MCP server, you can use Copilot Agent mode t
     1. Allow users to filter games by category
     2. Define our repository coding standards (including updating or adding tests when implementation changes) in a Copilot instructions file
     3. Stretch Goal: Implement pagination on the game list page
-    4. Stretch Goal: Standardize code style & enforce linting/formatting
-    5. Rewrite the backend to .NET, and update the scripts to launch the the new backend
-    6. Create a GitHub Actions workflow which builds and tests the client and server components
+    4. Rewrite the backend to .NET, and update the scripts to launch the the new backend
+    5. Create a GitHub Actions workflow which builds and tests the client and server components
     ```
 
 3. Press enter or hit the **Send** button to send the prompt to Copilot.
@@ -208,7 +207,7 @@ With the GitHub MCP server configured, you can now use GitHub Copilot Chat Agent
 
 You can now continue to the next exercise, where you will learn how to [provide Copilot guidance with custom instructions](./2-custom-instructions.md) to ensure code is generated following your organization's defined patterns and practices.
 
-### Optional: Bonus Exercise – Setting up the Microsoft Playwright MCP server
+### Optional exploration exercise – Set up the Microsoft Playwright MCP server
 
 If you are feeling adventurous, you can try installing and configuring another MCP server, such as the [Microsoft Playwright MCP server](https://github.com/microsoft/playwright-mcp). This will allow you to use GitHub Copilot Chat Agent Mode to perform browser automation tasks, such as navigating to web pages, filling out forms, and clicking buttons.
 

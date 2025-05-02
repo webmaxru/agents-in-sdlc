@@ -13,5 +13,6 @@
         "prebuild"
     ],
     "github.copilot.nextEditSuggestions.enabled": true,
-    "editor.tabSize": 4
+    "editor.tabSize": 4,
+    "chat.agent.enabled": true
 }

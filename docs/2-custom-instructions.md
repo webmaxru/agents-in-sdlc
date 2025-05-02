@@ -1,20 +1,20 @@
 # Exercise 2 - Providing context to Copilot with custom instructions and prompt templates
 
-As with much of life in general, context is key when working with generative AI. If you're performing a task which needs to be completed a particular way, or a piece of background information is important, we want to ensure Copilot has access to that information. There's a couple of mechanisms we have to ensure Copilot not only knows what we want it to do but how we want it to do it - [custom instructions](https://code.visualstudio.com/docs/copilot/copilot-customization) and [prompt files](https://code.visualstudio.com/docs/copilot/copilot-customization#_reusable-prompt-files-experimental).
+Context is key across many aspects of life, and when working with generative AI. If you're performing a task which needs to be completed a particular way, or if a piece of background information is important, we want to ensure Copilot has access to that information. There's a handful of mechanisms we have to ensure Copilot not only knows what we want it to do but how we want it to do it. Two powerful ones are [custom instructions](https://code.visualstudio.com/docs/copilot/copilot-customization) and [prompt files](https://code.visualstudio.com/docs/copilot/copilot-customization#_reusable-prompt-files-experimental).
 
 In this exercise, you will learn:
 
-- how to provide Copilot with project-specific context, coding guidelines and documentation standards using custom instructions
-- how to use prompt files to guide Copilot for repetitive or templated tasks
-- the difference between repository-wide instructions and task-specific prompts
+- how to provide Copilot with project-specific context, coding guidelines and documentation standards using custom instructions.
+- how to use prompt files to guide Copilot for repetitive or templated tasks.
+- the difference between repository-wide instructions and task-specific prompts.
 
 ## Scenario
 
-As any good dev shop, a set of guidelines and requirements have been put forth for development. These include:
+As any good dev shop, a Tailspin Toys has a set of guidelines and requirements for development practices. These include:
 
-- API always needs unit tests
-- UI should be in dark mode and have a modern feel
-- documentation should be added to code
+- API always needs unit tests.
+- UI should be in dark mode and have a modern feel.
+- documentation should be added to code.
 
 Through the use of custom instructions and prompt files you'll ensure Copilot has the right information to perform the tasks in alignment with the practices highlighted.
 
@@ -42,9 +42,9 @@ Custom instructions allow you to provide context and preferences to Copilot chat
 
 ## Create custom instructions for your project
 
-To see the impact of custom instructions, we will start by sending a prompt before creating the file. We'll then create the file, send the same prompt again, and notice the difference.
+To see the impact of custom instructions, we will start by sending a prompt before creating the file. We'll then create the file, send the same prompt again, and note the difference.
 
-1. Open the GitHub Codespace if not already open. Feel free to close any open files from the previous exercise.
+1. Open the GitHub codespace if not already open. Feel free to close any open files from the previous exercise.
 2. Open **server/routes/games.py**.
 3. Open **Copilot chat** and ensure **Ask** is selected from modes.
 4. Create a new chat session if needed using the **New Chat** button, to make sure you are not bringing any previous context.
@@ -53,9 +53,9 @@ To see the impact of custom instructions, we will start by sending a prompt befo
 
 5. Send the following prompt to create a new endpoint to return all publishers:
 
-```plaintext
-Create a new endpoint to return a list of all publishers. It should include the name and id.
-```
+   ```plaintext
+   Create a new endpoint to return a list of all publishers. It should include the name and id.
+   ```
 
 5. Notice the generated code includes [type hints](https://docs.python.org/3/library/typing.html) because the existing code uses them. Copilot uses the current file for context when creating code, and will work to follow the practices it sees in use.
 6. Notice the generated code **does not** include a docstring. Copilot is again following the patterns it sees us using, and since docstrings don't already exist it doesn't generate them.
@@ -80,9 +80,9 @@ If we look at the requirements from above, we see we want to include docstrings 
 
 12. Send the same prompt as before to create the endpoint.
 
-```plaintext
-Create a new endpoint to return a list of all publishers. It should include the name and id.
-```
+   ```plaintext
+   Create a new endpoint to return a list of all publishers. It should include the name and id.
+   ```
 
 13. Notice how the newly generated code includes a docstring inside the function which resembles the following:
 
@@ -110,20 +110,20 @@ We want to create a new endpoint to list all publishers, and to follow the same 
    - Links to two existing files which follow the patterns we want - both the games blueprint and tests. Notice how these are setup as normal markdown links, allowing a prompt file to incorporate additional files for context.
 
 3. Open **server/app.py**.
-4. Return to Copilot Chat and select **New Chat**.
+4. Return to Copilot Chat and select **New Chat** to start a new session.
 5. Select **Edit** from the mode dropdown.
 
    ![Screenshot of the Edit mode being highlighted in the Copilot Chat panel](images/copilot-edits.png)
 
-6. Add the prompt file to the chat by selecting the **Add Context** button, select **Prompt** from the dropdown at the top of your codespace, and select **.github/prompts/create-endpoint.prompt.md**.
+6. Add the prompt file to the chat by selecting the **Add Context** button, select **Prompt** from the dropdown at the top of your codespace, and select **create-endpoint .github/prompts**.
 
    ![Screenshot showing the prompt file being added into Copilot Chat](images/copilot-add-prompt-file.png)
 
 7. Send the same prompt as before to generate the desired endpoint:
 
-```plaintext
-Create a new endpoint to return a list of all publishers. It should include the name and id.
-```
+   ```plaintext
+   Create a new endpoint to return a list of all publishers. It should include the name and id.
+   ```
 
 8. Copilot generates the files. Notice how it generates updates for **app.py** as well as new files for the blueprint and tests for the publishers endpoint.
 9. After reviewing the code, select **Keep** and **Done** in Copilot Chat to accept the changes.
@@ -137,4 +137,10 @@ Create a new endpoint to return a list of all publishers. It should include the 
 
 ## Summary
 
-Congratulations! You explored how to ensure Copilot has the right context to generate code following the practices your organization has set forth. This can be done at a repository level with custom instructions, or on a task basis with prompt files. Next we'll use [agent mode to add functionality to the site](./3-copilot-agent-mode-vscode.md).
+Congratulations! You explored how to ensure Copilot has the right context to generate code following the practices your organization has set forth. This can be done at a repository level with custom instructions, or on a task basis with prompt files. You explored:
+
+- how to provide Copilot with project-specific context, coding guidelines and documentation standards using custom instructions.
+- how to use prompt files to guide Copilot for repetitive or templated tasks.
+- the difference between repository-wide instructions and task-specific prompts.
+
+Next we'll use [agent mode to add functionality to the site](./3-copilot-agent-mode-vscode.md).

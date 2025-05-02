@@ -47,24 +47,28 @@ To access GitHub Copilot Chat Agent Mode, you need to have the GitHub Copilot Ch
 
 Once you have the extension installed, you may need to authenticate with your GitHub account to enable it.
 
-1. Select on the Copilot Chat icon at the top of your Visual Studio Code window.
-2. If you are not already authenticated, you will be prompted to sign in to your GitHub account. Follow the instructions to authenticate.
+1. Select the Copilot Chat icon at the top of your Visual Studio Code window.
+2. If you are following the Microsoft Build 2025 lab, you should already be signed in to your GitHub account in the GitHub Codespace. However, you may need to activate Copilot. Type a message like "Hello" in the Copilot Chat window and press enter. This should activate Copilot Chat.
+
+    ![Example of Copilot Chat activation](images/copilot-chat-activation.png)
+
+3. Alternatively, if you are not authenticated (like, using Visual Studio Code on a lab machine) you will be prompted to sign in to your GitHub account. Follow the instructions to authenticate.
 
     ![Example of Copilot Chat authentication prompt](images/copilot-authentication.png)
 
-3. After authentication, you should see the Copilot Chat window appear.
+4. After authentication, you should see the Copilot Chat window appear.
 
     ![Example of Copilot Chat window](images/copilot-chat-window.png)
 
-4. Switch to agent mode by selecting the dropdown in the Copilot Chat window and selecting **Agent**. Set the model to **Claude 3.5 Sonnet**.
+5. Switch to agent mode by selecting the dropdown in the Copilot Chat window and selecting **Agent**. Set the model to **Claude 3.5 Sonnet**.
 
     ![Example of switching to Agent Mode](images/copilot-agent-mode-dropdown.png)
 
-5. The chat pane should update to indicate that you are now in Agent Mode. You should see a tools icon, showing that we can configure tools for GitHub Copilot to use.
+6. The chat pane should update to indicate that you are now in Agent Mode. You should see a tools icon, showing that we can configure tools for GitHub Copilot to use.
 
     ![Example of Copilot Chat Agent Mode with tools icon](images/copilot-agent-mode.png)
 
-6. Typically, the number of tools available will be set to 0 when setting up a new project, as we have not configured any MCP servers yet. But to help you get started, we have created a **.vscode/mcp.json** file with an example configuration for the [GitHub MCP server](https://github.com/github/github-mcp-server). Let's go and explore that next.
+7. Typically, the number of tools available will be set to 0 when setting up a new project, as we have not configured any MCP servers yet. But to help you get started, we have created a **.vscode/mcp.json** file with an example configuration for the [GitHub MCP server](https://github.com/github/github-mcp-server). Let's go and explore that next.
 
 ## Setting up the GitHub MCP server
 
@@ -149,10 +153,10 @@ Now that you have set up the GitHub MCP server, you can use Copilot Agent mode t
 
     ![Example of the Copilot Chat pane with Agent Mode selected](images/copilot-agent-mode-dropdown.png)
 
-2. Type or paste the following prompt to create a the issues we'll be working on in the lab:
+2. Type or paste the following prompt to create the issues we'll be working on in the lab, replacing **<YOUR_REPOSITORY_PATH>** with the organization/name of your repository:
 
 ```markdown
-Create GitHub issues for our Tailspin Toys backlog in my repo. Each issue should include:
+Create GitHub issues for our Tailspin Toys backlog in the <YOUR_REPOSITORY_PATH> repo. Each issue should include:
 - A clear title
 - A brief description of the task and why it is important to the project
 - A checkbox list of acceptance criteria

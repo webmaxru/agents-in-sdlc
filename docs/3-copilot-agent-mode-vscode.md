@@ -63,10 +63,10 @@ The initial implementation of the website is functional, but we want to enhance 
    ![Screenshot of the Copilot Chat panel showing the Agent Mode dropdown](images/copilot-agent-mode-dropdown.png)
 
 2. Select **Claude 3.5 Sonnet** from the list of available models.
-3. Ask Copilot about the backlog of issues by sending the following prompt to Copilot:
+3. Ask Copilot about the backlog of issues by sending the following prompt to Copilot, replacing **<YOUR_REPOSITORY_PATH>** with the organization/name of your repository:
 
    ```plaintext
-   Please show me the backlog of items from my repository. Help me prioritize them based on those which will be most useful to the user.
+   Please show me the backlog of items from my repository at <YOUR_REPOSITORY_PATH>. Help me prioritize them based on those which will be most useful to the user.
    ```
 
 You'll notice that GitHub Copilot made a tool call similar to our previous exercise, using the `list_issues` tool to get the list of issues from the GitHub repository. But with the power of AI, it has even gone and prioritized the items for us, based on the ones that it thinks will be most useful to the user.

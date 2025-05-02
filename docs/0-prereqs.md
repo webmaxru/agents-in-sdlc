@@ -40,7 +40,7 @@ The setup process for the codespace will install and setup [VS Code extensions](
 
 1. Select **Extensions** on the workbench on the left side of your codespace.
 
-    ![Screenshot of the extensions window with multiple extensions showing either Update or Reload Window buttons](./images/extensions-updates.png)
+    ![Screenshot of the extensions window with multiple extensions showing either Update or Reload Window buttons](images/extensions-updates.png)
 
 2. Select **Update** on any extensions with an **Update** button. Repeat as necessary.
 3. Select **Reload Window** on any extensions with a **Reload Window** button to reload the codespace.

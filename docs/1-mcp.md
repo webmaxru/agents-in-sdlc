@@ -108,39 +108,38 @@ The **inputs** section defines the inputs that the MCP server will require. In t
 
 The **servers** section defines the MCP server that you want to use. In this case, we are using the GitHub MCP server, which is run in a Docker container. The **command** field specifies the command to run the MCP server, and the **args** field specifies the arguments to pass to the command. The **env** field specifies the environment variables to set when running the MCP server. The **GITHUB_PERSONAL_ACCESS_TOKEN** environment variable is set to the value of the **github_token** input, which is provided by the user when prompted.
 
+## Obtain the token
+
+In order to interact with GitHub via the MCP server you'll need to have a token. This can either be done by [creating a personal access token (PAT)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token), or (as in our case) using the GitHub token from the codespace. Let's obtain the GitHub token.
+
+1. Open the terminal in your Codespace.
+2. Run the following command to print the value of the GITHUB_TOKEN environment variable:
+
+    ```bash
+    echo $GITHUB_TOKEN
+    ```
+
+3. Highlight the token and copy it to the clipboard.
+
 ## Start the MCP server
 
 To utilize an MCP server it needs to be "started". This will allow GitHub Copilot to communicate with the server and perform the tasks you request.
 
 1. To start the GitHub MCP server, click on **Start** above the GitHub server entry in the **.vscode/mcp.json** file.
-2. You should see a prompt asking for the GitHub Personal Access Token.
+2. You should see a prompt asking for the GitHub personal access token.
+3. Paste the token you copied from the previously.
 
-> [!NOTE]
-> **If you are using a GitHub Codespace**, you can use the GITHUB_TOKEN environment variable as your Personal Access Token.
->
-> 1. Open the terminal in your Codespace.
-> 2. Run the following command to print the value of the GITHUB_TOKEN environment variable:
-> ```bash
-> echo $GITHUB_TOKEN
-> ```
-> 
-> **If not using a Codespace**, you can [create a Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token) in your GitHub account with the necessary permissions. You can use a fine-grained token, with the following repository permissions:
-> - Contents: Read
-> - Issues: Read and Write
-> - Pull Requests: Read and Write
 
-3. Paste the value of your GitHub Personal Access Token into the prompt and press Enter.
-
-    ![Example of the start button and the prompt asking for the GitHub Personal Access Token](images/copilot-github-mcp-token-prompt.png)
+    ![Example of the start button and the prompt asking for the GitHub personal access token](images/copilot-github-mcp-token-prompt.png)
 
     > [!IMPORTANT]
-    > Do not share your Personal Access Token with anyone, as it provides access to your GitHub account and repositories. Treat it like a password and keep it secure. That includes not checking it into source control; **do not paste it directly into the .vscode/mcp.json file**.`
+    > Do not share your PAT with anyone, as it provides access to your GitHub account and repositories. Treat it like a password and keep it secure. That includes not checking it into source control. **Do not paste it directly into the .vscode/mcp.json file.**
 
-3. The GitHub MCP server should start up, and you should now see the number of tools available in the Copilot Chat window increase from 0. This indicates that the AI agent is now able to access the GitHub MCP server and perform actions on your behalf.
+4. The GitHub MCP server should start up, and you should now see the number of tools available in the Copilot Chat window increase from 0. This indicates that the AI agent is now able to access the GitHub MCP server and perform actions on your behalf.
 
     ![Example of the Copilot Chat Pane showing tools available](images/copilot-agent-mode-mcp-tools.png)
 
-4. You can click on the tools icon to see the list of available tools that the GitHub MCP server provides. This includes tools for creating and managing repositories, issues, pull requests, and more.
+5. You can click on the tools icon to see the list of available tools that the GitHub MCP server provides. This includes tools for creating and managing repositories, issues, pull requests, and more.
 
 ## Creating a backlog of tasks
 
@@ -176,7 +175,7 @@ Now that you have set up the GitHub MCP server, you can use Copilot Agent mode t
     > Remember, AI can make mistakes, so make sure to review the issues before confirming.
 
 5. Click the arrow next to **Run create_issue** to see the details of the issue that will be created.
-6. Ensure the details in the **owner** and **repo** are correct, and the title and body of the issue look correct. You can make any desired edits by double clicking the body and updating the content with the correct information.
+6. Ensure the details in the **owner** and **repo**, **title** and **body** of the issue look correct. You can make any desired edits by double clicking the body and updating the content with the correct information.
 7. After reviewing the generated content, select **Continue** to create the issue.
 
     ![Example of the expanded dialog box showing the GitHub Issue that will be created](images/create-issue-review.png)
@@ -188,7 +187,7 @@ Now that you have set up the GitHub MCP server, you can use Copilot Agent mode t
     > [!IMPORTANT]
     > Ensure you are comfortable with Copilot automatically performing tasks on your behalf before you selecting **Allow in this session** or a similar option.
 
-9. Navigate to your GitHub repository and check the issues tab. You should see a list of issues that have been created by Copilot. Each issue should include a clear title and a checkbox list of acceptance criteria.
+9. In a separate browser tab, navigate to your GitHub repository and check the issues tab. You should see a list of issues that have been created by Copilot. Each issue should include a clear title and a checkbox list of acceptance criteria.
 
 You should notice that the issues are fairly detailed. This is where we benefit from the power of Large Language Models (LLMs) and Model Context Protocol (MCP), as it has been able to create a clear initial issue description.
 

@@ -10,7 +10,7 @@ In this exercise, you will learn:
 
 ## Scenario
 
-As any good dev shop, a Tailspin Toys has a set of guidelines and requirements for development practices. These include:
+As any good dev shop, Tailspin Toys has a set of guidelines and requirements for development practices. These include:
 
 - API always needs unit tests.
 - UI should be in dark mode and have a modern feel.

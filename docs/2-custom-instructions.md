@@ -48,7 +48,7 @@ To see the impact of custom instructions, we will start by sending a prompt befo
 2. Open **server/routes/games.py**.
 3. Open **Copilot chat** 
 4. Create a new chat session by selecting the **New Chat** button, which will remove any previous context.
-5. Select **Ask** is from the modes dropdown.
+5. Select **Ask** from the modes dropdown.
 
    ![Screenshot of the New Chat button being highlighted in the Copilot Chat panel](images/copilot-new-chat.png)
 

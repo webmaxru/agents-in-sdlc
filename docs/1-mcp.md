@@ -184,8 +184,8 @@ Now that you have set up the GitHub MCP server, you can use Copilot Agent mode t
 
     ![Example of allowing Copilot to automatically create issues](images/create-issue-allow.png)
 
-    > [!IMPORTANT]
-    > Ensure you are comfortable with Copilot automatically performing tasks on your behalf before you selecting **Allow in this session** or a similar option.
+> [!IMPORTANT]
+> Ensure you are comfortable with Copilot automatically performing tasks on your behalf before you selecting **Allow in this session** or a similar option.
 
 9. In a separate browser tab, navigate to your GitHub repository and check the issues tab. You should see a list of issues that have been created by Copilot. Each issue should include a clear title and a checkbox list of acceptance criteria.
 

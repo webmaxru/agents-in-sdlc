@@ -132,8 +132,8 @@ To utilize an MCP server it needs to be "started". This will allow GitHub Copilo
 
     ![Example of the start button and the prompt asking for the GitHub personal access token](images/copilot-github-mcp-token-prompt.png)
 
-    > [!IMPORTANT]
-    > Do not share your PAT with anyone, as it provides access to your GitHub account and repositories. Treat it like a password and keep it secure. That includes not checking it into source control. **Do not paste it directly into the .vscode/mcp.json file.**
+> [!IMPORTANT]
+> Do not share your PAT with anyone, as it provides access to your GitHub account and repositories. Treat it like a password and keep it secure. That includes not checking it into source control. **Do not paste it directly into the .vscode/mcp.json file.**
 
 4. The GitHub MCP server should start up, and you should now see the number of tools available in the Copilot Chat window increase from 0. This indicates that the AI agent is now able to access the GitHub MCP server and perform actions on your behalf.
 

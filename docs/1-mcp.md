@@ -127,7 +127,7 @@ To utilize an MCP server it needs to be "started". This will allow GitHub Copilo
 
 1. To start the GitHub MCP server, click on **Start** above the GitHub server entry in the **.vscode/mcp.json** file.
 2. You should see a prompt asking for the GitHub personal access token.
-3. Paste the token you copied from the previously.
+3. Paste the token you copied previously.
 
 
     ![Example of the start button and the prompt asking for the GitHub personal access token](images/copilot-github-mcp-token-prompt.png)

@@ -171,8 +171,8 @@ Now that you have set up the GitHub MCP server, you can use Copilot Agent mode t
 
     ![Example of Copilot Chat dialog box asking for confirmation to run the create issue command](images/create-issue-dialog.png)
 
-    > [!IMPORTANT]
-    > Remember, AI can make mistakes, so make sure to review the issues before confirming.
+> [!IMPORTANT]
+> Remember, AI can make mistakes, so make sure to review the issues before confirming.
 
 5. Click the arrow next to **Run create_issue** to see the details of the issue that will be created.
 6. Ensure the details in the **owner** and **repo**, **title** and **body** of the issue look correct. You can make any desired edits by double clicking the body and updating the content with the correct information.

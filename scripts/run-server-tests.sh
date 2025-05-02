@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Determine project root
 if [[ $(basename $(pwd)) == "scripts" || $(basename $(pwd)) == "server" ]]; then
     PROJECT_ROOT=$(pwd)/..

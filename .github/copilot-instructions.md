@@ -9,6 +9,7 @@ The backend is written using:
 - Flask for the API
 - SQLAlchemy for the ORM
 - SQLite for the database
+- Run server tests by using `scripts/run-server-tests.sh`
 
 ## Frontend
 

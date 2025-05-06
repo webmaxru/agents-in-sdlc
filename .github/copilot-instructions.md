@@ -23,3 +23,7 @@ The frontend is written using:
 
 - Use dark mode
 - Rounded corners and a modern interface
+
+## GitHub Actions Workflows
+
+- Make sure to explicitly set the workflow permissions.

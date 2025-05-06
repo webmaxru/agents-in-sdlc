@@ -162,8 +162,7 @@ Now that you have set up the GitHub MCP server, you can use Copilot Agent mode t
     1. Allow users to filter games by category and publisher
     2. Define our repository coding standards (including updating or adding tests when implementation changes) in a Copilot instructions file
     3. Stretch Goal: Implement pagination on the game list page
-    4. Rewrite the backend to .NET, and update the scripts to launch the the new backend
-    5. Create a GitHub Actions workflow which builds and tests the client and server components
+    4. Create a GitHub Actions workflow which builds and tests the client and server components
     ```
 
 3. Press enter or hit the **Send** button to send the prompt to Copilot.

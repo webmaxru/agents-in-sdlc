@@ -18,7 +18,7 @@ The labs will walk you through the most common workloads with the agent capabili
 
 ## Scenario
 
-The lab envisions you as a new developer for Tailspin Toys, a fictional company who provides crowd funding for boardgames with a DevOps theme - a huge market! You are tasked with creating issues to document the desired updates to the application and DevOps flow, then implementing the ability to filter games by both category and publisher. You'll work iteratively, exploring both the site and Copilot's capabilities, to complete the tasks.
+The lab envisions you as a new developer for Tailspin Toys, a fictional company who provides crowdfunding for boardgames with a DevOps theme - a huge market! You are tasked with creating issues to document the desired updates to the application and DevOps flow, then implementing the ability to filter games by both category and publisher. You'll work iteratively, exploring both the site and Copilot's capabilities, to complete the tasks.
 
 ## Get started
 

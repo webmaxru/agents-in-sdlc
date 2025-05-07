@@ -10,7 +10,8 @@
         "devcontainers",
         "docstrings",
         "isouter",
-        "prebuild"
+        "prebuild",
+        "SDLC"
     ],
     "github.copilot.nextEditSuggestions.enabled": true,
     "editor.tabSize": 4,

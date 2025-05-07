@@ -102,7 +102,7 @@ If we look at the requirements from above, we see we want to include docstrings 
    ```
 
 8. Also note how the existing code isn't updated, but of course we could ask Copilot to perform that operation if we so desired!
-9.  Don't implement Copilot's suggested changes, as we will be doing that in the next section. But from this section, you can see how the custom instructions file has provided Copilot with the context it needs to generate code that follows the established guidelines.
+9.  Don't implement the suggested changes, as we will be doing that in the next section. But from this section, you can see how the custom instructions file has provided Copilot with the context it needs to generate code that follows the established guidelines.
 
 ## Prompt files for tasks
 

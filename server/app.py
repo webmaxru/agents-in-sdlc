@@ -2,13 +2,12 @@ import os
 from flask import Flask
 from models import init_db
 from routes.games import games_bp
+from utils.database import init_db
 
 # Get the server directory path
 base_dir: str = os.path.abspath(os.path.dirname(__file__))
 
 app: Flask = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{os.path.join(base_dir, "tailspin-toys.db")}'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Initialize the database with the app
 init_db(app)

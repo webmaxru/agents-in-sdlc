@@ -1,26 +1,14 @@
 import csv
 import os
-import sys
 import random
-from datetime import datetime, timedelta
-from collections import defaultdict
-
-# Add the parent directory to sys.path to allow importing from models
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
 from flask import Flask
-from models import init_db, db, Category, Game, Publisher
+from models import db, Category, Game, Publisher
+from utils.database import init_db
 
 def create_app():
     """Create and configure Flask app for database operations"""
     app = Flask(__name__)
-    
-    # Get the server directory path (one level up from utils)
-    server_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    
-    app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{os.path.join(server_dir, "tailspin-toys.db")}'
-    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    
+
     # Initialize the database with the app
     init_db(app)
     

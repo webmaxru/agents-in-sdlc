@@ -26,7 +26,7 @@ The website is a crowdfunding platform for board games with a developer theme. I
 
 To make running the website easier, we have provided a script that will start both the front-end and back-end servers. You can run this script in your GitHub Codespace to start the website with the following instructions:
 
-1. Return to your codespace.
+1. Return to your codespace. Continue working in your current branch.
 2. Open a new terminal window inside your codespace by selecting <kbd>Ctl</kbd>+<kbd>\`</kbd>.
 3. Run the following script to start the website:
 
@@ -109,11 +109,14 @@ In addition, the tests need to run (and pass) before we merge everything into ou
 
    ![Screenshot showing Copilot exploring the project files](images/copilot-agent-mode-explores.png)
 
+> [!NOTE]
+> You will notice that Copilot will perform several tasks, like exploring the project, modifying files, and running tests. It may take a few minutes depending on the complexity of the task and the codebase. During that process, you may notice **Keep** and **Undo**  buttons appear in the code editor. When Copilot is finished, you will have a **Keep** or **Undo** for all of the changes, so you do not need to select them while work is in progress.
+
 6. As prompted by Copilot, select **Continue** to run the tests.
 
    ![Screenshot showing a dialog in the Copilot Chat pane asking the user to confirm they are happy to run tests](images/copilot-agent-mode-run-tests.png)
 
-7. Copilot may work back and forth between code generation and tests until it completes the task and doesn't detect any errors.
+7. You may see some tests fail throughout the process, and that's okay! Copilot may work back and forth between code generation and tests until it completes the task and doesn't detect any errors.
 
    ![Screenshot showing a complete Chat session with Copilot Agent Mode](images/copilot-agent-mode-proposed-changes.png)
 

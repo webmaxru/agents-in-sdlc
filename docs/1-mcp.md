@@ -55,11 +55,15 @@ Once you have the extension installed, you may need to authenticate with your Gi
 
     ![Example of Copilot Chat window](images/copilot-chat-window.png)
 
-5. Switch to agent mode by selecting the dropdown in the Copilot Chat window and selecting **Agent**. Set the model to **Claude 3.5 Sonnet**.
+5. Switch to agent mode by selecting the dropdown in the Copilot Chat window and selecting **Agent**.
 
     ![Example of switching to agent mode](images/copilot-agent-mode-dropdown.png)
 
-6. The chat pane should update to indicate that you are now in agent mode. You should see a tools icon, showing that we can configure tools for GitHub Copilot to use.
+6. Set the model to **Claude 3.5 Sonnet**.
+
+    ![Example of selecting the Claude 3.5 Sonnet model](images/copilot-agent-mode-model.png)
+
+7. The chat pane should update to indicate that you are now in agent mode. You should see a tools icon, showing that we can configure tools for GitHub Copilot to use.
 
     ![Example of Copilot Chat agent mode with tools icon](images/copilot-agent-mode.png)
 
@@ -128,7 +132,6 @@ To utilize an MCP server it needs to be "started". This will allow GitHub Copilo
 1. To start the GitHub MCP server, click on **Start** above the GitHub server entry in the **.vscode/mcp.json** file.
 2. You should see a prompt asking for the GitHub personal access token.
 3. Paste the token you copied previously.
-
 
     ![Example of the start button and the prompt asking for the GitHub personal access token](images/copilot-github-mcp-token-prompt.png)
 

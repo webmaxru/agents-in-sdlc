@@ -152,7 +152,7 @@ We want to create a new endpoint to list all publishers, and to follow the same 
    ```
 
 15. Ensure all tests pass. Re-prompt Copilot Chat as needed to ensure the code is correct.
-16. Once correct, and all tests pass, open the **Source Control** panel on the left of the Codespace (screenshot a few steps below) and review the changes made by Copilot.
+16. Once correct, and all tests pass, open the **Source Control** panel on the left of the Codespace and review the changes made by Copilot.
 18. Stage the changes by selecting the **+** icon in the **Source Control** panel.
 19. Generate a commit message using the **Sparkle** button.
 

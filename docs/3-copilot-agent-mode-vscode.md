@@ -26,7 +26,7 @@ The website is a crowdfunding platform for board games with a developer theme. I
 
 To make running the website easier, we have provided a script that will start both the front-end and back-end servers. You can run this script in your GitHub Codespace to start the website with the following instructions:
 
-1. Return to your codespace. Continue working in your current branch.
+1. Return to your codespace. We'll continue working in your current branch.
 2. Open a new terminal window inside your codespace by selecting <kbd>Ctl</kbd>+<kbd>\`</kbd>.
 3. Run the following script to start the website:
 

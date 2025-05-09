@@ -40,7 +40,7 @@ Custom instructions allow you to provide context and preferences to Copilot chat
 > [!NOTE]
 > Custom instructions are sent with **every** prompt to Copilot chat. As a result, it's best to keep the content focused on guidelines and information relevant to the entire project rather than specific tasks. For specific tasks you can create prompt files, which we'll cover a little later in this exercise.
 
-## Using GitHub Copilot Chat without custom instructions
+## Using GitHub Copilot Chat before updating custom instructions
 
 To see the impact of custom instructions, we will start by sending a prompt before creating the file. We'll then create the file, send the same prompt again, and note the difference.
 
@@ -48,9 +48,12 @@ To see the impact of custom instructions, we will start by sending a prompt befo
 2. Open **server/routes/games.py**.
 3. Open **Copilot chat** 
 4. Create a new chat session by selecting the **New Chat** button, which will remove any previous context.
-5. Select **Ask** from the modes dropdown.
 
    ![Screenshot of the New Chat button being highlighted in the Copilot Chat panel](images/copilot-new-chat.png)
+
+5. Select **Ask** from the modes dropdown.
+
+   ![Screenshot of the Ask mode being highlighted in the Copilot Chat panel](images/copilot-chat-ask.png)
 
 6. Send the following prompt to create a new endpoint to return all publishers:
 
@@ -149,7 +152,7 @@ We want to create a new endpoint to list all publishers, and to follow the same 
    ```
 
 15. Ensure all tests pass. Re-prompt Copilot Chat as needed to ensure the code is correct.
-16. Once correct, and all tests pass, open the **Source Control** panel in the Codespace and review the changes made by Copilot.
+16. Once correct, and all tests pass, open the **Source Control** panel on the left of the Codespace and review the changes made by Copilot.
 18. Stage the changes by selecting the **+** icon in the **Source Control** panel.
 19. Generate a commit message using the **Sparkle** button.
 

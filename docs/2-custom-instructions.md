@@ -117,7 +117,9 @@ As highlighted previously, `copilot-instructions.md` is designed to provide proj
    ```
 
 10. Also note how the existing code isn't updated, but of course we could ask Copilot to perform that operation if we so desired!
-11. Don't implement the suggested changes, as we will be doing that in the next section. But from this section, you can see how the custom instructions file has provided Copilot with the context it needs to generate code that follows the established guidelines.
+11. **Don't implement the suggested changes**, as we will be doing that in the next section.
+
+From this section, you explored how the custom instructions file has provided Copilot with the context it needs to generate code that follows the established guidelines.
 
 ## Instruction files for tasks
 

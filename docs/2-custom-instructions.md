@@ -134,7 +134,7 @@ We want to create a new endpoint to list all publishers, and to follow the same 
 
 9.  Select **create-endpoint .github/instructions** to add the instruction file to the context.
 
-   ![Screenshot showing the instruction file being added into Copilot Chat](images/copilot-add-instruction-file.png)
+   ![Screenshot showing the instruction file being added into Copilot Chat](images/copilot-add-instructions-file.png)
 
 10. Send the same prompt as before to generate the desired endpoint:
 

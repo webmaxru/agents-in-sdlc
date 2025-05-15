@@ -90,9 +90,9 @@ To implement filtering, no less than three separate updates will need to be made
 
 In addition, the tests need to run (and pass) before we merge everything into our Codebase. Copilot Agent Mode can perform these tasks for us! Let's add the functionality.
 
-1. Select **Add Context**, **Prompt file**, and **create-endpoint.prompt.md** as the prompt file.
+1. Select **Add Context**, **Instructions**, and **create-endpoint .github/instructions**  as the instructions file.
 
-   ![Screenshot showing an example of selecting the prompt file](images/copilot-add-prompt-file.png)
+   ![Screenshot showing an example of selecting the instructions file](images/copilot-add-instructions-file.png)
 
 2. Ensure **Agent** mode is still selected.
 

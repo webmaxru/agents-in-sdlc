@@ -9,7 +9,6 @@ The backend is written using:
 - Flask for the API
 - SQLAlchemy for the ORM
 - SQLite for the database
-- Run server tests by using `scripts/run-server-tests.sh`
 
 ## Frontend
 
@@ -19,11 +18,8 @@ The frontend is written using:
 - Svelte for the components and interactivity
 - Tailwind CSS for styling
 
-### Style notes
+## Code standards
 
-- Use dark mode
-- Rounded corners and a modern interface
-
-## GitHub Actions Workflows
-
-- Make sure to explicitly set the workflow permissions.
+- Use good variable names, avoiding abbreviations and single letter variables
+- Use the casing standard for the language in question (camelCasing for TypeScript, snake_casing for Python, etc.)
+- Use type hints in all languages which support them

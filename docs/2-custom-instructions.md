@@ -84,9 +84,10 @@ As highlighted previously, `copilot-instructions.md` is designed to provide proj
    - Every function should have docstrings or the language equivalent
    ```
 
-4. Select **New Chat** in Copilot chat to clear the buffer and start a new conversation.
-5. Return to **server/routes/publishers.py** to ensure focus is set correctly.
-6. Send the same prompt as before to create the endpoint.
+4. Close **copilot-instructions.md**.
+5. Select **New Chat** in Copilot chat to clear the buffer and start a new conversation.
+6. Return to **server/routes/publishers.py** to ensure focus is set correctly.
+7. Send the same prompt as before to create the endpoint.
 
    ```plaintext
    Create a new endpoint to return a list of all publishers. It should return the name and id for all publishers.
@@ -95,7 +96,7 @@ As highlighted previously, `copilot-instructions.md` is designed to provide proj
 > [!TIP]
 > You can cycle through previous prompts by using the up and down arrows on your keyboard.
 
-7. Notice how the newly generated code includes a comment header at the top of the file which resembles the following:
+8. Notice how the newly generated code includes a comment header at the top of the file which resembles the following:
 
    ```python
    """
@@ -104,7 +105,7 @@ As highlighted previously, `copilot-instructions.md` is designed to provide proj
    """
    ```
 
-8. Notice how the newly generated code includes a docstring inside the function which resembles the following:
+9.  Notice how the newly generated code includes a docstring inside the function which resembles the following:
 
    ```python
    """
@@ -115,8 +116,8 @@ As highlighted previously, `copilot-instructions.md` is designed to provide proj
    """
    ```
 
-9. Also note how the existing code isn't updated, but of course we could ask Copilot to perform that operation if we so desired!
-10. Don't implement the suggested changes, as we will be doing that in the next section. But from this section, you can see how the custom instructions file has provided Copilot with the context it needs to generate code that follows the established guidelines.
+10. Also note how the existing code isn't updated, but of course we could ask Copilot to perform that operation if we so desired!
+11. Don't implement the suggested changes, as we will be doing that in the next section. But from this section, you can see how the custom instructions file has provided Copilot with the context it needs to generate code that follows the established guidelines.
 
 ## Instruction files for tasks
 

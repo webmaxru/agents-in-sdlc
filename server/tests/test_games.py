@@ -60,10 +60,11 @@ class TestGamesRoutes(unittest.TestCase):
             self._seed_test_data()
 
     def tearDown(self) -> None:
-        """Clean up test database"""
+        """Clean up test database and ensure proper connection closure"""
         with self.app.app_context():
             db.session.remove()
             db.drop_all()
+            db.engine.dispose()
 
     def _seed_test_data(self) -> None:
         """Helper method to seed test data"""

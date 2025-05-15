@@ -7,9 +7,22 @@ from .category import Category
 from .game import Game
 from .publisher import Publisher
 
-# Initialize function to be called from app.py
-def init_db(app):
-    db.init_app(app)
+def init_db(app, testing: bool = False):
+    """Initialize the database
+    
+    Args:
+        app: The Flask application instance
+        testing: If True, allows reinitialization for testing
+    """
+    if testing:
+        # For testing, we want to be able to reinitialize
+        db.init_app(app)
+    else:
+        try:
+            db.init_app(app)
+        except RuntimeError:
+            # Database already initialized
+            pass
     
     # Create tables when initializing
     with app.app_context():

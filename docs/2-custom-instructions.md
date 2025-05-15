@@ -157,11 +157,11 @@ We want to create a new endpoint to list all publishers, and to follow the same 
    Create a new endpoint to return a list of all publishers. It should return the name and id for all publishers.
    ```
 
-11. Copilot generates the files. Notice how it generates updates across multiple files, like **games.py** and **test_games.py**.
-12. Note the **References** section, and how **games.py**, **test_games.py**, and **python-tests.instructions.md** were all included in call to Copilot.
+11. Note the **References** section, and how **games.py**, **test_games.py**, and **python-tests.instructions.md** were all included in call to Copilot.
 
    ![Screenshot of the references section, showing the included files of games.py, test_games.py, and python-tests.instructions.md](./images/copilot-instructions-references.png)
 
+12. Copilot generates the files. Notice how it generates updates across multiple files, like **games.py** and **test_games.py**.
 13. After reviewing the code, select **Keep** and **Done** in Copilot Chat to accept the changes.
 14. Open a terminal window by selecting <kbd>Ctl</kbd>+<kbd>\`</kbd>.
 15. Run the tests by running the script with the following command:

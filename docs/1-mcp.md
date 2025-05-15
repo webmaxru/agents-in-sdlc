@@ -87,20 +87,20 @@ The **.vscode/mcp.json** file is used to configure the MCP servers that are avai
             }
         ],
         "servers": {
-        "github": {
-            "command": "docker",
-            "args": [
-                "run",
-                "-i",
-                "--rm",
-                "-e",
-                "GITHUB_PERSONAL_ACCESS_TOKEN",
-                "ghcr.io/github/github-mcp-server"
-            ],
-            "env": {
-                "GITHUB_PERSONAL_ACCESS_TOKEN": "${input:github_token}"
+            "github": {
+                "command": "docker",
+                "args": [
+                    "run",
+                    "-i",
+                    "--rm",
+                    "-e",
+                    "GITHUB_PERSONAL_ACCESS_TOKEN",
+                    "ghcr.io/github/github-mcp-server"
+                ],
+                "env": {
+                    "GITHUB_PERSONAL_ACCESS_TOKEN": "${input:github_token}"
+                }
             }
-        }
         }
     }
     ```

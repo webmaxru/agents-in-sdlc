@@ -15,11 +15,9 @@ As any good dev shop, Tailspin Toys has a set of guidelines and requirements for
 - API always needs unit tests.
 - UI should be in dark mode and have a modern feel.
 - documentation should be added to code.
+- all newly created files should have a comment header describing what it does.
 
 Through the use of instruction files you'll ensure Copilot has the right information to perform the tasks in alignment with the practices highlighted.
-
-> [!IMPORTANT]
-> Instruction files are only considered by Copilot Chat at the time of this writing (including ask, edit and agent mode). Code completions are not yet supported. 
 
 ## Before you begin
 
@@ -35,65 +33,81 @@ We're going to be making some code changes, so we should follow our usual practi
 
 ## Custom instructions
 
-Custom instructions allow you to provide context and preferences to Copilot chat, so that it can better understand your coding style and requirements. This is a powerful feature that can help you steer Copilot to get more relevant suggestions and code snippets. You can specify your preferred coding conventions, libraries, and even the types of comments you like to include in your code.
+Custom instructions allow you to provide context and preferences to Copilot chat, so that it can better understand your coding style and requirements. This is a powerful feature that can help you steer Copilot to get more relevant suggestions and code snippets. You can specify your preferred coding conventions, libraries, and even the types of comments you like to include in your code. You can create instructions for your entire repository, or for specific types of files for task-level context.
+
+There are two types of instructions files:
+
+- `.github/copilot-instructions.md`, a single instruction file sent to Copilot for **every** chat prompt. This file should contain project-level information, context which is relevant for every message. This could include the tech stack being used, an overview of what's being built, or global guidance for Copilot.
+- `.instructions.md` can be created for specific tasks or file types. You can use `.instructions.md` files to provide guidelines for particular languages (like Python or TypeScript), or for tasks like creating a React component or a new instance of a repository pattern.
 
 > [!NOTE]
-> Instructions in the `.github/copilot-instructions.md` file are sent with **every** prompt to Copilot chat. As a result, it's best to keep the content focused on guidelines and information relevant to the entire project rather than specific tasks. For specific tasks you can create instruction files, which we'll cover a little later in this exercise.
+> Instruction files are only used for code generation in Copilot Chat, and not used for code completions.
 
-## Using GitHub Copilot Chat before updating custom instructions
+## Use GitHub Copilot Chat before updating custom instructions
 
-To see the impact of custom instructions, we will start by sending a prompt with the current version of the file. We'll then update the file, send the same prompt again, and note the difference.
+To see the impact of custom instructions, we will start by sending a prompt with the current version of the files. We'll then make some updates, send the same prompt again, and note the difference.
 
-1. Open the GitHub codespace if not already open. Feel free to close any open files from the previous exercise.
-2. Open **server/routes/games.py**.
-3. Open **Copilot chat** 
-4. Create a new chat session by selecting the **New Chat** button, which will remove any previous context.
+1. Open the GitHub codespace if not already open.
+2. Close any open files in your codespace from the previous exercises.
+3. Open **server/routes/publishers.py**, an empty file.
+4. Open **Copilot chat**.
+5. Create a new chat session by selecting the **New Chat** button, which will remove any previous context.
 
    ![Screenshot of the New Chat button being highlighted in the Copilot Chat panel](images/copilot-new-chat.png)
 
-5. Select **Ask** from the modes dropdown.
+6. Select **Ask** from the modes dropdown.
 
    ![Screenshot of the Ask mode being highlighted in the Copilot Chat panel](images/copilot-chat-ask.png)
 
-6. Send the following prompt to create a new endpoint to return all publishers:
+7. Send the following prompt to create a new endpoint to return all publishers:
 
    ```plaintext
-   Create a new endpoint to return a list of all publishers. It should include the name and id.
+   Create a new endpoint to return a list of all publishers. It should return the name and id for all publishers.
    ```
 
-7. Notice the generated code includes [type hints](https://docs.python.org/3/library/typing.html) because the existing code uses them. By default, Copilot uses the current file for context when creating code, and will work to follow the practices it sees in use.
-8. Notice the generated code **does not** include a docstring. Copilot is again following the patterns it sees us using, and since docstrings don't already exist it doesn't generate them.
+8. Notice the generated code includes [type hints](https://docs.python.org/3/library/typing.html) because the existing code uses them. By default, Copilot uses the current file for context when creating code, and will work to follow the practices it sees in use.
+9. Notice the generated code **is missing** either a docstring or a comment header - or both!
 
-## Adding code requirements and standards to custom instructions 
+> [!IMPORTANT]
+> As highlighted previously, GitHub Copilot and LLM tools are probabilistic, not deterministic. As a result, the exact code generated may vary, and there's even a chance it'll abide by our rules without us spelling it out! But to help with consistency, we should always document anything we want to ensure Copilot should understand about how we want our code generated.
 
-If we look at the requirements from above, we see we want to include docstrings for functions. Let's update the custom instructions file with this information to ensure the generated suggestions follow our desired practices. We'll then run the same prompt to notice the impact it had on the suggestion.
+## Add global standards to copilot-instructions.md
+
+As highlighted previously, `copilot-instructions.md` is designed to provide project-level information to Copilot. Let's ensure global coding standards are documented to improve code suggestions from Copilot chat.
 
 1. Open **.github/copilot-instructions.md**.
-2. Add the following to the bottom of the file to add the requirement for docstrings
+2. Explore the file, noting the brief description of the project and sections for `Backend`, `Frontend`, and `Code standards`. These are applicable to any interactions we'd have with Copilot.
+3. Add the following line to the bottom of the file to instruct Copilot to add comment headers to files:
 
    ```markdown
-   ## Code guidelines
-
-   - Create docstrings for Python
-   - Add JSDoc notes to JavaScript
+   - Include a comment block at the top of each new file to describe what it does
+   - Every function should have docstrings or the language equivalent
    ```
 
-3. Close the file, saving if prompted.
-4. Open **server/routes/games.py** again to ensure focus for Copilot chat is on our API.
-5. Select **New Chat** in Copilot chat to clear the buffer and start a new conversation.
+4. Select **New Chat** in Copilot chat to clear the buffer and start a new conversation.
 
    ![Screenshot of the New Chat button being highlighted in the Copilot Chat panel](images/copilot-new-chat.png)
 
+5. Return to **server/routes/publishers.py** to ensure focus is set correctly.
 6. Send the same prompt as before to create the endpoint.
 
    ```plaintext
-   Create a new endpoint to return a list of all publishers. It should include the name and id.
+   Create a new endpoint to return a list of all publishers. It should return the name and id for all publishers.
    ```
 
 > [!TIP]
 > You can cycle through previous prompts by using the up and down arrows on your keyboard.
 
-7. Notice how the newly generated code includes a docstring inside the function which resembles the following:
+7. Notice how the newly generated code includes a comment header at the top of the file which resembles the following:
+
+   ```python
+   """
+   Publisher API routes for the Tailspin Toys Crowd Funding platform.
+   This module provides endpoints to retrieve publisher information.
+   """
+   ```
+
+8. Notice how the newly generated code includes a docstring inside the function which resembles the following:
 
    ```python
    """
@@ -104,8 +118,8 @@ If we look at the requirements from above, we see we want to include docstrings 
    """
    ```
 
-8. Also note how the existing code isn't updated, but of course we could ask Copilot to perform that operation if we so desired!
-9.  Don't implement the suggested changes, as we will be doing that in the next section. But from this section, you can see how the custom instructions file has provided Copilot with the context it needs to generate code that follows the established guidelines.
+9. Also note how the existing code isn't updated, but of course we could ask Copilot to perform that operation if we so desired!
+10. Don't implement the suggested changes, as we will be doing that in the next section. But from this section, you can see how the custom instructions file has provided Copilot with the context it needs to generate code that follows the established guidelines.
 
 ## Instruction files for tasks
 
@@ -116,7 +130,8 @@ We want to create a new endpoint to list all publishers, and to follow the same 
 1. Open **.github/instructions/create-endpoint.instructions.md**.
 2. Review the following entries inside the instruction file:
 
-   - An overview of requirements, including that tests must be created, mock objects to be used, and endpoints are created in Flask using blueprints.
+   - An overview of requirements, including that tests must be created, and endpoints are created in Flask using blueprints.
+   - Link to another [instructions file focused on test generation](../.github/instructions/python-tests.instructions.md)
    - Links to two existing files which follow the patterns we want - both the games blueprint and tests. Notice how these are setup as normal markdown links, allowing an instruction file to incorporate additional files for context.
 
 3. Open **server/app.py**.
@@ -126,33 +141,37 @@ We want to create a new endpoint to list all publishers, and to follow the same 
    ![Screenshot of the Edit mode being highlighted in the Copilot Chat panel](images/copilot-edits.png)
 
 6. Select the **Add Context** button to open the context dialog
-7. If prompted to allow the codespace to see text and images copied to the clipboard, press **Allow**.
+7. If prompted to allow the codespace to see text and images copied to the clipboard, select **Allow**.
 8. Select **Instructions** from the dropdown at the top of your codespace.
 
 > [!TIP]
 > If the list of options is long, you can type **instructions** to filter to the Instructions option then select **Instructions**.
 
-9.  Select **create-endpoint .github/instructions** to add the instruction file to the context.
+9.  Select **flask-endpoint .github/instructions** to add the instruction file to the context.
 
    ![Screenshot showing the instruction file being added into Copilot Chat](images/copilot-add-instructions-file.png)
 
 10. Send the same prompt as before to generate the desired endpoint:
 
    ```plaintext
-   Create a new endpoint to return a list of all publishers. It should include the name and id.
+   Create a new endpoint to return a list of all publishers. It should return the name and id for all publishers.
    ```
 
 11. Copilot generates the files. Notice how it generates updates across multiple files, like **games.py** and **test_games.py**.
-12. After reviewing the code, select **Keep** and **Done** in Copilot Chat to accept the changes.
-13. Open a terminal window by selecting <kbd>Ctl</kbd>+<kbd>\`</kbd>.
-14. Run the tests by running the script with the following command:
+12. Note the **References** section, and how **games.py**, **test_games.py**, and **python-tests.instructions.md** were all included in call to Copilot.
+
+   ![Screenshot of the references section, showing the included files of games.py, test_games.py, and python-tests.instructions.md](./images/copilot-instructions-references.png)
+
+13. After reviewing the code, select **Keep** and **Done** in Copilot Chat to accept the changes.
+14. Open a terminal window by selecting <kbd>Ctl</kbd>+<kbd>\`</kbd>.
+15. Run the tests by running the script with the following command:
 
    ```sh
    ./scripts/run-server-tests.sh
    ```
 
-15. Ensure all tests pass. Re-prompt Copilot Chat as needed to ensure the code is correct.
-16. Once correct, and all tests pass, open the **Source Control** panel on the left of the Codespace and review the changes made by Copilot.
+16. Ensure all tests pass. Re-prompt Copilot Chat as needed to ensure the code is correct.
+17. Once correct, and all tests pass, open the **Source Control** panel on the left of the Codespace and review the changes made by Copilot.
 18. Stage the changes by selecting the **+** icon in the **Source Control** panel.
 19. Generate a commit message using the **Sparkle** button.
 

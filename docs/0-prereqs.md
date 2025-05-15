@@ -11,11 +11,11 @@ To create a copy of the repository for the code you'll create an instance from t
 
     ![Use this template button](images/use-template.png)
 
-3. For labs at Microsoft build, choose **Microsoft-Build-2025** as the GitHub organization. Set the repository name to **301-<YOUR_GITHUB_HANDLE>**, replacing **<YOUR_GITHUB_HANDLE>** with your GitHub handle. So if your handle was Mona, you'd use **301-Mona**.
+3. For labs at Microsoft build, choose **Microsoft-Build-2025** as the GitHub organization. Set the repository name to **310-<YOUR_GITHUB_HANDLE>**, replacing **<YOUR_GITHUB_HANDLE>** with your GitHub handle. So if your handle was Mona, you'd use **310-Mona**.
 
     ![Input the repository template settings](images/repository-template-settings.png)
 
-4. Make a note of the repository path you created, which will be **Microsoft-Build-2025/301-<YOUR_GITHUB_HANDLE>**, as you will be referring to this later in the lab.
+4. Make a note of the repository path you created, which will be **Microsoft-Build-2025/310-<YOUR_GITHUB_HANDLE>**, as you will be referring to this later in the lab.
 
 ## Creating a codespace
 

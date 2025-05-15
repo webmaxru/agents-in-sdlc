@@ -1,12 +1,12 @@
-# Exercise 2 - Providing context to Copilot with custom instructions and prompt templates
+# Exercise 2 - Providing context to Copilot with instruction files
 
-Context is key across many aspects of life, and when working with generative AI. If you're performing a task which needs to be completed a particular way, or if a piece of background information is important, we want to ensure Copilot has access to that information. There's a handful of mechanisms we have to ensure Copilot not only knows what we want it to do but how we want it to do it. Two powerful ones are [custom instructions](https://code.visualstudio.com/docs/copilot/copilot-customization) and [prompt files](https://code.visualstudio.com/docs/copilot/copilot-customization#_reusable-prompt-files-experimental).
+Context is key across many aspects of life, and when working with generative AI. If you're performing a task which needs to be completed a particular way, or if a piece of background information is important, we want to ensure Copilot has access to that information. We can use [instruction files](https://code.visualstudio.com/docs/copilot/copilot-customization)to provide guidance to Copilot not only knows what we want it to do but how we want it to do it.
 
 In this exercise, you will learn:
 
-- how to provide Copilot with project-specific context, coding guidelines and documentation standards using custom instructions.
-- how to use prompt files to guide Copilot for repetitive or templated tasks.
-- the difference between repository-wide instructions and task-specific prompts.
+- how to provide Copilot with project-specific context, coding guidelines and documentation standards using custom instructions (.github/copilot-instructions.md).
+- how to use instruction files to guide Copilot for repetitive or templated tasks.
+- the difference between repository-wide instructions and task-specific instructions.
 
 ## Scenario
 
@@ -16,10 +16,10 @@ As any good dev shop, Tailspin Toys has a set of guidelines and requirements for
 - UI should be in dark mode and have a modern feel.
 - documentation should be added to code.
 
-Through the use of custom instructions and prompt files you'll ensure Copilot has the right information to perform the tasks in alignment with the practices highlighted.
+Through the use of instruction files you'll ensure Copilot has the right information to perform the tasks in alignment with the practices highlighted.
 
 > [!IMPORTANT]
-> Custom instructions and prompt files are only considered by Copilot Chat at the time of this writing, including ask, edit and agent mode. Code completions are not yet supported. 
+> Instruction files are only considered by Copilot Chat at the time of this writing (including ask, edit and agent mode). Code completions are not yet supported. 
 
 ## Before you begin
 
@@ -38,11 +38,11 @@ We're going to be making some code changes, so we should follow our usual practi
 Custom instructions allow you to provide context and preferences to Copilot chat, so that it can better understand your coding style and requirements. This is a powerful feature that can help you steer Copilot to get more relevant suggestions and code snippets. You can specify your preferred coding conventions, libraries, and even the types of comments you like to include in your code.
 
 > [!NOTE]
-> Custom instructions are sent with **every** prompt to Copilot chat. As a result, it's best to keep the content focused on guidelines and information relevant to the entire project rather than specific tasks. For specific tasks you can create prompt files, which we'll cover a little later in this exercise.
+> Instructions in the `.github/copilot-instructions.md` file are sent with **every** prompt to Copilot chat. As a result, it's best to keep the content focused on guidelines and information relevant to the entire project rather than specific tasks. For specific tasks you can create instruction files, which we'll cover a little later in this exercise.
 
 ## Using GitHub Copilot Chat before updating custom instructions
 
-To see the impact of custom instructions, we will start by sending a prompt before creating the file. We'll then create the file, send the same prompt again, and note the difference.
+To see the impact of custom instructions, we will start by sending a prompt with the current version of the file. We'll then update the file, send the same prompt again, and note the difference.
 
 1. Open the GitHub codespace if not already open. Feel free to close any open files from the previous exercise.
 2. Open **server/routes/games.py**.
@@ -107,17 +107,17 @@ If we look at the requirements from above, we see we want to include docstrings 
 8. Also note how the existing code isn't updated, but of course we could ask Copilot to perform that operation if we so desired!
 9.  Don't implement the suggested changes, as we will be doing that in the next section. But from this section, you can see how the custom instructions file has provided Copilot with the context it needs to generate code that follows the established guidelines.
 
-## Prompt files for tasks
+## Instruction files for tasks
 
-Coding is often repetitive, with developers performing similar tasks on a regular basis. Copilot is wonderful for allowing you to offload these types of tasks. But these types of tasks, like adding an endpoint, creating a component, or adding a new service pattern implementation often require a particular template or structure to be followed. Prompt files allow you to provide specific requirements for these types of tasks.
+Coding is often repetitive, with developers performing similar tasks on a regular basis. Copilot is wonderful for allowing you to offload these types of tasks. But these types of tasks, like adding an endpoint, creating a component, or adding a new service pattern implementation often require a particular template or structure to be followed. Instruction files allow you to provide specific requirements for these types of tasks.
 
-We want to create a new endpoint to list all publishers, and to follow the same pattern we used for the existing [games endpoints](../server/routes/games.py), and to create tests which follow the same pattern as the existing [games endpoints tests](../server/tests/test_routes/test_games.py). A prompt file has already been created; let's explore it and see the difference in code it generates.
+We want to create a new endpoint to list all publishers, and to follow the same pattern we used for the existing [games endpoints](../server/routes/games.py), and to create tests which follow the same pattern as the existing [games endpoints tests](../server/tests/test_routes/test_games.py). An instruction file has already been created; let's explore it and see the difference in code it generates.
 
-1. Open **.github/prompts/create-endpoint.prompt.md**.
-2. Review the following entries inside the prompt file:
+1. Open **.github/instructions/create-endpoint.instructions.md**.
+2. Review the following entries inside the instruction file:
 
    - An overview of requirements, including that tests must be created, mock objects to be used, and endpoints are created in Flask using blueprints.
-   - Links to two existing files which follow the patterns we want - both the games blueprint and tests. Notice how these are setup as normal markdown links, allowing a prompt file to incorporate additional files for context.
+   - Links to two existing files which follow the patterns we want - both the games blueprint and tests. Notice how these are setup as normal markdown links, allowing an instruction file to incorporate additional files for context.
 
 3. Open **server/app.py**.
 4. Return to Copilot Chat and select **New Chat** to start a new session.
@@ -127,14 +127,14 @@ We want to create a new endpoint to list all publishers, and to follow the same 
 
 6. Select the **Add Context** button to open the context dialog
 7. If prompted to allow the codespace to see text and images copied to the clipboard, press **Allow**.
-8. Select **Prompt** from the dropdown at the top of your codespace.
+8. Select **Instructions** from the dropdown at the top of your codespace.
 
 > [!TIP]
-> If the list of options is long, you can type **prompt** to filter to the Prompt option then select **Prompt**.
+> If the list of options is long, you can type **instructions** to filter to the Instructions option then select **Instructions**.
 
-9.  Select **create-endpoint .github/prompts** to add the prompt file to the context.
+9.  Select **create-endpoint .github/instructions** to add the instruction file to the context.
 
-   ![Screenshot showing the prompt file being added into Copilot Chat](images/copilot-add-prompt-file.png)
+   ![Screenshot showing the instruction file being added into Copilot Chat](images/copilot-add-instruction-file.png)
 
 10. Send the same prompt as before to generate the desired endpoint:
 
@@ -142,7 +142,7 @@ We want to create a new endpoint to list all publishers, and to follow the same 
    Create a new endpoint to return a list of all publishers. It should include the name and id.
    ```
 
-11. Copilot generates the files. Notice how it generates updates for **app.py**, as well as new files for the blueprint in **games.py** and tests in **test_games.py** for the publishers endpoint.
+11. Copilot generates the files. Notice how it generates updates across multiple files, like **games.py** and **test_games.py**?
 12. After reviewing the code, select **Keep** and **Done** in Copilot Chat to accept the changes.
 13. Open a terminal window by selecting <kbd>Ctl</kbd>+<kbd>\`</kbd>.
 14. Run the tests by running the script with the following command:
@@ -162,10 +162,10 @@ We want to create a new endpoint to list all publishers, and to follow the same 
 
 ## Summary
 
-Congratulations! You explored how to ensure Copilot has the right context to generate code following the practices your organization has set forth. This can be done at a repository level with custom instructions, or on a task basis with prompt files. You explored:
+Congratulations! You explored how to ensure Copilot has the right context to generate code following the practices your organization has set forth. This can be done at a repository level with the `.github/copilot-instructions.md` file, or on a task basis with instruction files. You explored:
 
 - how to provide Copilot with project-specific context, coding guidelines and documentation standards using custom instructions.
-- how to use prompt files to guide Copilot for repetitive or templated tasks.
-- the difference between repository-wide instructions and task-specific prompts.
+- how to use instruction files to guide Copilot for repetitive or templated tasks.
+- the difference between repository-wide instructions and task-specific instructions.
 
 Next we'll use [agent mode to add functionality to the site](./3-copilot-agent-mode-vscode.md).

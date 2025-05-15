@@ -18,5 +18,5 @@
 
 ## Prototype files
 
-- [Endpoint blueprint](../../server/routes/games.py)
-- [Tests blueprint](../../server/tests/test_games.py)
+- [Endpoint blueprint](server/routes/games.py)
+- [Tests blueprint](server/tests/test_games.py)

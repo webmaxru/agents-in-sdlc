@@ -128,11 +128,11 @@ Coding is often repetitive, with developers performing similar tasks on a regula
 We want to create a new endpoint to list all publishers, and to follow the same pattern we used for the existing [games endpoints](../server/routes/games.py), and to create tests which follow the same pattern as the existing [games endpoints tests](../server/tests/test_routes/test_games.py). An instruction file has already been created; let's explore it and see the difference in code it generates.
 
 1. Open **.github/instructions/create-endpoint.instructions.md**.
-2. Review the following entries inside the instruction file:
+2. Review the following entries inside the instruction file, which includes:
 
-   - An overview of requirements, including that tests must be created, and endpoints are created in Flask using blueprints.
-   - Link to another [instructions file focused on test generation](../.github/instructions/python-tests.instructions.md)
-   - Links to two existing files which follow the patterns we want - both the games blueprint and tests. Notice how these are setup as normal markdown links, allowing an instruction file to incorporate additional files for context.
+   - an overview of requirements, including that tests must be created, and endpoints are created in Flask using blueprints.
+   - a link to another [instructions file focused on test generation](../.github/instructions/python-tests.instructions.md)
+   - links to two existing files which follow the patterns we want - both the games blueprint and tests. Notice how these are setup as normal markdown links, allowing an instruction file to incorporate additional files for context.
 
 3. Open **server/app.py**.
 4. Return to Copilot Chat and select **New Chat** to start a new session.

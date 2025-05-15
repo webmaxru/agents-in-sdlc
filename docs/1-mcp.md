@@ -129,9 +129,10 @@ In order to interact with GitHub via the MCP server you'll need to have a token.
 
 To utilize an MCP server it needs to be "started". This will allow GitHub Copilot to communicate with the server and perform the tasks you request.
 
-1. To start the GitHub MCP server, click on **Start** above the GitHub server entry in the **.vscode/mcp.json** file.
-2. You should see a prompt asking for the GitHub personal access token.
-3. Paste the token you copied previously.
+1. Inside VS Code, open **.vscode/mcp.json**.
+2. To start the GitHub MCP server, select **Start** above the GitHub server.
+3. You should see a prompt asking for the GitHub personal access token.
+4. Paste the token you copied previously.
 
     ![Example of the start button and the prompt asking for the GitHub personal access token](images/copilot-github-mcp-token-prompt.png)
 
@@ -142,20 +143,20 @@ To utilize an MCP server it needs to be "started". This will allow GitHub Copilo
 
     ![Example of the Copilot Chat Pane showing tools available](images/copilot-agent-mode-mcp-tools.png)
 
-5. You can click on the tools icon to see the list of available tools that the GitHub MCP server provides. This includes tools for creating and managing repositories, issues, pull requests, and more.
+5. You can select the tools icon to see the list of available tools that the GitHub MCP server provides. This includes tools for creating and managing repositories, issues, pull requests, and more.
 
 ## Creating a backlog of tasks
 
 Now that you have set up the GitHub MCP server, you can use Copilot Agent mode to create a backlog of tasks for use in the rest of the lab.
 
-1. Navigate to the Copilot Chat pane. Select **Agent** from the dropdown list. Set the model to **Claude 3.5 Sonnet**.
+1. Return to the Copilot Chat pane. Select **Agent** from the dropdown list. Set the model to **Claude 3.5 Sonnet**.
 
     ![Example of the Copilot Chat pane with Agent Mode selected](images/copilot-agent-mode-dropdown.png)
 
 2. Type or paste the following prompt to create the issues we'll be working on in the lab, replacing **<YOUR_REPOSITORY_PATH>** with the organization/name of your repository:
 
     ```markdown
-    Create GitHub issues for our Tailspin Toys backlog in the <YOUR_REPOSITORY_PATH> repo. Each issue should include:
+    In <YOUR_REPOSITORY_PATH>, create GitHub issues for our Tailspin Toys backlog in the repo. Each issue should include:
     - A clear title
     - A brief description of the task and why it is important to the project
     - A checkbox list of acceptance criteria
@@ -163,12 +164,12 @@ Now that you have set up the GitHub MCP server, you can use Copilot Agent mode t
     From our recent planning meeting, the upcoming backlog includes the following tasks:
 
     1. Allow users to filter games by category and publisher
-    2. Define our repository coding standards (including updating or adding tests when implementation changes) in a Copilot instructions file
-    3. Stretch Goal: Implement pagination on the game list page
-    4. Create a GitHub Actions workflow which builds and tests the client and server components
+    2. Update our repository coding standards (including rules about Python formatting and docstrings) in a custom instructions file
+    3. Create a GitHub Actions workflow which builds and tests the client and server components
+    4. Stretch Goal: Implement pagination on the game list page
     ```
 
-3. Press enter or hit the **Send** button to send the prompt to Copilot.
+3. Press <kbd>enter</kbd> or select the **Send** button to send the prompt to Copilot.
 4. GitHub Copilot should process the request and respond with a dialog box asking you to confirm the creation of the issues.
 
     ![Example of Copilot Chat dialog box asking for confirmation to run the create issue command](images/create-issue-dialog.png)
@@ -189,7 +190,8 @@ Now that you have set up the GitHub MCP server, you can use Copilot Agent mode t
 > [!IMPORTANT]
 > Ensure you are comfortable with Copilot automatically performing tasks on your behalf before you selecting **Allow in this session** or a similar option.
 
-9. In a separate browser tab, navigate to your GitHub repository and check the issues tab. You should see a list of issues that have been created by Copilot. Each issue should include a clear title and a checkbox list of acceptance criteria.
+9. In a separate browser tab, navigate to your GitHub repository and select the issues tab.
+10. You should see a list of issues that have been created by Copilot. Each issue should include a clear title and a checkbox list of acceptance criteria.
 
 You should notice that the issues are fairly detailed. This is where we benefit from the power of Large Language Models (LLMs) and Model Context Protocol (MCP), as it has been able to create a clear initial issue description.
 
@@ -197,7 +199,7 @@ You should notice that the issues are fairly detailed. This is where we benefit 
 
 ## Summary
 
-Congratulations, you have complete the exercise!
+Congratulations, you have created issues on GitHub using Copilot Chat and MCP!
 
 To recap, in this exercise we have:
 

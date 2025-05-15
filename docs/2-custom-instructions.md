@@ -1,6 +1,6 @@
 # Exercise 2 - Providing context to Copilot with instruction files
 
-Context is key across many aspects of life, and when working with generative AI. If you're performing a task which needs to be completed a particular way, or if a piece of background information is important, we want to ensure Copilot has access to that information. We can use [instruction files](https://code.visualstudio.com/docs/copilot/copilot-customization)to provide guidance to Copilot not only knows what we want it to do but how we want it to do it.
+Context is key across many aspects of life, and when working with generative AI. If you're performing a task which needs to be completed a particular way, or if a piece of background information is important, we want to ensure Copilot has access to that information. We can use [instruction files](https://code.visualstudio.com/docs/copilot/copilot-customization) to provide guidance to Copilot not only knows what we want it to do but how we want it to do it.
 
 In this exercise, you will learn:
 

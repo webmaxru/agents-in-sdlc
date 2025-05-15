@@ -18,6 +18,11 @@ The frontend is written using:
 - Svelte for the components and interactivity
 - Tailwind CSS for styling
 
+## GitHub Actions Workflows
+
+- Follow good security practices
+    - Make sure to explicitly set the workflow permissions
+
 ## Code standards
 
 - Use good variable names, avoiding abbreviations and single letter variables

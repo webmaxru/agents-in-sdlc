@@ -105,12 +105,12 @@ The **.vscode/mcp.json** file is used to configure the MCP servers that are avai
     }
     ```
 
-The **inputs** section defines the inputs that the MCP server will require. In this case, we are asking for a GitHub Personal Access Token, which is required to authenticate with the GitHub API. The **password** field is set to **true**, which means that the input will be masked when you enter it.
+The `inputs` section defines the inputs that the MCP server will require. In this case, we are asking for a GitHub Personal Access Token, which is required to authenticate with the GitHub API. The `password` field is set to `true`, which means that the input will be masked when you enter it.
 
 > [!IMPORTANT]
 > Make sure that you do not share your GitHub Personal Access Token with anyone, as it provides access to your GitHub account and repositories. Treat it like a password and keep it secure. That means you should not check it into source control or share it with anyone else.
 
-The **servers** section defines the MCP server that you want to use. In this case, we are using the GitHub MCP server, which is run in a Docker container. The **command** field specifies the command to run the MCP server, and the **args** field specifies the arguments to pass to the command. The **env** field specifies the environment variables to set when running the MCP server. The **GITHUB_PERSONAL_ACCESS_TOKEN** environment variable is set to the value of the **github_token** input, which is provided by the user when prompted.
+The `servers` section defines the MCP server that you want to use. In this case, we are using the GitHub MCP server, which is run in a Docker container. The `command` field specifies the command to run the MCP server, and the `args` field specifies the arguments to pass to the command. The `env` field specifies the environment variables to set when running the MCP server. The `GITHUB_PERSONAL_ACCESS_TOKEN` environment variable is set to the value of the `github_token` input, which is provided by the user when prompted.
 
 ## Obtain the token
 

@@ -2,11 +2,11 @@
 
 Context is key across many aspects of life, and when working with generative AI. If you're performing a task which needs to be completed a particular way, or if a piece of background information is important, we want to ensure Copilot has access to that information. We can use [instruction files](https://code.visualstudio.com/docs/copilot/copilot-customization) to provide guidance to Copilot not only knows what we want it to do but how we want it to do it.
 
-In this exercise, you will learn:
+In this exercise, you will learn how to:
 
-- how to provide Copilot with project-specific context, coding guidelines and documentation standards using custom instructions (.github/copilot-instructions.md).
-- how to use instruction files to guide Copilot for repetitive or templated tasks.
-- the difference between repository-wide instructions and task-specific instructions.
+- provide Copilot with project-specific context, coding guidelines and documentation standards using custom instructions (.github/copilot-instructions.md).
+- use instruction files to guide Copilot for repetitive or templated tasks.
+- implement both repository-wide instructions and task-specific instructions.
 
 ## Scenario
 
@@ -14,8 +14,8 @@ As any good dev shop, Tailspin Toys has a set of guidelines and requirements for
 
 - API always needs unit tests.
 - UI should be in dark mode and have a modern feel.
-- documentation should be added to code.
-- all newly created files should have a comment header describing what it does.
+- Documentation should be added to code in the form of docstrings.
+- All newly created files should have a comment header describing what it does.
 
 Through the use of instruction files you'll ensure Copilot has the right information to perform the tasks in alignment with the practices highlighted.
 
@@ -85,9 +85,6 @@ As highlighted previously, `copilot-instructions.md` is designed to provide proj
    ```
 
 4. Select **New Chat** in Copilot chat to clear the buffer and start a new conversation.
-
-   ![Screenshot of the New Chat button being highlighted in the Copilot Chat panel](images/copilot-new-chat.png)
-
 5. Return to **server/routes/publishers.py** to ensure focus is set correctly.
 6. Send the same prompt as before to create the endpoint.
 

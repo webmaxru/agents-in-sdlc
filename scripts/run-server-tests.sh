@@ -13,15 +13,22 @@ if [[ "$OSTYPE" == "msys" ]] || [[ "$OSTYPE" == "win32" ]]; then
 else
     source "$PROJECT_ROOT/venv/bin/activate" || . "$PROJECT_ROOT/venv/bin/activate"
 fi
+
 # Check if the virtual environment is activated
 if [[ "$VIRTUAL_ENV" == "" ]]; then
-    echo "Virtual environment is not activated. Please run setup-env.sh first."
-    exit 1
-fi
-# Check if the server directory exists
-if [[ ! -d "$PROJECT_ROOT/server" ]]; then
-    echo "Server directory does not exist. Please run setup-env.sh first."
-    exit 1
+    echo "Virtual environment not activated. Running setup-env.sh..."
+    if [[ "$OSTYPE" == "msys" ]] || [[ "$OSTYPE" == "win32" ]]; then
+        "$PROJECT_ROOT/scripts/setup-env.sh"
+    else
+        bash "$PROJECT_ROOT/scripts/setup-env.sh"
+    fi
+    
+    # Re-activate virtual environment after setup
+    if [[ "$OSTYPE" == "msys" ]] || [[ "$OSTYPE" == "win32" ]]; then
+        source "$PROJECT_ROOT/venv/Scripts/activate" || . "$PROJECT_ROOT/venv/Scripts/activate"
+    else
+        source "$PROJECT_ROOT/venv/bin/activate" || . "$PROJECT_ROOT/venv/bin/activate"
+    fi
 fi
 
 # Run server tests

@@ -76,7 +76,7 @@ To see the impact of custom instructions, we will start by sending a prompt with
 As highlighted previously, `copilot-instructions.md` is designed to provide project-level information to Copilot. Let's ensure global coding standards are documented to improve code suggestions from Copilot chat.
 
 1. Open **.github/copilot-instructions.md**.
-2. Explore the file, noting the brief description of the project and sections for `Backend`, `Frontend`, and `Code standards`. These are applicable to any interactions we'd have with Copilot.
+2. Explore the file, noting the brief description of the project and sections for `Backend`, `Frontend`, `GitHub Actions Workflows`, and `Code standards`. These are applicable to any interactions we'd have with Copilot.
 3. Add the following line to the bottom of the file to instruct Copilot to add comment headers to files:
 
    ```markdown
@@ -123,26 +123,29 @@ From this section, you explored how the custom instructions file has provided Co
 
 ## Instruction files for tasks
 
-Coding is often repetitive, with developers performing similar tasks on a regular basis. Copilot is wonderful for allowing you to offload these types of tasks. But these types of tasks, like adding an endpoint, creating a component, or adding a new service pattern implementation often require a particular template or structure to be followed. Instruction files allow you to provide specific requirements for these types of tasks.
+Coding is often repetitive, with developers performing similar tasks on a regular basis. Copilot is wonderful for allowing you to offload these types of tasks. But these types of tasks, like adding an endpoint, creating a component, or adding a new service pattern implementation often require a particular template or structure to be followed. Instruction files allow you to provide specific requirements for these types of tasks. They can be added manually when using Copilot Chat, or can have an `applyTo:` tag added to the top of the file to have Copilot automatically use them for specific files.
 
 We want to create a new endpoint to list all publishers, and to follow the same pattern we used for the existing [games endpoints](../server/routes/games.py), and to create tests which follow the same pattern as the existing [games endpoints tests](../server/tests/test_routes/test_games.py). An instruction file has already been created; let's explore it and see the difference in code it generates.
 
-1. Open **.github/instructions/create-endpoint.instructions.md**.
-2. Review the following entries inside the instruction file, which includes:
+1. Open **.github/instructions/python-tests.instructions.md**.
+2. Note the `applyTo:` section at the top, which contains a filter for all files in the **server/tests** directory which start with **test_** and have a **.py** extension. Whenever Copilot Chat interacts with a file which matches this pattern it will automatically use the guidance provided in this file.
+3. Note the file contains guidance about how tests should be created, and how to utilize SQLite when testing database functionality.
+4. Open **.github/instructions/create-endpoint.instructions.md**.
+5. Review the following entries inside the instruction file, which includes:
 
    - an overview of requirements, including that tests must be created, and endpoints are created in Flask using blueprints.
-   - a link to another [instructions file focused on test generation](../.github/instructions/python-tests.instructions.md)
+   - a link to another the above mentioned **python-tests.instructions.md** file.
    - links to two existing files which follow the patterns we want - both the games blueprint and tests. Notice how these are setup as normal markdown links, allowing an instruction file to incorporate additional files for context.
 
-3. Open **server/app.py**.
-4. Return to Copilot Chat and select **New Chat** to start a new session.
-5. Select **Edit** from the mode dropdown, which will allow Copilot to update multiple files.
+6. Open **server/app.py**.
+7. Return to Copilot Chat and select **New Chat** to start a new session.
+8. Select **Edit** from the mode dropdown, which will allow Copilot to update multiple files.
 
    ![Screenshot of the Edit mode being highlighted in the Copilot Chat panel](images/copilot-edits.png)
 
-6. Select the **Add Context** button to open the context dialog
-7. If prompted to allow the codespace to see text and images copied to the clipboard, select **Allow**.
-8. Select **Instructions** from the dropdown at the top of your codespace.
+9. Select the **Add Context** button to open the context dialog
+10. If prompted to allow the codespace to see text and images copied to the clipboard, select **Allow**.
+11. Select **Instructions** from the dropdown at the top of your codespace.
 
 > [!TIP]
 > If the list of options is long, you can type **instructions** to filter to the Instructions option then select **Instructions**.

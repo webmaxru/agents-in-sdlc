@@ -116,7 +116,7 @@ The `servers` section defines the MCP server that you want to use. In this case,
 
 In order to interact with GitHub via the MCP server you'll need to have a token. This can either be done by [creating a personal access token (PAT)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token), or (as in our case) using the GitHub token from the codespace. Let's obtain the GitHub token.
 
-1. Open the terminal in your Codespace.
+1. Open the terminal in your Codespace by selecting <kbd>Ctl</kbd>+<kbd>\`</kbd>.
 2. Run the following command to print the value of the GITHUB_TOKEN environment variable:
 
     ```bash

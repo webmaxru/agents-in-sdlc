@@ -1,168 +1,172 @@
 import unittest
-from unittest.mock import patch, MagicMock
 import json
-from app import app
+from typing import Dict, List, Any, Optional
+from flask import Flask, Response
+from models import Game, Publisher, Category, db, init_db
+from routes.games import games_bp
 
 class TestGamesRoutes(unittest.TestCase):
-    def setUp(self):
-        self.app = app.test_client()
-        self.app.testing = True
-        app.config['TESTING'] = True
-
-        # Common test data
-        self.test_games = [
+    # Test data as complete objects
+    TEST_DATA: Dict[str, Any] = {
+        "publishers": [
+            {"name": "DevGames Inc"},
+            {"name": "Scrum Masters"}
+        ],
+        "categories": [
+            {"name": "Strategy"},
+            {"name": "Card Game"}
+        ],
+        "games": [
             {
-                'id': 1, 
-                'title': "Pipeline Panic", 
-                'description': "Build your DevOps pipeline before chaos ensues",
-                'publisher_name': "DevGames Inc", 
-                'category_name': "Strategy", 
-                'star_rating': 4.5
+                "title": "Pipeline Panic",
+                "description": "Build your DevOps pipeline before chaos ensues",
+                "publisher_index": 0,
+                "category_index": 0,
+                "star_rating": 4.5
             },
             {
-                'id': 2, 
-                'title': "Agile Adventures", 
-                'description': "Navigate your team through sprints and releases",
-                'publisher_name': "Scrum Masters", 
-                'category_name': "Card Game", 
-                'star_rating': 4.2
+                "title": "Agile Adventures",
+                "description": "Navigate your team through sprints and releases",
+                "publisher_index": 1,
+                "category_index": 1,
+                "star_rating": 4.2
             }
         ]
+    }
+    
+    # API paths
+    GAMES_API_PATH: str = '/api/games'
 
-    def _create_mock_game(self, title, description, id=None, publisher_name=None, category_name=None, star_rating=None):
-        """Create a mock game with standard attributes"""
-        game = MagicMock(spec=['to_dict', 'id', 'title', 'description'])
-        game.id = id
-        game.title = title
-        game.description = description
+    def setUp(self) -> None:
+        """Set up test database and seed data"""
+        # Create a fresh Flask app for testing
+        self.app = Flask(__name__)
+        self.app.config['TESTING'] = True
+        self.app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///:memory:'
+        self.app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
         
-        game_dict = {
-            'id': id, 
-            'title': title, 
-            'description': description,
-            'star_rating': star_rating,
-            'publisher': {'id': id, 'name': publisher_name} if publisher_name else None,
-            'category': {'id': id, 'name': category_name} if category_name else None
-        }
-            
-        game.to_dict.return_value = game_dict
-        return game
+        # Register the games blueprint
+        self.app.register_blueprint(games_bp)
         
-    def _setup_mock_query(self, mock_query, games):
-        """Configure the query mock with chainable methods"""
-        query_mock = MagicMock()
-        mock_query.return_value = query_mock
+        # Initialize the test client
+        self.client = self.app.test_client()
         
-        # Setup all chainable methods to return self
-        for method in ['join', 'filter', 'all', 'first']:
-            getattr(query_mock, method).return_value = query_mock
+        # Initialize in-memory database for testing
+        init_db(self.app, testing=True)
         
-        # Set actual return values
-        query_mock.all.return_value = games
-        query_mock.first.return_value = games[0] if games else None
-        
-        return query_mock
-        
-    def _assert_game_data(self, game_data, expected_game):
-        """Assert that game data matches expected values"""
-        self.assertEqual(game_data['id'], expected_game['id'])
-        self.assertEqual(game_data['title'], expected_game['title'])
-        self.assertEqual(game_data['description'], expected_game['description'])
-        
-        if 'publisher_name' in expected_game and expected_game['publisher_name']:
-            self.assertEqual(game_data['publisher']['name'], expected_game['publisher_name'])
-            
-        if 'category_name' in expected_game and expected_game['category_name']:
-            self.assertEqual(game_data['category']['name'], expected_game['category_name'])
-            
-        if 'star_rating' in expected_game:
-            self.assertEqual(game_data['star_rating'], expected_game['star_rating'])
+        # Create tables and seed data
+        with self.app.app_context():
+            db.create_all()
+            self._seed_test_data()
 
-    @patch('routes.games.get_games_base_query')
-    def test_get_games_success(self, mock_query):
-        """Test successful retrieval of multiple games"""
-        # Arrange
-        mock_games = [
-            self._create_mock_game(**self.test_games[0]),
-            self._create_mock_game(**self.test_games[1])
+    def tearDown(self) -> None:
+        """Clean up test database and ensure proper connection closure"""
+        with self.app.app_context():
+            db.session.remove()
+            db.drop_all()
+            db.engine.dispose()
+
+    def _seed_test_data(self) -> None:
+        """Helper method to seed test data"""
+        # Create test publishers
+        publishers = [
+            Publisher(**publisher_data) for publisher_data in self.TEST_DATA["publishers"]
         ]
-        mock_query.return_value.all.return_value = mock_games
+        db.session.add_all(publishers)
         
-        # Act
-        response = self.app.get('/api/games')
-        data = json.loads(response.data)
+        # Create test categories
+        categories = [
+            Category(**category_data) for category_data in self.TEST_DATA["categories"]
+        ]
+        db.session.add_all(categories)
         
-        # Assert
-        self.assertEqual(response.status_code, 200)
-        self.assertEqual(len(data), 2)
+        # Commit to get IDs
+        db.session.commit()
         
-        self._assert_game_data(data[0], self.test_games[0])
-        self._assert_game_data(data[1], self.test_games[1])
-        mock_query.assert_called_once()
-        
-    @patch('routes.games.get_games_base_query')
-    def test_get_games_empty(self, mock_query):
-        """Test retrieval when no games are available"""
-        # Arrange
-        mock_query.return_value.all.return_value = []
-        
-        # Act
-        response = self.app.get('/api/games')
-        data = json.loads(response.data)
-        
-        # Assert
-        self.assertEqual(response.status_code, 200)
-        self.assertEqual(data, [])
+        # Create test games
+        games = []
+        for game_data in self.TEST_DATA["games"]:
+            game_dict = game_data.copy()
+            publisher_index = game_dict.pop("publisher_index")
+            category_index = game_dict.pop("category_index")
+            
+            games.append(Game(
+                **game_dict,
+                publisher=publishers[publisher_index],
+                category=categories[category_index]
+            ))
+            
+        db.session.add_all(games)
+        db.session.commit()
 
-    @patch('routes.games.get_games_base_query')
-    def test_get_games_structure(self, mock_query):
-        """Test the response structure for a single game"""
-        # Arrange
-        game = self._create_mock_game(**self.test_games[0])
-        mock_query.return_value.all.return_value = [game]
-        
+    def _get_response_data(self, response: Response) -> Any:
+        """Helper method to parse response data"""
+        return json.loads(response.data)
+
+    def test_get_games_success(self) -> None:
+        """Test successful retrieval of multiple games"""
         # Act
-        response = self.app.get('/api/games')
-        data = json.loads(response.data)
+        response = self.client.get(self.GAMES_API_PATH)
+        data = self._get_response_data(response)
+        
+        # Assert
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(data), len(self.TEST_DATA["games"]))
+        
+        # Verify all games using loop instead of manual testing
+        for i, game_data in enumerate(data):
+            test_game = self.TEST_DATA["games"][i]
+            test_publisher = self.TEST_DATA["publishers"][test_game["publisher_index"]]
+            test_category = self.TEST_DATA["categories"][test_game["category_index"]]
+            
+            self.assertEqual(game_data['title'], test_game["title"])
+            self.assertEqual(game_data['publisher']['name'], test_publisher["name"])
+            self.assertEqual(game_data['category']['name'], test_category["name"])
+            self.assertEqual(game_data['starRating'], test_game["star_rating"])
+
+    def test_get_games_structure(self) -> None:
+        """Test the response structure for games"""
+        # Act
+        response = self.client.get(self.GAMES_API_PATH)
+        data = self._get_response_data(response)
         
         # Assert
         self.assertEqual(response.status_code, 200)
         self.assertIsInstance(data, list)
-        self.assertEqual(len(data), 1)
+        self.assertEqual(len(data), len(self.TEST_DATA["games"]))
         
-        required_fields = ['id', 'title', 'description', 'publisher', 'category', 'star_rating']
+        required_fields = ['id', 'title', 'description', 'publisher', 'category', 'starRating']
         for field in required_fields:
             self.assertIn(field, data[0])
 
-    @patch('routes.games.get_games_base_query')
-    def test_get_game_by_id_success(self, mock_query):
+    def test_get_game_by_id_success(self) -> None:
         """Test successful retrieval of a single game by ID"""
-        # Arrange
-        game = self._create_mock_game(**self.test_games[0])
-        mock_query.return_value.filter.return_value.first.return_value = game
+        # Get the first game's ID from the list endpoint
+        response = self.client.get(self.GAMES_API_PATH)
+        games = self._get_response_data(response)
+        game_id = games[0]['id']
         
         # Act
-        response = self.app.get('/api/games/1')
-        data = json.loads(response.data)
+        response = self.client.get(f'{self.GAMES_API_PATH}/{game_id}')
+        data = self._get_response_data(response)
         
         # Assert
+        first_game = self.TEST_DATA["games"][0]
+        first_publisher = self.TEST_DATA["publishers"][first_game["publisher_index"]]
+        
         self.assertEqual(response.status_code, 200)
-        self._assert_game_data(data, self.test_games[0])
+        self.assertEqual(data['title'], first_game["title"])
+        self.assertEqual(data['publisher']['name'], first_publisher["name"])
         
-    @patch('routes.games.get_games_base_query')
-    def test_get_game_by_id_not_found(self, mock_query):
+    def test_get_game_by_id_not_found(self) -> None:
         """Test retrieval of a non-existent game by ID"""
-        # Arrange
-        mock_query.return_value.filter.return_value.first.return_value = None
-        
         # Act
-        response = self.app.get('/api/games/999')
-        data = json.loads(response.data)
+        response = self.client.get(f'{self.GAMES_API_PATH}/999')
+        data = self._get_response_data(response)
         
         # Assert
         self.assertEqual(response.status_code, 404)
         self.assertEqual(data['error'], "Game not found")
-
 
 if __name__ == '__main__':
     unittest.main()

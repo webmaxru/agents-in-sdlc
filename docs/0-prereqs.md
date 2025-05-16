@@ -6,16 +6,16 @@ Before we get started on the lab, there's a few tasks we need to complete to get
 
 To create a copy of the repository for the code you'll create an instance from the [template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-template-repository). The new instance will contain all of the necessary files for the lab, and you'll use it as you work through the exercises. 
 
-1. Navigate to the [GitHub repository for this lab](https://github.com/github-samples/agents-in-sdlc).
+1. Navigate to the GitHub repository for this lab: `https://github.com/github-samples/agents-in-sdlc`.
 2. Create your own copy of the repository by selecting the **Use this template** button on the lab repository page. Then select **Create a new repository**.
 
     ![Use this template button](images/use-template.png)
 
-3. For labs at Microsoft build, choose **Microsoft-Build-2025** as the GitHub organization. Set the repository name to **301-<YOUR_GITHUB_HANDLE>**, replacing **<YOUR_GITHUB_HANDLE>** with your GitHub handle. So if your handle was Mona, you'd use **301-Mona**.
+3. For labs at Microsoft build, choose **Microsoft-Build-2025** as the GitHub organization. Set the repository name to **310-<YOUR_GITHUB_HANDLE>**, replacing **<YOUR_GITHUB_HANDLE>** with your GitHub handle. So if your handle was Mona, you'd use **310-Mona**.
 
     ![Input the repository template settings](images/repository-template-settings.png)
 
-4. Make a note of the repository path you created, which will be **Microsoft-Build-2025/301-<YOUR_GITHUB_HANDLE>**, as you will be referring to this later in the lab.
+4. Make a note of the repository path you created, which will be **Microsoft-Build-2025/310-<YOUR_GITHUB_HANDLE>**, as you will be referring to this later in the lab.
 
 ## Creating a codespace
 

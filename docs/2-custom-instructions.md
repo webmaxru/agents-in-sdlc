@@ -130,7 +130,7 @@ We want to create a new endpoint to list all publishers, and to follow the same 
 1. Open **.github/instructions/python-tests.instructions.md**.
 2. Note the `applyTo:` section at the top, which contains a filter for all files in the **server/tests** directory which start with **test_** and have a **.py** extension. Whenever Copilot Chat interacts with a file which matches this pattern it will automatically use the guidance provided in this file.
 3. Note the file contains guidance about how tests should be created, and how to utilize SQLite when testing database functionality.
-4. Open **.github/instructions/create-endpoint.instructions.md**.
+4. Open **.github/instructions/flask-endpoint.instructions.md**.
 5. Review the following entries inside the instruction file, which includes:
 
    - an overview of requirements, including that tests must be created, and endpoints are created in Flask using blueprints.

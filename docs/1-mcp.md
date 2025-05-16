@@ -201,10 +201,11 @@ You should notice that the issues are fairly detailed. This is where we benefit 
 
 Congratulations, you have created issues on GitHub using Copilot Chat and MCP!
 
-To recap, in this exercise we have:
+To recap, in this exercise we:
 
-- Learned about Model Context Protocol (MCP) and how it provides access to external tools and resources, allowing AI agents to perform actions on your behalf.
-- Successfully created your backlog of work by using [GitHub Copilot Chat Agent Mode](https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode) and the [GitHub MCP server](https://github.com/github/github-mcp-server).
+- used Model Context Protocol (MCP), which provides access to external tools and capabilities.
+- set up the GitHub MCP server in your repository.
+- used GitHub Copilot Chat agent mode to create issues in your repository.
 
 With the GitHub MCP server configured, you can now use GitHub Copilot Chat Agent Mode to perform additional actions on your behalf, like creating new repositories, managing pull requests, and searching for information across your repositories.
 

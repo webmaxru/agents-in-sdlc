@@ -1,4 +1,4 @@
-# Exercise 1: Setting up the backlog with Copilot Agent Mode and GitHub's MCP Server
+# Exercise 1 - Setting up the backlog with Copilot Agent Mode and GitHub's MCP Server
 
 ## Scenario
 

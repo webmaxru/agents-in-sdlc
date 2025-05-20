@@ -13,9 +13,9 @@
 
 - The Python virtual environment is located in the root of the project in a **venv** folder
 - Register all blueprints in `server/app.py`
-- Use the [test instructions](./python-tests.instructions.md) when creating tests
+- Use the [test instructions](.github/instructions/python-tests.instructions.md) when creating tests
 
 ## Prototype files
 
-- [Endpoint prototype](../../server/routes/games.py)
-- [Tests prototype](../../server/tests/test_games.py)
+- [Endpoint prototype](server/routes/games.py)
+- [Tests prototype](server/tests/test_games.py)

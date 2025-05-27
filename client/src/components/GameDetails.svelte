@@ -76,14 +76,14 @@
         {error}
     </div>
 {:else if gameData}
-    <div class="bg-slate-800/70 backdrop-blur-sm border border-slate-700 rounded-xl overflow-hidden">
+    <div class="bg-slate-800/70 backdrop-blur-sm border border-slate-700 rounded-xl overflow-hidden" data-testid="game-details">
         <div class="p-6">
             <div class="flex justify-between items-start flex-wrap gap-3">
-                <h1 class="text-3xl font-bold text-slate-100 mb-2">{gameData.title}</h1>
+                <h1 class="text-3xl font-bold text-slate-100 mb-2" data-testid="game-details-title">{gameData.title}</h1>
                 
                 {#if gameData.starRating !== null}
                 <div class="flex items-center">
-                    <span class="bg-blue-500/20 text-blue-400 text-sm px-3 py-1 rounded-full">
+                    <span class="bg-blue-500/20 text-blue-400 text-sm px-3 py-1 rounded-full" data-testid="game-rating">
                         <span class="text-yellow-400">{renderStarRating(gameData.starRating)}</span> 
                         {gameData.starRating.toFixed(1)}
                     </span>
@@ -93,12 +93,12 @@
             
             <div class="flex flex-wrap gap-2 mt-4 mb-6">
                 {#if gameData.category}
-                    <span class="text-xs font-medium px-2.5 py-0.5 rounded bg-blue-900/60 text-blue-300">
+                    <span class="text-xs font-medium px-2.5 py-0.5 rounded bg-blue-900/60 text-blue-300" data-testid="game-details-category">
                         {gameData.category.name}
                     </span>
                 {/if}
                 {#if gameData.publisher}
-                    <span class="text-xs font-medium px-2.5 py-0.5 rounded bg-purple-900/60 text-purple-300">
+                    <span class="text-xs font-medium px-2.5 py-0.5 rounded bg-purple-900/60 text-purple-300" data-testid="game-details-publisher">
                         {gameData.publisher.name}
                     </span>
                 {/if}
@@ -107,12 +107,12 @@
             <div class="space-y-4 mt-6">
                 <h2 class="text-lg font-semibold text-slate-200 mb-2">About this game</h2>
                 <div class="text-slate-400 space-y-4">
-                    <p>{gameData.description}</p>
+                    <p data-testid="game-details-description">{gameData.description}</p>
                 </div>
             </div>
             
             <div class="mt-8">
-                <button class="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-medium py-3 px-4 rounded-lg transition-all duration-200 flex justify-center items-center">
+                <button class="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-medium py-3 px-4 rounded-lg transition-all duration-200 flex justify-center items-center" data-testid="back-game-button">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
                     </svg>

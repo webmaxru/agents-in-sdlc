@@ -1,14 +1,26 @@
 # Exercise 4 - GitHub Copilot coding agent
 
-There are likely very few, if any, organizations who don't struggle with tech debt. This could be unresolved security issues, legacy code requiring updates, or feature requests which have languished on the backlog because we just didn't have the time to implement them. GitHub Coppilot's coding agent is built to perform tasks such as updating code and adding functionality, all in an autonomous fashion. Once the agent completes its work, it generates a draft PR ready for a human developer to review. This allows offloading of tedious tasks and an acceleration of the development process, and frees developers to focus on larger picture items. 
+There are likely very few, if any, organizations who don't struggle with tech debt. This could be unresolved security issues, legacy code requiring updates, or feature requests which have languished on the backlog because we just didn't have the time to implement them. GitHub Copilot's coding agent is built to perform tasks such as updating code and adding functionality, all in an autonomous fashion. Once the agent completes its work, it generates a draft PR ready for a human developer to review. This allows offloading of tedious tasks and an acceleration of the development process, and frees developers to focus on larger picture items. 
 
 Let's first explore how we can use the Copilot coding agent to create a GitHub Actions workflow to help us maintain the quality of our app. Then, we'll discuss the importance of well-scoped issues, and explore how it could support migration from one language and framework to another.
+
+## Scenarios
+
+Tailspin Toys already has some tech debt they'd like to address. The contractors initially hired to create the first version of the site left the documentation in an unideal state - and by that we mean it's completely lacking. As a first step, they'd like to see docstrings or the equivalent added to all functions in the application.
+
+Additionally, as we're moving the development in-house, we want to explore migrating the backend from Flask to .NET. While Flask is wonderful, the new team is more experienced with .NET. Given the project's early state, it's the perfect opportunity to get on top of this migration.
+
+These are both examples of projects which can quickly find themselves deprioritized, and are great to assign to Copilot coding agent. Copilot coding agent can then work on the task asynchronously, allowing the developer to focus on other tasks, then return to review Copilot's work and ensure everything is as expected.
+
+## Introducing GitHub Copilot coding agent
+
+[GitHub Copilot coding agent](https://docs.github.com/en/copilot/using-github-copilot/coding-agent/about-assigning-tasks-to-copilot#overview-of-copilot-coding-agent) can perform tasks in the background, much in the same way a human developer would. And, just like with working with a human developer, this is done by [assigning a GitHub issue to Copilot](https://docs.github.com/en/copilot/using-github-copilot/coding-agent/using-copilot-to-work-on-an-issue). Once assigned, Copilot will create a draft pull request to track its progress, setup an environment, and begin working on the task. You can dig into Copilot's session while it's still in flight or after its completed. Once its ready for you to review the proposed solution, it'll tag you in the pull request!
 
 ## Setting up the Dev Environment for the Copilot coding agent
 
 Creating code, regardless of who's involved, typically requires a specific environment and some setup scripts to be run to ensure everything is in a good state. This holds true when assigning tasks to Copilot, which is performing tasks in a similar fashion to a SWE.
 
-Copilot coding agent supports a special workflow, set in the `.github/workflows/copilot-setup-steps.yml` file, to run before it gets to work. This enables it to have access to the required development tools and dependencies. We pre-configured this ahead of the lab to help the lab flow and allow this learning opportunity. It makes sure that Copilot had access to Python, Node.JS, the .NET 9.0 SDK, and the required dependencies for the client and server:
+[Copilot coding agent supports a special workflow](https://docs.github.com/en/copilot/using-github-copilot/coding-agent/best-practices-for-using-copilot-to-work-on-tasks#pre-installing-dependencies-in-github-copilots-environment), set in the `.github/workflows/copilot-setup-steps.yml` file, to run before it gets to work. This enables it to have access to the required development tools and dependencies. We pre-configured this ahead of the lab to help the lab flow and allow this learning opportunity. It makes sure that Copilot had access to Python, Node.JS, the .NET 9.0 SDK, and the required dependencies for the client and server:
 
 ```yaml
 name: "Copilot Setup Steps"
@@ -66,17 +78,24 @@ It looks like any other GitHub workflow file, but it has a few key points:
 - It contains a single job called `copilot-setup-steps`. This job is executed in GitHub Actions before Copilot starts working on the pull request.
 - We've also added a `workflow_dispatch` trigger, which allows you to run the workflow manually from the Actions tab of your repository. This is useful for testing that the workflow runs successfully ahead of waiting for Copilot to run it.
 
-You can find out more about customizing the development environment for Copilot coding agent in the [GitHub documentation](#TODO).
+## Improving code documentation
 
-## Scenario – Improving quality checks with GitHub Actions
-
-Bringing quality checks into our CI/CD pipeline is a great way to ensure that the code we are writing is of high quality, and maintain high velocity. This is an important aspect to consider when working with AI or other members of the team. These checks also help us when we're reviewing changes from tools like Dependabot or GitHub Copilot, and whether our code still compiles and passes some established baseline.
+While every developer and organization understands the importance of documentation, most projects have either outdated information or lack it altogether. This is the type of tech debt which often goes unaddressed, slowing productivity and making it more difficult to maintain the codebase or bring new developers into the team. Fortunately, Copilot shines at creating documentation, and this is a perfect issue to assign to Copilot coding agent. It'll work in the background to generate the necessary documentation. In a future exercise we'll return to review its work.
 
 1. Navigate to your repository on github.com.
 2. Select the **Issues** tab.
-3. Open the issue associated with creating a GitHub Actions workflow; it should have a title similar to **Add GitHub Actions workflow for building and testing client and server**.
-4. On the right side, select **Assignees** to open the searchbox for contributors to the repository.
-5. Select **Copilot** to assign the issue to Copilot.
+3. Select **New issue** to open the new issue dialog.
+4. Select **Blank issue** to create the new issue.
+5. Set the **Title** to **Code lacks documentation**.
+6. Set the **Description** to:
+   
+    ```plaintext
+    Our organization has a requirement that all functions have docstrings or the language equivalent. Unfortunately, recent updates haven't followed this standard. We need to update the existing code to ensure docstrings (or the equivalent) are included with every function or method.
+    ```
+
+7. Select **Create** to create the issue.
+8. On the right side, select **Assignees** to open the searchbox for contributors to the repository.
+9. Select **Copilot** to assign the issue to Copilot.
 
   ![Assigning Copilot to an issue](images/ex4-issue-assign.png)
 

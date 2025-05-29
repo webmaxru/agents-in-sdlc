@@ -1,6 +1,6 @@
 # Exercise 4 - GitHub Copilot coding agent
 
-| [← Lab overview][previous-lesson] | [Next lesson: MCP servers →][next-lesson] |
+| [← Prerequisites][previous-lesson] | [Next lesson: MCP servers →][next-lesson] |
 |:--|--:|
 
 There are likely very few, if any, organizations who don't struggle with tech debt. This could be unresolved security issues, legacy code requiring updates, or feature requests which have languished on the backlog because we just didn't have the time to implement them. GitHub Copilot's coding agent is built to perform tasks such as updating code and adding functionality, all in an autonomous fashion. Once the agent completes its work, it generates a draft PR ready for a human developer to review. This allows offloading of tedious tasks and an acceleration of the development process, and frees developers to focus on larger picture items. 
@@ -216,7 +216,7 @@ With coding agent working diligently in the background, we can now turn our atte
 
 ---
 
-| [← Lab overview][previous-lesson] | [Next lesson: MCP servers →][next-lesson] |
+| [← Prerequisites][previous-lesson] | [Next lesson: MCP servers →][next-lesson] |
 |:--|--:|
 
 [coding-agent-overview]: https://docs.github.com/en/copilot/using-github-copilot/coding-agent/about-assigning-tasks-to-copilot#overview-of-copilot-coding-agent
@@ -224,4 +224,4 @@ With coding agent working diligently in the background, we can now turn our atte
 [setup-workflow]: https://docs.github.com/en/copilot/using-github-copilot/coding-agent/best-practices-for-using-copilot-to-work-on-tasks#pre-installing-dependencies-in-github-copilots-environment
 [copilot-agents]: https://docs.github.com/en/copilot/building-copilot-extensions/building-a-copilot-agent-for-your-copilot-extension/about-copilot-agents
 [next-lesson]: ./2-mcp.md
-[previous-lesson]: ./README.md
+[previous-lesson]: ./0-prereqs.md

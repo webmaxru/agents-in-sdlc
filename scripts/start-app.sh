@@ -4,18 +4,20 @@
 GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 
-# Store initial directory
+# Store initial directory and script directory
 INITIAL_DIR=$(pwd)
+SCRIPT_DIR=$(dirname "$(realpath "$0")")
 
-# Check if we're in scripts directory and navigate accordingly
-if [[ $(basename $(pwd)) == "scripts" ]]; then
+# Check if we're in scripts, client, or server directory and navigate up one level
+current_directory=$(basename $(pwd))
+if [[ "$current_directory" =~ ^(scripts|client|server)$ ]]; then
     cd ..
 fi
 
 echo "Starting API (Flask) server..."
 
 # Source environment setup script
-source "$(dirname "$0")/setup-env.sh"
+source "${SCRIPT_DIR}/setup-env.sh"
 
 # Continue with server startup
 cd server || {

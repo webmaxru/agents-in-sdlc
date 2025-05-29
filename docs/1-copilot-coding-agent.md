@@ -89,7 +89,7 @@ While every developer and organization understands the importance of documentati
 2. Select the **Issues** tab.
 3. Select **New issue** to open the new issue dialog.
 4. Select **Blank issue** to create the new issue.
-5. Set the **Title** to **Code lacks documentation**.
+5. Set the **Title** to `Code lacks documentation`.
 6. Set the **Description** to:
    
     ```plaintext
@@ -102,29 +102,22 @@ While every developer and organization understands the importance of documentati
 
   ![Assigning Copilot to an issue](images/ex4-issue-assign.png)
 
-Shortly after, you should see a set of 👀 on the first comment in the issue, indicating Copilot is on the job!
+10. Click somewhere else on the page to close the assignment window. Shortly after, you should see a set of 👀 on the first comment in the issue, indicating Copilot is on the job!
 
   ![Copilot uses the eyes emoji to indicate it's working on the issue](images/ex4-issue-eyes.png)
 
-6. Select the **Pull Requests** tab.
-7. Open the newly generated issue, which will be titled something similar to **[WIP]: Code lacks documentation**.
-8. Notice how Copilot has created a todo list.
-9. Review the list and the tasks it's going to complete.
-10. Scroll down the pull request timeline, and you should see an update that Copilot has started working on the issue.
-11. Select the **View session** button.
+11. Select the **Pull Requests** tab.
+12. Open the newly generated issue, which will be titled something similar to **[WIP]: Code lacks documentation**.
+13. Notice how Copilot has created a todo list.
+14. Review the list and the tasks it's going to complete.
+15.  Scroll down the pull request timeline, and you should see an update that Copilot has started working on the issue.
+16.  Select the **View session** button.
 
   ![Copilot session view](images/ex4-view-session.png)
 
-12. Notice that you can scroll through the live session, and how Copilot is solving the problem. That includes exploring the code and understanding the state, how Copilot pauses to think and decide on the appropriate plan and also creating code.
+17. Notice that you can scroll through the live session, and how Copilot is solving the problem. That includes exploring the code and understanding the state, how Copilot pauses to think and decide on the appropriate plan and also creating code.
 
 This will likely take several minutes. One of the primary goals of Copilot coding agent is to allow it to perform tasks asynchronously, freeing us to focus on other tasks. We're going to take advantage of that very feature by both assigning another task to Copilot coding agent, then turning our attention to writing some code to add features to our application.
-
-13. Scroll to the top of the session and select the **Back to pull request** link to return to the pull request.
-
-  ![Back to pull request](images/ex4-back-to-pr.png)
-
-You've successfully assigned your first issue to GitHub Copilot coding agent! Let's do another!
-
 
 ## The importance of well-scoped instructions
 
@@ -178,27 +171,31 @@ Let's create a detailed issue for migrating the backend from Flask to .NET, and 
     ```
 
 7. Note the level of guidance being provided to Copilot to help set everyone up for success.
-8. Select **Save** to save the issue.
-9. The newly created issue should now open.
-10. On the right side, select **Assignees** to open the searchbox for contributors to the repository.
-11. Select **Copilot** to assign the issue to Copilot.
+8. Scroll towards the bottom of the dialog box to locate the **Assignee** button.
+9. Select **Assignee** to open the dialog box to select assignees.
+10. Select **Copilot** from the list.
 
-    ![Assigning Copilot to an issue](images/ex4-issue-assign.png)
+    ![Create issue and assign Copilot coding agent](images/create-issue-assign-copilot.png)
+
+11. Select **Create** to save the issue.
+12. The newly created issue should now open.
 
 Shortly after, you should see a set of 👀 on the first comment in the issue, indicating Copilot is on the job!
 
 ![Copilot uses the eyes emoji to indicate it's working on the issue](images/ex4-issue-eyes.png)
 
-6. Select the **Pull Requests** tab.
-7. Open the newly generated issue, which will be titled something similar to **[WIP]: Migrate Flask backend to .NET 9.0**.
-8. Notice how Copilot has created a todo list.
-9. Review the list and the tasks it's going to complete.
-10. Scroll down the pull request timeline, and you should see an update that Copilot has started working on the issue.
-11. Select the **View session** button.
+> [!IMPORTANT]
+> You may need to refresh the window to see the updated indicator.
+
+13. Select the **Pull Requests** tab.
+14. Open the newly generated PR, which will be titled something similar to **[WIP]: Migrate Flask backend to .NET 9.0**.
+15. After a few minutes, Copilot will update the PR with a checklist of the tasks its going to perform. It will use this checklist to indicate to the outside world its progress.
+16. Scroll down the pull request timeline, and you should see an update that Copilot has started working on the issue.
+17. Select the **View session** button.
 
     ![Copilot session view](images/ex4-view-session.png)
 
-12. Notice that you can scroll through the live session, and how Copilot is solving the problem. That includes exploring the code and understanding the state, how Copilot pauses to think and decide on the appropriate plan and also creating code.
+18. Notice that you can scroll through the live session, and how Copilot is solving the problem. That includes exploring the code and understanding the state, how Copilot pauses to think and decide on the appropriate plan and also creating code.
 
 Copilot is now diligently working on your request! Copilot coding agent works in a similar fashion to a SWE, so we don't need to actively monitor it as we've done previously, but instead review asynchronously. Let's return to the prior task we assigned it, creating a workflow, to see how it got on.
 

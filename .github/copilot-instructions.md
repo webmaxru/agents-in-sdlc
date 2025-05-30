@@ -7,7 +7,7 @@ This is a crowdfunding platform for games with a developer theme. The applicatio
 ### Required Before Each Commit
 
 - Run Python tests to ensure backend functionality
-- For frontend changes, run builds in the client directory to verify build success, and the end to end tests to ensure everything works correctly
+- For frontend changes, run builds in the client directory to verify build success and the end-to-end tests, to ensure everything works correctly
 - When making API changes, update and run the corresponding tests to ensure everything works correctly
 - When updating models, ensure database migrations are included if needed
 - When adding new functionality, make sure you update the README

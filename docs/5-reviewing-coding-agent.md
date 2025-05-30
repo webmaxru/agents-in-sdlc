@@ -7,7 +7,7 @@ When we first started this lab we assigned a couple of issues to GitHub Copilot 
 
 ## Scenario
 
-As has been highlighted numerous times, the fundamentals of software design and DevOps do not change with the additional of generative AI. We always want to review the code generated, and work through our normal DevOps process. With that in mind, let's review the suggestions from GitHub Copilot for creating the documentation and new endpoints before we turn on review for the rest of our team.
+As has been highlighted numerous times, the fundamentals of software design and DevOps do not change with the addition of generative AI. We always want to review the code generated, and work through our normal DevOps process. With that in mind, let's review the suggestions from GitHub Copilot for creating the documentation and new endpoints before we turn on review for the rest of our team.
 
 ## Security and GitHub Copilot coding agent
 

@@ -3,7 +3,7 @@
 | [← Previous lesson: Model Context Protocol (MCP)][previous-lesson] | [Next lesson: Copilot agent mode →][next-lesson] |
 |:--|--:|
 
-Context is key across many aspects of life, and when working with generative AI. If you're performing a task which needs to be completed a particular way, or if a piece of background information is important, we want to ensure Copilot has access to that information. We can use [instruction files][instruction-files] to provide guidance to Copilot not only knows what we want it to do but how we want it to do it.
+Context is key across many aspects of life, and when working with generative AI. If you're performing a task which needs to be completed a particular way, or if a piece of background information is important, we want to ensure Copilot has access to that information. We can use [instruction files][instruction-files] to provide guidance so that Copilot not only understands what we want it to do but also how we want it to be done.
 
 In this exercise, you will learn how to:
 

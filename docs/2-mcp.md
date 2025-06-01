@@ -1,4 +1,4 @@
-# Exercise 1 - Setting up the backlog with Copilot Agent Mode and GitHub's MCP Server
+# Exercise 2 - Setting up the backlog with Copilot agent mode and GitHub's MCP Server
 
 | [← Previous lesson: GitHub Copilot coding agent][previous-lesson] | [Next lesson: Custom instructions →][next-lesson] |
 |:--|--:|
@@ -7,7 +7,7 @@ There's more to writing code than just writing code. Issues need to be filed, ex
 
 ## Scenario
 
-You are a part-time developer for Tailspin Toys - a crowdfunding platform for board games with a developer theme. You've been assigned various tasks to introduce new functionality to the website. Being a good team member, you want to file issues to track your work. To help future you, you've decided to enlist the help of Copilot. You will set up your backlog of work for the rest of the lab, using GitHub Copilot Chat Agent Mode and the GitHub Model Context Protocol (MCP) server to create the issues for you. 
+You are a part-time developer for Tailspin Toys - a crowdfunding platform for board games with a developer theme. You've been assigned various tasks to introduce new functionality to the website. Being a good team member, you want to file issues to track your work. To help future you, you've decided to enlist the help of Copilot. You will set up your backlog of work for the rest of the lab, using GitHub Copilot Chat agent mode and the GitHub Model Context Protocol (MCP) server to create the issues for you. 
 
 To achieve this, you will:
 
@@ -31,7 +31,7 @@ Popular existing MCP servers include:
 
 - **[GitHub MCP Server][github-mcp-server]**: This server provides access to a set of APIs for managing your GitHub repositories. It allows the AI agent to perform actions such as creating new repositories, updating existing ones, and managing issues and pull requests.
 - **[Playwright MCP Server][playwright-mcp-server]**: This server provides browser automation capabilities using Playwright. It allows the AI agent to perform actions such as navigating to web pages, filling out forms, and clicking buttons.
-- **Additional reference servers**: There are many other MCP servers available that provide access to different tools and resources. Anthropic [has a list][anthropic-mcp-servers] of reference implementations, third-party implementations, and community implementations of MCP servers. 
+- **Additional reference servers**: There are many other MCP servers available that provide access to different tools and resources. Anthropic has [a list of MCP servers][anthropic-mcp-servers], including reference, third-party, and community implementations. 
 
 > [!IMPORTANT]
 > MCP servers are like any other dependency in your project. Before using an MCP server, carefully review its source code, verify the publisher, and consider the security implications. Only use MCP servers that you trust and be cautious about granting access to sensitive resources or operations.
@@ -42,13 +42,14 @@ In a [prior exercise][prereqs-lesson] you launched the codespace you'll use for 
 
 The setup process for the codespace installed and setup many [VS Code extensions][vscode-extensions]. As with any software, updates may be needed. When your codespace is created we'll need to ensure everything is up-to-date.
 
-1. Select **Extensions** on the workbench on the left side of your codespace.
+1. Return to the tab where you started your codespace. If you closed the tab, return to your repository, select **Code** > **Codespaces** and then the name of the codespace.
+2. Select **Extensions** on the workbench on the left side of your codespace.
 
     ![Screenshot of the extensions window with multiple extensions showing either Update or Reload Window buttons](images/extensions-updates.png)
 
-2. Select **Update** on any extensions with an **Update** button. Repeat as necessary.
-3. Select **Reload Window** on any extensions with a **Reload Window** button to reload the codespace.
-4. When prompted by a dialog, select **Reload** to reload the window. This will ensure the latest version is being used.
+3. Select **Update** on any extensions with an **Update** button. Repeat as necessary.
+4. Select **Reload Window** on any extensions with a **Reload Window** button to reload the codespace.
+5. When prompted by a dialog, select **Reload** to reload the window. This will ensure the latest version is being used.
 
 ## Using GitHub Copilot Chat and agent mode
 
@@ -59,31 +60,32 @@ To access GitHub Copilot Chat agent mode, you need to have the GitHub Copilot Ch
 
 Once you have the extension installed, you may need to authenticate with your GitHub account to enable it.
 
-1. Select the **Copilot Chat** icon at the top of your Visual Studio Code window.
-2. Type a message like "Hello there" in the Copilot Chat window and press enter. This should activate Copilot Chat.
+1. Return to your codespace.
+2. Select the **Copilot Chat** icon at the top of your codespace.
+3. Type a message like "Hello world" in the Copilot Chat window and press enter. This should activate Copilot Chat.
 
     ![Example of Copilot Chat activation](images/copilot-chat-activation.png)
 
-3. Alternatively, if you are not authenticated you will be prompted to sign in to your GitHub account. Follow the instructions to authenticate.
+4. Alternatively, if you are not authenticated you will be prompted to sign in to your GitHub account. Follow the instructions to authenticate.
 
     ![Example of Copilot Chat authentication prompt](images/copilot-authentication.png)
 
-4. After authentication, you should see the Copilot Chat window appear.
+5. After authentication, you should see the Copilot Chat window appear.
 
     ![Example of Copilot Chat window](images/copilot-chat-window.png)
 
-5. Switch to agent mode by selecting the dropdown in the Copilot Chat window and selecting **Agent**.
+6. Switch to agent mode by selecting the dropdown in the Copilot Chat window and selecting **Agent**.
 
     ![Example of switching to agent mode](images/copilot-agent-mode-dropdown.png)
 
-6. Set the model to **Claude 3.5 Sonnet**.
+7. Set the model to **Claude 3.5 Sonnet**.
 
     ![Example of selecting the Claude 3.5 Sonnet model](images/copilot-agent-mode-model.png)
 
 > [!IMPORTANT]
 > The authors of this lab are not indicating a preference towards one model or another. When building this lab, we used Claude 3.5, and as such are including that in the instructions. The hope is the code suggestions you receive will be relatively consistent to ensure a good experience. However, because LLMs are probabilistic, you may notice the suggestions received differ from what is indicated in the lab. This is perfectly normal and expected.
 
-1. The chat pane should update to indicate that you are now in agent mode. You should see a tools icon, showing that we can configure tools for GitHub Copilot to use.
+8. The chat pane should update to indicate that you are now in agent mode. You should see a tools icon, showing that we can configure tools for GitHub Copilot to use.
 
     ![Example of Copilot Chat agent mode with tools icon](images/copilot-agent-mode.png)
 
@@ -161,11 +163,11 @@ To utilize an MCP server it needs to be "started". This will allow GitHub Copilo
 > [!IMPORTANT]
 > Do not share your PAT with anyone, as it provides access to your GitHub account and repositories. Treat it like a password and keep it secure. That includes not checking it into source control. **Do not paste it directly into the .vscode/mcp.json file.**
 
-4. The GitHub MCP server should start up, and you should now see the number of tools available in the Copilot Chat window increase from 0. This indicates that the AI agent is now able to access the GitHub MCP server and perform actions on your behalf.
+5. The GitHub MCP server should start up, and you should now see the number of tools available in the Copilot Chat window increase from 0. This indicates that the AI agent is now able to access the GitHub MCP server and perform actions on your behalf.
 
     ![Example of the Copilot Chat Pane showing tools available](images/copilot-agent-mode-mcp-tools.png)
 
-5. You can select the tools icon to see the list of available tools that the GitHub MCP server provides. This includes tools for creating and managing repositories, issues, pull requests, and more.
+6. You can select the tools icon to see the list of available tools that the GitHub MCP server provides. This includes tools for creating and managing repositories, issues, pull requests, and more.
 
 ## Creating a backlog of tasks
 

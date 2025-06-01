@@ -1,6 +1,6 @@
 # Exercise 0: Prerequisites
 
-Before we get started on the lab, there's a few tasks we need to complete to get everything ready. We need to get a copy of the repository which includes the code, then spin up a [codespace](https://github.com/features/codespaces) to create our code.
+Before we get started on the lab, there's a few tasks we need to complete to get everything ready. We need to get a copy of the repository which includes the code, then spin up a [codespace](https://github.com/features/codespaces) to use to create our code.
 
 ## Setting up the Lab Repository
 
@@ -37,8 +37,8 @@ The creation of the codespace will take several minutes, although it's still far
 
 ## Summary
 
-Congratulations, you have created a copy of the lab repository! You also began the creation process of your codespace, which you'll use when you begin writing code.
+Congratulations, you have created a copy of the lab repository! You also began the creation process of your codespace, which you'll use when you begin writing code. We're going to return back to this after the next lesson, so don't worry.
 
 ## Next step
 
-Since we've got a few minutes, let's get Copilot working on some tasks asynchronously for us! We can do this by [creating issues and assigning them ot Copilot coding agent](./1-copilot-coding-agent.md)
+Since we've got a few minutes, let's get Copilot working on some tasks asynchronously for us! We can do this by [creating issues and assigning them ot Copilot coding agent](./1-copilot-coding-agent.md).

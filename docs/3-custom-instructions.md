@@ -190,7 +190,7 @@ We want to create a new endpoint to list all publishers, and to follow the same 
 
 23. Commit the changes to your repository by selecting **Commit**.
 
-## Summary
+## Summary and next steps
 
 Congratulations! You explored how to ensure Copilot has the right context to generate code following the practices your organization has set forth. This can be done at a repository level with the `.github/copilot-instructions.md` file, or on a task basis with instruction files. You explored how to:
 

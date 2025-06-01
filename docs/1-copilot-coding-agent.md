@@ -1,11 +1,11 @@
-# Exercise 4 - GitHub Copilot coding agent
+# Exercise 1 - GitHub Copilot coding agent
 
 | [← Prerequisites][previous-lesson] | [Next lesson: MCP servers →][next-lesson] |
 |:--|--:|
 
 There are likely very few, if any, organizations who don't struggle with tech debt. This could be unresolved security issues, legacy code requiring updates, or feature requests which have languished on the backlog because we just didn't have the time to implement them. GitHub Copilot's coding agent is built to perform tasks such as updating code and adding functionality, all in an autonomous fashion. Once the agent completes its work, it generates a draft PR ready for a human developer to review. This allows offloading of tedious tasks and an acceleration of the development process, and frees developers to focus on larger picture items. 
 
-Let's first explore how we can use the Copilot coding agent to create a GitHub Actions workflow to help us maintain the quality of our app. Then, we'll discuss the importance of well-scoped issues, and explore how it could support migration from one language and framework to another.
+Let's first explore how we can use the Copilot coding agent to create a GitHub Actions workflow to help us maintain the quality of our app. Then, we'll discuss the importance of well-scoped issues, and explore how it could support more complex tasks.
 
 ## Scenarios
 
@@ -25,7 +25,7 @@ While it can often feel like it, there is no magic in GitHub Copilot. There are 
 
 As a result, we want to [be mindful about how we approach assigning tasks to Copilot coding agent][coding-agent-best-practices], and that working with Copilot as an AI pair programmer is typically the best approach. The approach you take tasks big and small is the same with or without Copilot - work in stages, learn, experiment, and adapt accordingly. As always, the fundamentals of software development do not change with the addition of generative AI.
 
-## Setting up the Dev Environment for the Copilot coding agent
+## Setting up the dev environment for the Copilot coding agent
 
 Creating code, regardless of who's involved, typically requires a specific environment and some setup scripts to be run to ensure everything is in a good state. This holds true when assigning tasks to Copilot, which is performing tasks in a similar fashion to a SWE.
 
@@ -75,7 +75,7 @@ jobs:
 It looks like any other GitHub workflow file, but it has a few key points:
 
 - It contains a single job called `copilot-setup-steps`. This job is executed in GitHub Actions before Copilot starts working on the pull request.
-- We've also added a `workflow_dispatch` trigger, which allows you to run the workflow manually from the Actions tab of your repository. This is useful for testing that the workflow runs successfully ahead of waiting for Copilot to run it.
+- We've also added a `workflow_dispatch` trigger, which allows you to run the workflow manually from the Actions tab of your repository. This is useful for testing that the workflow runs successfully instead of waiting for Copilot to run it.
 
 ## Improving code documentation
 
@@ -133,7 +133,7 @@ As has been highlighted, one of the great advantages of GitHub Copilot coding ag
    - There should be appropriate error handling for all new endpoints
    - There should be unit tests created for all new endpoints
    - Before creating the PR, ensure all tests pass
-    ```
+   ```
 
 7. Note the level of guidance being provided to Copilot to help set everyone up for success.
 8. Scroll towards the bottom of the dialog box to locate the **Assignee** button.

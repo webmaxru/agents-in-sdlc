@@ -81,7 +81,7 @@ It looks like any other GitHub workflow file, but it has a few key points:
 
 While every developer and organization understands the importance of documentation, most projects have either outdated information or lack it altogether. This is the type of tech debt which often goes unaddressed, slowing productivity and making it more difficult to maintain the codebase or bring new developers into the team. Fortunately, Copilot shines at creating documentation, and this is a perfect issue to assign to Copilot coding agent. It'll work in the background to generate the necessary documentation. In a future exercise we'll return to review its work.
 
-1. Navigate to your repository on github.com.
+1. Navigate to your repository on github.com in a new browser tab.
 2. Select the **Issues** tab.
 3. Select **New issue** to open the new issue dialog.
 4. Select **Blank issue** to create the new issue.

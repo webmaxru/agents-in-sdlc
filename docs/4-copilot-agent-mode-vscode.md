@@ -1,6 +1,9 @@
-# Exercise 3 - Adding new functionality with Copilot Agent Mode
+# Exercise 4 - Adding new functionality with Copilot Agent Mode
 
-Even the simplest of updates to an application typically require updates to multiple files and operations to be performed like running tests. As a developer your flow typically involves tracking down all the necessary files, making the changes, running the tests, debugging, figuring out which file was missed, making another update...
+| [← Previous lesson: Custom instructions][previous-lesson] | [Next lesson: Reviewing coding agent →][next-lesson] |
+|:--|--:|
+
+Even the simplest of updates to an application typically require updates to multiple files and operations to be performed like running tests. As a developer your flow typically involves tracking down all the necessary files, making the changes, running the tests, debugging, figuring out which file was missed, making another update... The list goes on and on.
 
 This is where Copilot Agent Mode comes into play.
 
@@ -47,36 +50,42 @@ To make running the website easier, we have provided a script that will start bo
 4. Open the website by using <kbd>Ctrl</kbd>-**Click** (or <kbd>Cmd</kbd>-**Click** on a Mac) on the client address (http://localhost:4321) in the terminal.
 
 > [!NOTE]
-> When accessing GitHub Codespaces:
-> - If you're using Codespaces in a web browser: Clicking the localhost URL from the Codespace terminal will automatically redirect you to `https://<your-codespace-name>-4321.app.github.dev/`
-> - If you're running Codespaces locally through VS Code or using a local development environment: You can access the site directly via `http://localhost:4321`
-
+> When using a codespace, selecting a link for the localhost URL from the Codespace terminal will automatically redirect you to `https://<your-codespace-name>-4321.app.github.dev/`. This is a private tunnel to your codespace, which is now hosting your web server!
 
 ### Exploring the website
 
 Once the website is running, you can explore its functionality. The main features of the website include:
 
 - **Home Page**: Displays a list of board games with their titles, images, and descriptions.
-- **Game Details Page**: When you click on a game, it takes you to a details page with more information about the game, including its title, description, and image.
+- **Game Details Page**: When you select a game, you'll be brought to a details page with more information about the game, including its title, description, publisher and category.
 
 ## Explore the backlog from Copilot
 
 The initial implementation of the website is functional, but we want to enhance it by adding new capabilities. Let's start off by reviewing the backlog. Ask GitHub Copilot to show you the backlog of items that we created in the previous exercise.
 
-1. Open **Copilot Chat**.
-2. Create a new chat session by selecting the **New Chat** button, which will remove any previous context.
-3. Ensure **Agent** is selected from the list of modes.
+1. Return to your codespace.
+2. Open **Copilot Chat**.
+3. Create a new chat session by selecting the **New Chat** button, which will remove any previous context.
+4. Ensure **Agent** is selected from the list of modes.
 
    ![Screenshot of the Copilot Chat panel showing the Agent Mode dropdown](images/copilot-agent-mode-dropdown.png)
 
-4. Select **Claude 3.5 Sonnet** from the list of available models.
+5. Select **Claude 3.5 Sonnet** from the list of available models.
+
+> [!IMPORTANT]
+> The authors of this lab are not indicating a preference towards one model or another. When building this lab, we used Claude 3.5, and as such are including that in the instructions. The hope is the code suggestions you receive will be relatively consistent to ensure a good experience. However, because LLMs are probabilistic, you may notice the suggestions received differ from what is indicated in the lab. This is perfectly normal and expected.
+
 5. Ask Copilot about the backlog of issues by sending the following prompt to Copilot, replacing **<YOUR_REPOSITORY_PATH>** with the organization/name of your repository which you noted earlier:
 
    ```plaintext
    Please show me the backlog of items from my repository at <YOUR_REPOSITORY_PATH>. Help me prioritize them based on those which will be most useful to the user.
    ```
 
-6. Notice GitHub Copilot identifies `list_issues` as the MCP command to run to access the right information.
+6. Notice GitHub Copilot (likely) identifies `list_issues` as the MCP command to run to access the right information.
+
+> [!NOTE]
+> Because of the probabilistic nature of LLMs, Copilot may utilize a different MCP command, but should still be able to complete the task.
+
 7. Select **Continue** to run the command to list all issues.
 8. Review the generated list of issues.
 
@@ -92,22 +101,26 @@ To implement filtering, no less than three separate updates will need to be made
 
 In addition, the tests need to run (and pass) before we merge everything into our Codebase. Copilot Agent Mode can perform these tasks for us! Let's add the functionality.
 
-1. Select **Add Context**, **Instructions**, and **flask-endpoint .github/instructions**  as the instructions file.
+1. Return to your codespace.
+2. Select **Add Context**, **Instructions**, and **flask-endpoint .github/instructions**  as the instructions file.
 
    ![Screenshot showing an example of selecting the instructions file](images/copilot-add-instructions-file.png)
 
-2. Ensure **Agent** mode is still selected.
+> [!NOTE]
+> Even though Copilot agent mode may have discovered this file on its own, if you're aware of an important piece of information, like a `.instructions.md` file, then absolutely add it to Copilot's context. This helps set Copilot (and you) up for success.
+
+3. Ensure **Agent** mode is still selected.
 
    ![Screenshot showing an example of switching to Agent Mode](images/copilot-agent-mode-dropdown.png)
 
-3. Ensure **Claude 3.5** is still selected for the model.
-4. Prompt Copilot to implement the functionality based on the issue we created earlier by using the following prompt, replacing **<YOUR_REPOSITORY_PATH>** with the organization/name of your repository which you noted earlier:
+4. Ensure **Claude 3.5** is still selected for the model.
+5. Prompt Copilot to implement the functionality based on the issue we created earlier by using the following prompt, replacing **<YOUR_REPOSITORY_PATH>** with the organization/name of your repository which you noted earlier:
 
    ```plaintext
    Please update the site to include filtering by publisher and category based on the requirements from the related GitHub issue in the backlog of <YOUR_REPOSITORY_PATH>.
    ```
 
-5. Watch as Copilot begins by exploring the project, locating the files associated with the desired functionality. You should see it finding both the API and UI definitions, as well as the tests. It then begins modifying the files and running the tests.
+6. Watch as Copilot begins by exploring the project, locating the files associated with the desired functionality. You should see it finding both the API and UI definitions, as well as the tests. It then begins modifying the files and running the tests.
 
    ![Screenshot showing Copilot exploring the project files](images/copilot-agent-mode-explores.png)
 
@@ -154,16 +167,18 @@ There are several ways to create a pull request, including through github.com an
    ```
 
 3. As needed, select **Continue** to allow Copilot to perform the tasks necessary to gather information and perform operations.
-4. Notice how Copilot searches through the issues, finds the right one, and  creates the PR.
+4. Notice how Copilot searches through the issues, finds the right one, and creates the PR.
 5. Select the link generated by Copilot to review your pull request!
 
-## Summary
+## Summary and next steps
 
 Congratulations! In this exercise, we explored how to use GitHub Copilot Agent Mode to add new capabilities to the Tailspin Toys website. We learned how:
 
 - GitHub Copilot Agent Mode can implement new features across both backend and frontend codebases.
 - Copilot Agent Mode can explore your project, identify relevant files, and make coordinated changes.
 - to review changes and tests generated by Copilot Agent Mode before merging into your codebase.
+
+Now let's [return to our coding agent][next-lesson] to see how well it did with the issues we assigned to it.
 
 ### Bonus exploration exercise – Implement paging
 
@@ -172,3 +187,22 @@ As the list of games grows there will be a need for paging to be enabled. Using 
 - follow the existing best practices, including using the existing (or creating a new) prompt file.
 - consider how you want paging implemented, if you want to allow the user to select the page size or for it to be hard-coded.
 - as you create the prompt ensure you provide Copilot with the necessary guidance to create the implementation as you desire.
+- you may need to iterate with GitHub Copilot, asking for changes and providing context. This is the normal flow when working with Copilot!
+
+## Resources
+
+- [Coding agent 101][coding-agent-101]
+- [Copilot ask, edit, and agent modes: What they do and when to use them
+][choose-mode]
+- [Agent mode in VS Code][vs-code-agent-mode]
+
+---
+
+| [← Previous lesson: Custom instructions][previous-lesson] | [Next lesson: Reviewing coding agent →][next-lesson] |
+|:--|--:|
+
+[previous-lesson]: ./3-custom-instructions.md
+[next-lesson]: ./5-reviewing-coding-agent.md
+[coding-agent-101]: https://github.blog/ai-and-ml/github-copilot/agent-mode-101-all-about-github-copilots-powerful-mode/
+[choose-mode]: https://github.blog/ai-and-ml/github-copilot/copilot-ask-edit-and-agent-modes-what-they-do-and-when-to-use-them/
+[vs-code-agent-mode]: https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode

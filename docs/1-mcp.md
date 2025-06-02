@@ -31,7 +31,7 @@ Popular existing MCP servers include:
 - **Additional reference servers**: There are many other MCP servers available that provide access to different tools and resources. Anthropic [has a list](https://github.com/modelcontextprotocol/servers) of reference implementations, third-party implementations, and community implementations of MCP servers. 
 
 > [!IMPORTANT]
-> With regard to security, treat MCP servers similar to other dependencies in your project. Before using an MCP server, carefully review its source code, verify the publisher, and consider the security implications. Only use MCP servers that you trust and be cautious about granting access to sensitive resources or operations.
+> With regard to security, treat MCP servers as you would any other dependency in your project. Before using an MCP server, carefully review its source code, verify the publisher, and consider the security implications. Only use MCP servers that you trust and be cautious about granting access to sensitive resources or operations.
 
 ## Using GitHub Copilot Chat and agent mode
 

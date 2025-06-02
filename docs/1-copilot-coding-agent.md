@@ -172,7 +172,7 @@ With coding agent working diligently in the background, we can now turn our atte
 
 ## Resources
 
-- [About Copilot agents][copilot-agents]
+- [About Copilot coding agent][copilot-agents]
 - [Assigning GitHub issues to Copilot][assign-issue]
 - [Copilot coding agent setup workflow best practices][coding-agent-best-practices]
 

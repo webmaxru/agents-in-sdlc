@@ -12,9 +12,9 @@ To create a copy of the repository for the code you'll create an instance from t
     ![Use this template button](images/use-template.png)
 
 > [!IMPORTANT]
-> If you are completing the workshop as part of an event being led by GitHub or Microsoft, follow the instructions provided by the leaders for naming the repository.
+> If you are completing the workshop as part of an event being led by GitHub or Microsoft, follow the instructions provided by the mentors for naming the repository.
 
-3. If you are completing the workshop as part of an event being led by GitHub or Microsoft, follow the instructions provided by the leaders. Otherwise, you can create the new repository in an organization where you have access to either GitHub Copilot Pro+ or GitHub Copilot Enterprise.
+3. If you are completing the workshop as part of an event being led by GitHub or Microsoft, follow the instructions provided by the mentors. Otherwise, you can create the new repository in an organization where you have access to either GitHub Copilot Pro+ or GitHub Copilot Enterprise.
 
     ![Input the repository template settings](images/repository-template-settings.png)
 

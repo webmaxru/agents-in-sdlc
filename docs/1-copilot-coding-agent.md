@@ -3,9 +3,14 @@
 | [← Prerequisites][previous-lesson] | [Next lesson: MCP servers →][next-lesson] |
 |:--|--:|
 
-There are likely very few, if any, organizations who don't struggle with tech debt. This could be unresolved security issues, legacy code requiring updates, or feature requests which have languished on the backlog because we just didn't have the time to implement them. GitHub Copilot's coding agent is built to perform tasks such as updating code and adding functionality, all in an autonomous fashion. Once the agent completes its work, it generates a draft PR ready for a human developer to review. This allows offloading of tedious tasks and an acceleration of the development process, and frees developers to focus on larger picture items. 
+There are likely very few, if any, organizations who don't struggle with tech debt. This could be unresolved security issues, legacy code requiring updates, or feature requests which have languished on the backlog because we just didn't have the time to implement them. GitHub Copilot's coding agent is built to perform tasks such as updating code and adding functionality, all in an autonomous fashion. Once the agent completes its work, it generates a draft PR ready for a human developer to review. This allows offloading of tedious tasks and an acceleration of the development process, and frees developers to focus on larger picture items.
 
-Let's first explore how we can use the Copilot coding agent to create a GitHub Actions workflow to help us maintain the quality of our app. Then, we'll discuss the importance of well-scoped issues, and explore how it could support more complex tasks.
+You'll explore the following with Copilot coding agent:
+
+- customizing the environment for generating code.
+- ensuring operations are performed securely.
+- the importance of clearly scoped issues.
+- assigning issues to Copilot.
 
 ## Scenarios
 
@@ -167,6 +172,13 @@ Copilot is now diligently working on your request! Copilot coding agent works in
 ## Summary and next steps
 
 This lesson explored [GitHub Copilot coding agent][copilot-agents], your AI peer programmer. With coding agent you can assign issues to Copilot to perform asynchronously. You can use Copilot to address tech debt, create new features, or aid in migrating code from one framework to another.
+
+You explored the these concepts:
+
+- customizing the environment for generating code.
+- ensuring operations are performed securely.
+- the importance of clearly scoped issues.
+- assigning issues to Copilot.
 
 With coding agent working diligently in the background, we can now turn our attention to our next lesson, [using MCP servers to interact with external services][next-lesson].
 

@@ -109,12 +109,16 @@ While every developer and organization understands the importance of documentati
 
 11. Select the **Pull Requests** tab.
 12. Open the newly generated issue, which will be titled something similar to **[WIP]: Code lacks documentation**.
-13. Notice how Copilot has created a todo list.
+13. After a few minutes, you should see that Copilot has created a todo list.
 14. Review the list and the tasks it's going to complete.
 15.  Scroll down the pull request timeline, and you should see an update that Copilot has started working on the issue.
 16.  Select the **View session** button.
 
   ![Copilot session view](images/ex4-view-session.png)
+
+
+> [!IMPORTANT]
+> You may need to refresh the window to see the updated indicator.
 
 17. Notice that you can scroll through the live session, and how Copilot is solving the problem. That includes exploring the code and understanding the state, how Copilot pauses to think and decide on the appropriate plan and also creating code.
 
@@ -180,7 +184,7 @@ You explored the these concepts:
 - the importance of clearly scoped issues.
 - assigning issues to Copilot.
 
-With coding agent working diligently in the background, we can now turn our attention to our next lesson, [using MCP servers to interact with external services][next-lesson].
+With coding agent working diligently in the background, we can now turn our attention to our next lesson, [using MCP servers to interact with external services][next-lesson]. [Copilot coding agent can also use MCP servers][coding-agent-mcp], but we're going to switch back to our Codespace and try use MCP with Copilot agent mode.
 
 ## Resources
 
@@ -194,6 +198,7 @@ With coding agent working diligently in the background, we can now turn our atte
 |:--|--:|
 
 [coding-agent-overview]: https://docs.github.com/en/copilot/using-github-copilot/coding-agent/about-assigning-tasks-to-copilot#overview-of-copilot-coding-agent
+[coding-agent-mcp]: https://docs.github.com/en/copilot/how-tos/agents/copilot-coding-agent/extending-copilot-coding-agent-with-mcp
 [assign-issue]: https://docs.github.com/en/copilot/using-github-copilot/coding-agent/using-copilot-to-work-on-an-issue
 [setup-workflow]: https://docs.github.com/en/copilot/using-github-copilot/coding-agent/best-practices-for-using-copilot-to-work-on-tasks#pre-installing-dependencies-in-github-copilots-environment
 [copilot-agents]: https://docs.github.com/en/copilot/using-github-copilot/coding-agent/about-assigning-tasks-to-copilot

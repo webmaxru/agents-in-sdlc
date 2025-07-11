@@ -34,7 +34,7 @@ As a result, we want to [be mindful about how we approach assigning tasks to Cop
 
 Creating code, regardless of who's involved, typically requires a specific environment and some setup scripts to be run to ensure everything is in a good state. This holds true when assigning tasks to Copilot, which is performing tasks in a similar fashion to a SWE.
 
-[Copilot coding agent supports a special workflow][setup-workflow], set in the `.github/workflows/copilot-setup-steps.yml` file, to run before it gets to work. This enables it to have access to the required development tools and dependencies. We pre-configured this ahead of the lab to help the lab flow and allow this learning opportunity. It makes sure that Copilot had access to Python, Node.JS, and the required dependencies for the client and server:
+[Copilot coding agent supports a special workflow][setup-workflow], set in the **.github/workflows/copilot-setup-steps.yml** file, to run before it gets to work. This enables it to have access to the required development tools and dependencies. We pre-configured this ahead of the lab to help the lab flow and allow this learning opportunity. It makes sure that Copilot had access to Python, Node.JS, and the required dependencies for the client and server:
 
 ```yaml
 name: "Copilot Setup Steps"

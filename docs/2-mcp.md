@@ -111,7 +111,7 @@ The **.vscode/mcp.json** file is used to configure the MCP servers that are avai
 
 This configuration provides GitHub Copilot access to several additional tools so that it can interact with GitHub repositories, issues, pull requests, and more. This particular configuration uses the [remote GitHub MCP server][remote-github-mcp-server]. By using this approach, we don't need to worry about running the MCP server locally (and the associated management, like keeping it up to date), and we can authenticate to the remote server using OAuth 2.0 instead of a personal access token (PAT).
 
-The MCP server configuration is defined in the `servers` section of the **mcp.json** file. Each MCP server is defined by a unique name (in this case, `github`) and its type (in this case, `http`). When using local MCP servers, the type may be `stdio` and have a `command` and `args` field to specify how to start the MCP server. You can find out more about the configuration format in the [VS Code documentation][vscode-mcp-config]. In some configurations (not for the remote GitHub MCP server with OAuth), you may also see an `inputs` section. This defines any inputs (like sensitive tokens) that the MCP server may require. You can read more about the configuration properties in the [VS Code documentation][vscode-mcp-config]
+The MCP server configuration is defined in the **servers** section of the **mcp.json** file. Each MCP server is defined by a unique name (in this case, github) and its type (in this case, **http**). When using local MCP servers, the type may be **stdio** and have a **command** and **args** field to specify how to start the MCP server. You can find out more about the configuration format in the [VS Code documentation][vscode-mcp-config]. In some configurations (not for the remote GitHub MCP server with OAuth), you may also see an **inputs** section. This defines any inputs (like sensitive tokens) that the MCP server may require. You can read more about the configuration properties in the [VS Code documentation][vscode-mcp-config]
 
 To utilize an MCP server it needs to be "started". This will allow GitHub Copilot to communicate with the server and perform the tasks you request.
 
@@ -143,7 +143,7 @@ That's it! You can now use Copilot Chat in agent mode to create issues, manage p
 > [!IMPORTANT]
 > If you have any issues with this MCP server configuration, there are alternate configuration options in the  [GitHub MCP server][github-mcp-server] repository using local or remote MCP. If you opt for a configuration that requires authentication via a GitHub Personal Access Token (PAT), make sure that you do not share it with anyone. Treat it like a password and keep it secure. That means you should not check it into source control or share it with anyone else.
 >
-> Because it is a sensitive password, **DO NOT** paste it into the **mcp.json** file. Instead use the `inputs` property to pass the token as an input variable. Published tokens is one of the leading causes of security breaches.
+> Because it is a sensitive password, **DO NOT** paste it into the **mcp.json** file. Instead use the **inputs** property to pass the token as an input variable. Published tokens is one of the leading causes of security breaches.
 
 ## Creating a backlog of tasks
 

@@ -81,7 +81,7 @@ The initial implementation of the website is functional, but we want to enhance 
    Please show me the backlog of items from my repository at <YOUR_REPOSITORY_PATH>. Help me prioritize them based on those which will be most useful to the user.
    ```
 
-6. Notice GitHub Copilot (likely) identifies `list_issues` as the MCP command to run to access the right information.
+6. Notice GitHub Copilot (likely) identifies **list_issues** as the MCP command to run to access the right information.
 
 > [!NOTE]
 > Because of the probabilistic nature of LLMs, Copilot may utilize a different MCP command, but should still be able to complete the task.
@@ -107,7 +107,7 @@ In addition, the tests need to run (and pass) before we merge everything into ou
    ![Screenshot showing an example of selecting the instructions file](images/copilot-add-instructions-file.png)
 
 > [!NOTE]
-> Even though Copilot agent mode may have discovered this file on its own, if you're aware of an important piece of information, like a `.instructions.md` file, then absolutely add it to Copilot's context. This helps set Copilot (and you) up for success.
+> Even though Copilot agent mode may have discovered this file on its own, if you're aware of an important piece of information, like a **.instructions.md** file, then absolutely add it to Copilot's context. This helps set Copilot (and you) up for success.
 
 3. Ensure **Agent** mode is still selected.
 

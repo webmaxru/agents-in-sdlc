@@ -18,7 +18,7 @@ To create a copy of the repository for the code you'll create an instance from t
 
     ![Input the repository template settings](images/repository-template-settings.png)
 
-4. Make a note of the repository path you created (`organization-or-user-name/repository-name`), as you will be referring to this later in the lab.
+4. Make a note of the repository path you created (**organization-or-user-name/repository-name**), as you will be referring to this later in the lab.
 
 ## Creating a codespace
 

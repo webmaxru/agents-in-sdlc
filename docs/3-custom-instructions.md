@@ -80,12 +80,12 @@ As highlighted previously, **copilot-instructions.md** is designed to provide pr
 1. Return to your codespace.
 2. Open **.github/copilot-instructions.md**.
 3. Explore the file, noting the brief description of the project and sections for **Code standards**, **Scripts** and **GitHub Actions Workflows**. These are applicable to any interactions we'd have with Copilot, are robust, and provide clear guidance on what we're doing and how we want to accomplish it.
-4. Locate the **Global language guidance** section, which should be around like 16. Note how it contains a note to use type hints. That's why we saw those in the code generated previously.
+4. Locate the **Code formatting requirements** section, which should be around like 16. Note how it contains a note to use type hints. That's why we saw those in the code generated previously.
 5. Add the following lines of markdown right below the note about type hints to instruct Copilot to add comment headers to files and docstrings:
 
    ```markdown
-   - Include a comment block at the top of each new file to describe what it does
    - Every function should have docstrings or the language equivalent
+   - Before imports or any code, add a comment block that explains the purpose of the file.
    ```
 
 6. Close **copilot-instructions.md**.
@@ -121,6 +121,7 @@ As highlighted previously, **copilot-instructions.md** is designed to provide pr
    ```
 
 10. Also note how the existing code isn't updated, but of course we could ask Copilot to perform that operation if we so desired!
+
 11. **Don't implement the suggested changes**, as we will be doing that in the next section.
 
 From this section, you explored how the custom instructions file has provided Copilot with the context it needs to generate code that follows the established guidelines.
@@ -172,6 +173,10 @@ We want to create a new endpoint to list all publishers, and to follow the same 
    ![Screenshot of the references section, showing the included instructions file](./images/copilot-instructions-references.png)
 
 15. Copilot generates the files. Notice how it generates updates across multiple files, like **publishers.py** and **test_publishers.py**
+
+> ![NOTE]
+> Note that the code generated may diverge from some of the standards we set. AI tools like Copilot are non-deterministic, and may not always provide the same result. The other files in our codebase do not contain docstrings or comment headers, which could lead Copilot in another direction. Consistency is key, so making sure that your code follows the established patterns is important. You can always follow-up in chat and ask Copilot to follow your coding standards, which will help guide it in the right direction.
+
 16. After reviewing the code, select **Keep** in Copilot Chat to accept the changes.
 17. Open a terminal window by selecting <kbd>Ctl</kbd>+<kbd>\`</kbd>.
 18. Run the tests by running the script with the following command:

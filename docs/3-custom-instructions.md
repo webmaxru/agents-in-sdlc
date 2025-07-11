@@ -40,7 +40,7 @@ Custom instructions allow you to provide context and preferences to Copilot chat
 There are two types of instructions files:
 
 - **.github/copilot-instructions.md**, a single instruction file sent to Copilot for **every** chat prompt. This file should contain project-level information, context which is relevant for every message. This could include the tech stack being used, an overview of what's being built, or global guidance for Copilot.
-- **.instructions.md** can be created for specific tasks or file types. You can use **.instructions.md** files to provide guidelines for particular languages (like Python or TypeScript), or for tasks like creating a React component or a new instance of a repository pattern.
+- **\*.instructions.md** files can be created for specific tasks or file types. You can use **.instructions.md** files to provide guidelines for particular languages (like Python or TypeScript), or for tasks like creating a React component or a new instance of a repository pattern.
 
 > [!NOTE]
 > When working in your IDE, instructions files are only used for code generation in Copilot Chat, and not used for code completions.

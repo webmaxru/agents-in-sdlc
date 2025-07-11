@@ -80,7 +80,7 @@ As highlighted previously, **copilot-instructions.md** is designed to provide pr
 1. Return to your codespace.
 2. Open **.github/copilot-instructions.md**.
 3. Explore the file, noting the brief description of the project and sections for **Code standards**, **Scripts** and **GitHub Actions Workflows**. These are applicable to any interactions we'd have with Copilot, are robust, and provide clear guidance on what we're doing and how we want to accomplish it.
-4. Locate the **Code formatting requirements** section, which should be around like 16. Note how it contains a note to use type hints. That's why we saw those in the code generated previously.
+4. Locate the **Code formatting requirements** section, which should be around line 16. Note how it contains a note to use type hints. That's why we saw those in the code generated previously.
 5. Add the following lines of markdown right below the note about type hints to instruct Copilot to add comment headers to files and docstrings:
 
    ```markdown

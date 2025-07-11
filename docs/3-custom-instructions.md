@@ -167,7 +167,7 @@ We want to create a new endpoint to list all publishers, and to follow the same 
    Create a new endpoint to return a list of all publishers. It should return the name and id for all publishers.
    ```
 
-14. Note the **References** section and how it uses the **flask-endpoint.instructions.md** file to provide context. When you use instructions files with Copilot agent mode, you will notice that Copilot explicitly explores and reads the files referenced in the instructions file.
+14. Note the **References** section and how it uses the **flask-endpoint.instructions.md** file to provide context. If you use instructions files with Copilot agent mode, you will notice that Copilot explores and reads the files referenced in the instructions file.
 
    ![Screenshot of the references section, showing the included instructions file](./images/copilot-instructions-references.png)
 

@@ -15,7 +15,7 @@ This is a crowdfunding platform for games with a developer theme. The applicatio
 
 ### Code formatting requirements
 
-- When writing Python, you must use type hints for return values and function parameters.s- Every function should have docstrings or the language equivalent- Before imports or any code, add a comment block that explains the purpose of the file.
+- When writing Python, you must use type hints for return values and function parameters.
 
 ### Python and Flask Patterns
 

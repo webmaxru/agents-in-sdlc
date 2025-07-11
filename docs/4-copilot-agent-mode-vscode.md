@@ -59,7 +59,7 @@ Once the website is running, you can explore its functionality. The main feature
 - **Home Page**: Displays a list of board games with their titles, images, and descriptions.
 - **Game Details Page**: When you select a game, you'll be brought to a details page with more information about the game, including its title, description, publisher and category.
 
-## Explore the backlog from Copilot
+## Explore the backlog with Copilot
 
 The initial implementation of the website is functional, but we want to enhance it by adding new capabilities. Let's start off by reviewing the backlog. Ask GitHub Copilot to show you the backlog of items that we created in the previous exercise.
 
@@ -101,7 +101,7 @@ To implement filtering, no less than three separate updates will need to be made
 
 In addition, the tests need to run (and pass) before we merge everything into our Codebase. Copilot Agent Mode can perform these tasks for us! Let's add the functionality.
 
-1. Return to your codespace.
+1. You can continue in the current conversation with Copilot, or start a new one by selecting **New Chat**.
 2. Select **Add Context**, **Instructions**, and **flask-endpoint .github/instructions**  as the instructions file.
 
    ![Screenshot showing an example of selecting the instructions file](images/copilot-add-instructions-file.png)
@@ -141,7 +141,7 @@ In addition, the tests need to run (and pass) before we merge everything into ou
 > Remember, it's always important to review the code that Copilot or any AI tools  generate.
 
 9.  Return to the browser with the website running. Explore the new functionality!
-10. Once you've confirmed everything works and reviewed the code, select **Keep** and **Done** in the Copilot Chat window.
+10. Once you've confirmed everything works and reviewed the code, select **Keep** in the Copilot Chat window.
 
 ## Publish the branch
 

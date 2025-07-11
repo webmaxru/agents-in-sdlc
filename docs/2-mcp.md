@@ -83,7 +83,7 @@ Once you have the extension installed, you may need to authenticate with your Gi
     ![Example of selecting the Claude 3.5 Sonnet model](images/copilot-agent-mode-model.png)
 
 > [!IMPORTANT]
-> The authors of this lab are not indicating a preference towards one model or another. When building this lab, we used Claude 3.5, and as such are including that in the instructions. The hope is the code suggestions you receive will be relatively consistent to ensure a good experience. However, because LLMs are probabilistic, you may notice the suggestions received differ from what is indicated in the lab. This is perfectly normal and expected.
+> The authors of this lab are not indicating a preference towards one model or another. When building this lab, we used Claude 3.5 Sonnet, and as such are including that in the instructions. The hope is the code suggestions you receive will be relatively consistent to ensure a good experience. However, because LLMs are probabilistic, you may notice the suggestions received differ from what is indicated in the lab. This is perfectly normal and expected.
 
 8. The chat pane should update to indicate that you are now in agent mode. You should see a tools icon, showing that we can configure tools for GitHub Copilot to use.
 
@@ -111,32 +111,39 @@ The **.vscode/mcp.json** file is used to configure the MCP servers that are avai
 
 This configuration provides GitHub Copilot access to several additional tools so that it can interact with GitHub repositories, issues, pull requests, and more. This particular configuration uses the [remote GitHub MCP server][remote-github-mcp-server]. By using this approach, we don't need to worry about running the MCP server locally (and the associated management, like keeping it up to date), and we can authenticate to the remote server using OAuth 2.0 instead of a personal access token (PAT).
 
-> [!IMPORTANT]
-> If you have any issues with the MCP server, there are alternate configuration options in the  [GitHub MCP server][github-mcp-server] repository using local or remote MCP. If you opt for a configuration that requires authentication via a GitHub Personal Access Token (PAT), make sure that you do not share it with anyone. Treat it like a password and keep it secure. That means you should not check it into source control or share it with anyone else.
->
-> Because it is a sensitive password, **DO NOT** paste it into the **mcp.json** file, is an artifact of the source code. Published tokens is the leading cause of security breaches. Instead, you'll securely add it to your codespace in a later step.
-
-The `servers` section defines the MCP server that you want to use. In this case, we are using the GitHub MCP server, which is run in a Docker container. The `command` field specifies the command to run the MCP server, and the `args` field specifies the arguments to pass to the command. The `env` field specifies the environment variables to set when running the MCP server. The `GITHUB_PERSONAL_ACCESS_TOKEN` environment variable is set to the value of the `github_token` input, which is provided by the user when prompted.
-
-In some configurations (not for the remote GitHub MCP server with OAuth), you may also see an `inputs` section. This defines the inputs (like tokens)that the MCP server will require. You can read more about the configuration properties in the [VS Code documentation][vscode-mcp-config]
-
-> [!IMPORTANT]
-> Make sure that you do not share your GitHub Personal Access Token with anyone, as it provides access to your GitHub account and repositories. Treat it like a password and keep it secure. That means you should not check it into source control or share it with anyone else.
->
-> Because it is a sensitive password, **DO NOT** paste it into the **mcp.json** file, is an artifact of the source code. Published tokens is the leading cause of security breaches. Instead, you'll securely add it to your codespace in a later step.
+The MCP server configuration is defined in the `servers` section of the **mcp.json** file. Each MCP server is defined by a unique name (in this case, `github`) and its type (in this case, `http`). When using local MCP servers, the type may be `stdio` and have a `command` and `args` field to specify how to start the MCP server. You can find out more about the configuration format in the [VS Code documentation][vscode-mcp-config]. In some configurations (not for the remote GitHub MCP server with OAuth), you may also see an `inputs` section. This defines any inputs (like sensitive tokens) that the MCP server may require. You can read more about the configuration properties in the [VS Code documentation][vscode-mcp-config]
 
 To utilize an MCP server it needs to be "started". This will allow GitHub Copilot to communicate with the server and perform the tasks you request.
 
 1. Inside VS Code, open **.vscode/mcp.json**.
 2. To start the GitHub MCP server, select **Start** above the GitHub server.
+
+    ![The start button above the GitHub MCP server entry](images/ex2-start-mcp.png)
+
 3. You should see a popup asking you to authenticate to GitHub.
-4. Select **Sign in with GitHub** to authenticate.
 
-5. The GitHub MCP server should start up, and you should now see the number of tools available in the Copilot Chat window increase from 0. This indicates that the AI agent is now able to access the GitHub MCP server and perform actions on your behalf.
+    ![A popup showing that the GitHub MCP server wants to authenticate to GitHub](images/ex2-mcp-auth-popup.png)
 
-    ![Example of the Copilot Chat Pane showing tools available](images/copilot-agent-mode-mcp-tools.png)
+4. Select **Continue** on the user account that you're using for this lab.
 
-6. You can select the tools icon to see the list of available tools that the GitHub MCP server provides. This includes tools for creating and managing repositories, issues, pull requests, and more.
+    ![A popup showing the user account selection for GitHub authentication](images/ex2-mcp-select-account.png)
+
+5. If the page appears, select **Authorize visual-studio-code** to allow the GitHub MCP server to login as your selected user account. Once complete, the page should say "You can now close the window.".
+
+    ![A popup showing the authorization for visual-studio-code app](images/ex2-mcp-auth-vscode.png)
+
+6. After navigating back to the GitHub Codespace, you should see that the GitHub MCP server has started. You can check this in two places:
+    - The line in **.vscode/mcp.json** which previously said start. It should now present several options, and show a number of tools available. 
+    - Select the tools icon in the Copilot Chat pane to see the tools available. Scroll down the list that appears at the top of the screen, and you should see a list of tools from the GitHub MCP server.
+
+    ![Example of the MCP server started with tools available](images/ex2-mcp-server-started.png)
+
+That's it! You can now use Copilot Chat in agent mode to create issues, manage pull requests, and more.
+
+> [!IMPORTANT]
+> If you have any issues with this MCP server configuration, there are alternate configuration options in the  [GitHub MCP server][github-mcp-server] repository using local or remote MCP. If you opt for a configuration that requires authentication via a GitHub Personal Access Token (PAT), make sure that you do not share it with anyone. Treat it like a password and keep it secure. That means you should not check it into source control or share it with anyone else.
+>
+> Because it is a sensitive password, **DO NOT** paste it into the **mcp.json** file. Instead use the `inputs` property to pass the token as an input variable. Published tokens is one of the leading causes of security breaches.
 
 ## Creating a backlog of tasks
 

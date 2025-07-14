@@ -13,9 +13,9 @@ This is a crowdfunding platform for games with a developer theme. The applicatio
 - When adding new functionality, make sure you update the README
 - Make sure all guidance in the Copilot Instructions file is updated with any relevant changes, including to project structure and scripts, and programming guidance
 
-### Global language guidance
+### Code formatting requirements
 
-- Use type hints for function parameters and return values for all languages which support them
+- When writing Python, you must use type hints for return values and function parameters.
 
 ### Python and Flask Patterns
 

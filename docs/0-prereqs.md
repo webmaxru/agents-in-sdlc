@@ -14,11 +14,11 @@ To create a copy of the repository for the code you'll create an instance from t
 > [!IMPORTANT]
 > If you are completing the workshop as part of an event being led by GitHub or Microsoft, follow the instructions provided by the mentors for naming the repository.
 
-3. If you are completing the workshop as part of an event being led by GitHub or Microsoft, follow the instructions provided by the mentors. Otherwise, you can create the new repository in an organization where you have access to either GitHub Copilot Pro+ or GitHub Copilot Enterprise.
+3. If you are completing the workshop as part of an event being led by GitHub or Microsoft, follow the instructions provided by the mentors. Otherwise, you can create the new repository in an organization where you have access to Copilot coding agent and can assign issues to Copilot.
 
     ![Input the repository template settings](images/repository-template-settings.png)
 
-4. Make a note of the repository path you created (`organization-or-user-name/repository-name`), as you will be referring to this later in the lab.
+4. Make a note of the repository path you created (**organization-or-user-name/repository-name**), as you will be referring to this later in the lab.
 
 ## Creating a codespace
 

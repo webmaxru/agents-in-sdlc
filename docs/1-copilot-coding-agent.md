@@ -34,7 +34,7 @@ As a result, we want to [be mindful about how we approach assigning tasks to Cop
 
 Creating code, regardless of who's involved, typically requires a specific environment and some setup scripts to be run to ensure everything is in a good state. This holds true when assigning tasks to Copilot, which is performing tasks in a similar fashion to a SWE.
 
-[Copilot coding agent supports a special workflow][setup-workflow], set in the `.github/workflows/copilot-setup-steps.yml` file, to run before it gets to work. This enables it to have access to the required development tools and dependencies. We pre-configured this ahead of the lab to help the lab flow and allow this learning opportunity. It makes sure that Copilot had access to Python, Node.JS, and the required dependencies for the client and server:
+[Copilot coding agent supports a special workflow][setup-workflow], set in the **.github/workflows/copilot-setup-steps.yml** file, to run before it gets to work. This enables it to have access to the required development tools and dependencies. We pre-configured this ahead of the lab to help the lab flow and allow this learning opportunity. It makes sure that Copilot had access to Python, Node.JS, and the required dependencies for the client and server:
 
 ```yaml
 name: "Copilot Setup Steps"
@@ -79,8 +79,8 @@ jobs:
 
 It looks like any other GitHub workflow file, but it has a few key points:
 
-- It contains a single job called `copilot-setup-steps`. This job is executed in GitHub Actions before Copilot starts working on the pull request.
-- We've also added a `workflow_dispatch` trigger, which allows you to run the workflow manually from the Actions tab of your repository. This is useful for testing that the workflow runs successfully instead of waiting for Copilot to run it.
+- It contains a single job called **copilot-setup-steps**. This job is executed in GitHub Actions before Copilot starts working on the pull request.
+- We've also added a **workflow_dispatch** trigger, which allows you to run the workflow manually from the Actions tab of your repository. This is useful for testing that the workflow runs successfully instead of waiting for Copilot to run it.
 
 ## Improving code documentation
 
@@ -109,12 +109,16 @@ While every developer and organization understands the importance of documentati
 
 11. Select the **Pull Requests** tab.
 12. Open the newly generated issue, which will be titled something similar to **[WIP]: Code lacks documentation**.
-13. Notice how Copilot has created a todo list.
+13. After a few minutes, you should see that Copilot has created a todo list.
 14. Review the list and the tasks it's going to complete.
 15.  Scroll down the pull request timeline, and you should see an update that Copilot has started working on the issue.
 16.  Select the **View session** button.
 
   ![Copilot session view](images/ex4-view-session.png)
+
+
+> [!IMPORTANT]
+> You may need to refresh the window to see the updated indicator.
 
 17. Notice that you can scroll through the live session, and how Copilot is solving the problem. That includes exploring the code and understanding the state, how Copilot pauses to think and decide on the appropriate plan and also creating code.
 
@@ -180,7 +184,7 @@ You explored the these concepts:
 - the importance of clearly scoped issues.
 - assigning issues to Copilot.
 
-With coding agent working diligently in the background, we can now turn our attention to our next lesson, [using MCP servers to interact with external services][next-lesson].
+With coding agent working diligently in the background, we can now turn our attention to our next lesson, [using MCP servers to interact with external services][next-lesson]. [Copilot coding agent can also use MCP servers][coding-agent-mcp], but we're going to switch back to our Codespace and try use MCP with Copilot agent mode.
 
 ## Resources
 
@@ -194,6 +198,7 @@ With coding agent working diligently in the background, we can now turn our atte
 |:--|--:|
 
 [coding-agent-overview]: https://docs.github.com/en/copilot/using-github-copilot/coding-agent/about-assigning-tasks-to-copilot#overview-of-copilot-coding-agent
+[coding-agent-mcp]: https://docs.github.com/en/copilot/how-tos/agents/copilot-coding-agent/extending-copilot-coding-agent-with-mcp
 [assign-issue]: https://docs.github.com/en/copilot/using-github-copilot/coding-agent/using-copilot-to-work-on-an-issue
 [setup-workflow]: https://docs.github.com/en/copilot/using-github-copilot/coding-agent/best-practices-for-using-copilot-to-work-on-tasks#pre-installing-dependencies-in-github-copilots-environment
 [copilot-agents]: https://docs.github.com/en/copilot/using-github-copilot/coding-agent/about-assigning-tasks-to-copilot

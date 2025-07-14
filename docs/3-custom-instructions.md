@@ -174,7 +174,7 @@ We want to create a new endpoint to list all publishers, and to follow the same 
 
 15. Copilot generates the files. Notice how it generates updates across multiple files, like **publishers.py** and **test_publishers.py**
 
-> ![NOTE]
+> [!NOTE]
 > Note that the code generated may diverge from some of the standards we set. AI tools like Copilot are non-deterministic, and may not always provide the same result. The other files in our codebase do not contain docstrings or comment headers, which could lead Copilot in another direction. Consistency is key, so making sure that your code follows the established patterns is important. You can always follow-up in chat and ask Copilot to follow your coding standards, which will help guide it in the right direction.
 
 16. After reviewing the code, select **Keep** in Copilot Chat to accept the changes.

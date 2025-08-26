@@ -72,8 +72,6 @@ Once you have the extension installed, you may need to authenticate with your Gi
 
 5. After authentication, you should see the Copilot Chat window appear.
 
-    ![Example of Copilot Chat window](images/copilot-chat-window.png)
-
 6. Switch to agent mode by selecting the dropdown in the Copilot Chat window and selecting **Agent**.
 
     ![Example of switching to agent mode](images/copilot-agent-mode-dropdown.png)
@@ -85,9 +83,7 @@ Once you have the extension installed, you may need to authenticate with your Gi
 > [!IMPORTANT]
 > The authors of this lab are not indicating a preference towards one model or another. When building this lab, we used Claude Sonnet 4, and as such are including that in the instructions. The hope is the code suggestions you receive will be relatively consistent to ensure a good experience. However, because LLMs are probabilistic, you may notice the suggestions received differ from what is indicated in the lab. This is perfectly normal and expected.
 
-8. The chat pane should update to indicate that you are now in agent mode. You should see a tools icon, showing that we can configure tools for GitHub Copilot to use.
-
-    ![Example of Copilot Chat agent mode with tools icon](images/copilot-agent-mode.png)
+8. The chat pane should update to indicate that you are now in agent mode. You should see a tools icon on the same line as the mode and model, which you utilized earlier, showing that we can configure tools for GitHub Copilot to use.
 
 Typically, the number of tools available will be set to 0 when setting up a new project, as we have not configured any MCP servers yet. But to help you get started, we have created a **.vscode/mcp.json** file with an example configuration for the [GitHub MCP server][github-mcp-server]. Let's go and explore that next.
 
@@ -100,12 +96,12 @@ The **.vscode/mcp.json** file is used to configure the MCP servers that are avai
 
     ```json
     {
-        "servers": {
-            "github": {
-            "type": "http",
-            "url": "https://api.githubcopilot.com/mcp/"
-            }
+      "servers": {
+        "github": {
+          "type": "http",
+          "url": "https://api.githubcopilot.com/mcp/"
         }
+      }
     }
     ```
 
@@ -138,27 +134,18 @@ To utilize an MCP server it needs to be "started". This will allow GitHub Copilo
     - The line in **.vscode/mcp.json** which previously said start. It should now present several options, and show a number of tools available. 
     - Select the tools icon in the Copilot Chat pane to see the tools available. Scroll down the list that appears at the top of the screen, and you should see a list of tools from the GitHub MCP server.
 
-    ![Example of the MCP server started with tools available](images/ex2-mcp-server-started.png)
-
 That's it! You can now use Copilot Chat in agent mode to create issues, manage pull requests, and more.
-
-> [!IMPORTANT]
-> If you have any issues with this MCP server configuration, there are alternate configuration options in the  [GitHub MCP server][github-mcp-server] repository using local or remote MCP. If you opt for a configuration that requires authentication via a GitHub Personal Access Token (PAT), make sure that you do not share it with anyone. Treat it like a password and keep it secure. That means you should not check it into source control or share it with anyone else.
->
-> Because it is a sensitive password, **DO NOT** paste it into the **mcp.json** file. Instead use the **inputs** property to pass the token as an input variable. Published tokens is one of the leading causes of security breaches.
 
 ## Creating a backlog of tasks
 
 Now that you have set up the GitHub MCP server, you can use Copilot Agent mode to create a backlog of tasks for use in the rest of the lab.
 
-1. Return to the Copilot Chat pane. Select **Agent** from the dropdown list. Set the model to **Claude Sonnet 4**.
+1. Return to the Copilot Chat pane. Ensure **Agent** is selected for the mode and **Claude Sonnet 4** is selected for the model.
 
-    ![Example of the Copilot Chat pane with Agent Mode selected](images/copilot-agent-mode-dropdown.png)
-
-2. Type or paste the following prompt to create the issues we'll be working on in the lab, replacing **<YOUR_REPOSITORY_PATH>** with the organization/name of your repository:
+2. Type or paste the following prompt to create the issues we'll be working on in the lab:
 
     ```markdown
-    In <YOUR_REPOSITORY_PATH>, create GitHub issues for our Tailspin Toys backlog in the repo. Each issue should include:
+    In my GitHub repo, create GitHub issues for our Tailspin Toys backlog. Each issue should include:
     - A clear title
     - A brief description of the task and why it is important to the project
     - A checkbox list of acceptance criteria

@@ -30,7 +30,7 @@ The website is a crowdfunding platform for board games with a developer theme. I
 To make running the website easier, we have provided a script that will start both the front-end and back-end servers. You can run this script in your GitHub Codespace to start the website with the following instructions:
 
 1. Return to your codespace. We'll continue working in your current branch.
-2. Open a new terminal window inside your codespace by selecting <kbd>Ctl</kbd>+<kbd>\`</kbd>.
+2. Open a new terminal window inside your codespace by selecting <kbd>Ctl</kbd> + <kbd>\`</kbd>.
 3. Run the following script to start the website:
 
    ```bash
@@ -67,21 +67,18 @@ The initial implementation of the website is functional, but we want to enhance 
 2. Open **Copilot Chat**.
 3. Create a new chat session by selecting the **New Chat** button, which will remove any previous context.
 4. Ensure **Agent** is selected from the list of modes.
-
-   ![Screenshot of the Copilot Chat panel showing the Agent Mode dropdown](images/copilot-agent-mode-dropdown.png)
-
 5. Select **Claude Sonnet 4** from the list of available models.
 
 > [!IMPORTANT]
 > The authors of this lab are not indicating a preference towards one model or another. When building this lab, we used Claude Sonnet 4, and as such are including that in the instructions. The hope is the code suggestions you receive will be relatively consistent to ensure a good experience. However, because LLMs are probabilistic, you may notice the suggestions received differ from what is indicated in the lab. This is perfectly normal and expected.
 
-5. Ask Copilot about the backlog of issues by sending the following prompt to Copilot, replacing **<YOUR_REPOSITORY_PATH>** with the organization/name of your repository which you noted earlier:
+1. Ask Copilot about the backlog of issues by sending the following prompt to Copilot:
 
    ```plaintext
-   Please show me the backlog of items from my repository at <YOUR_REPOSITORY_PATH>. Help me prioritize them based on those which will be most useful to the user.
+   Please show me the backlog of items from my GitHub repository. Help me prioritize them based on those which will be most useful to the user.
    ```
 
-6. Notice GitHub Copilot (likely) identifies `list_issues` or `search_issues` as the MCP command to run to access the right information.
+2. Notice GitHub Copilot (likely) identifies `list_issues` or `search_issues` as the MCP command to run to access the right information.
 
 > [!NOTE]
 > Because of the probabilistic nature of LLMs, Copilot may utilize a different MCP command, but should still be able to complete the task.
@@ -110,14 +107,11 @@ In addition, the tests need to run (and pass) before we merge everything into ou
 > Even though Copilot agent mode may have discovered this file on its own, if you're aware of an important piece of information, like a **.instructions.md** file, then absolutely add it to Copilot's context. This helps set Copilot (and you) up for success.
 
 3. Ensure **Agent** mode is still selected.
-
-   ![Screenshot showing an example of switching to Agent Mode](images/copilot-agent-mode-dropdown.png)
-
 4. Ensure **Claude Sonnet 4** is still selected for the model.
-5. Prompt Copilot to implement the functionality based on the issue we created earlier by using the following prompt, replacing **<YOUR_REPOSITORY_PATH>** with the organization/name of your repository which you noted earlier:
+5. Prompt Copilot to implement the functionality based on the issue we created earlier by using the following prompt:
 
    ```plaintext
-   Please update the site to include filtering by publisher and category based on the requirements from the related GitHub issue in the backlog of <YOUR_REPOSITORY_PATH>.
+   Please update the site to include filtering by publisher and category based on the requirements from the related GitHub issue in the backlog.
    ```
 
 6. Watch as Copilot begins by exploring the project, locating the files associated with the desired functionality. You should see it finding both the API and UI definitions, as well as the tests. It then begins modifying the files and running the tests.
@@ -160,10 +154,10 @@ With our changes created locally we're ready to create a pull request (PR) to al
 There are several ways to create a pull request, including through github.com and the GitHub command-line interface (CLI). But since we're already working with GitHub Copilot, let's let it create the PR for us! We can have it find the relevant issue and create the PR with an association to the located issue. 
 
 1. Navigate to the Copilot Chat panel and select **New Chat** to start a new session.
-2. Ask Copilot to create a PR for you, replacing **<YOUR_REPOSITORY_PATH>** with the organization/name of your repository which you noted earlier:
+2. Ask Copilot to create a PR for you:
 
    ```plaintext
-   Find the issue related to filtering by category and publisher on <YOUR_REPOSITORY_PATH>. Create a new pull request for the current add-filters branch, and associate it with the correct issue.
+   Find the issue in the repo related to filtering by category and publisher. Create a new pull request for the current add-filters branch, and associate it with the correct issue.
    ```
 
 3. As needed, select **Continue** to allow Copilot to perform the tasks necessary to gather information and perform operations.

@@ -54,14 +54,8 @@ To see the impact of custom instructions, we will start by sending a prompt with
 2. Close any open files in your codespace from the previous exercises. This will ensure Copilot has the context we want it to have.
 3. Open `server/routes/publishers.py`, an empty file.
 4. Open **Copilot chat** by selecting the Copilot icon towards the top of your codespace.
-5. Create a new chat session by selecting the **New Chat** button, which will remove any previous context.
-
-   ![Screenshot of the New Chat button being highlighted in the Copilot Chat panel](images/copilot-new-chat.png)
-
+5. Create a new chat session by selecting the **New Chat** button, represented by a **+**, which will remove any previous context.
 6. Select **Ask** from the modes dropdown.
-
-   ![Screenshot of the Ask mode being highlighted in the Copilot Chat panel](images/copilot-chat-ask.png)
-
 7. Send the following prompt to create a new endpoint to return all publishers:
 
    ```plaintext
@@ -69,7 +63,7 @@ To see the impact of custom instructions, we will start by sending a prompt with
    ```
 
 8. Copilot explores the project to learn how best to implement the code, and generates a list of suggestions, which may include code for `publishers.py`, `app.py`, and tests to ensure the new code runs correctly.
-9. Explore the code, noticing the generated code includes [type hints][python-type-hints] because, as we'll see, our custom instructions includes the directive to include them.
+9.  Explore the code, noticing the generated code includes [type hints][python-type-hints] because, as we'll see, our custom instructions includes the directive to include them.
 10. Notice the generated code **is missing** either a docstring or a comment header - or both!
 
 > [!IMPORTANT]
@@ -143,9 +137,7 @@ We want to create a new endpoint to list all publishers, and to follow the same 
 
 6. Return to `server/routes/publishers.py` to ensure focus is set correctly.
 7. Return to Copilot Chat and select **New Chat** to start a new session.
-8. Select **Edit** from the mode dropdown, which will allow Copilot to update multiple files. 
-
-   ![Screenshot of the Edit mode being highlighted in the Copilot Chat panel](images/copilot-edits.png)
+8. Select **Edit** from the mode dropdown, which will allow Copilot to update multiple files.
 
 > [!NOTE]
 > If you have any issues running the tests in this part of the exercise, please undo your changes and retry from the above step using **Agent** mode instead.
@@ -177,7 +169,7 @@ We want to create a new endpoint to list all publishers, and to follow the same 
 > Note that the code generated may diverge from some of the standards we set. AI tools like Copilot are non-deterministic, and may not always provide the same result. The other files in our codebase do not contain docstrings or comment headers, which could lead Copilot in another direction. Consistency is key, so making sure that your code follows the established patterns is important. You can always follow-up in chat and ask Copilot to follow your coding standards, which will help guide it in the right direction.
 
 16. After reviewing the code, select **Keep** in Copilot Chat to accept the changes.
-17. Open a terminal window by selecting <kbd>Ctl</kbd>+<kbd>\`</kbd>.
+17. Open a terminal window by selecting <kbd>Ctl</kbd> + <kbd>\`</kbd>.
 18. Run the tests by running the script with the following command:
 
    ```sh

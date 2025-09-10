@@ -63,9 +63,6 @@ Once you have the extension installed, you may need to authenticate with your Gi
 1. Return to your codespace.
 2. Select the **Copilot Chat** icon at the top of your codespace.
 3. Type a message like "Hello world" in the Copilot Chat window and press enter. This should activate Copilot Chat.
-
-    ![Example of Copilot Chat activation](images/copilot-chat-activation.png)
-
 4. Alternatively, if you are not authenticated you will be prompted to sign in to your GitHub account. Follow the instructions to authenticate.
 
     ![Example of Copilot Chat authentication prompt](images/copilot-authentication.png)
@@ -131,7 +128,7 @@ To utilize an MCP server it needs to be "started". This will allow GitHub Copilo
     ![A popup showing the authorization for visual-studio-code app](images/ex2-mcp-auth-vscode.png)
 
 6. After navigating back to the GitHub Codespace, you should see that the GitHub MCP server has started. You can check this in two places:
-    - The line in **.vscode/mcp.json** which previously said start. It should now present several options, and show a number of tools available. 
+    - The line in **.vscode/mcp.json** which previously said start should now present several options, and show a number of tools available. 
     - Select the tools icon in the Copilot Chat pane to see the tools available. Scroll down the list that appears at the top of the screen, and you should see a list of tools from the GitHub MCP server.
 
 That's it! You can now use Copilot Chat in agent mode to create issues, manage pull requests, and more.

@@ -7,7 +7,10 @@ Even the simplest of updates to an application typically require updates to mult
 
 This is where Copilot Agent Mode comes into play.
 
-Copilot Agent Mode is built to act more autonomously. It behaves in a similar fashion to a developer, starting by exploring the existing project structure, performing the necessary updates, running tasks like tests, and automatically fixing any discovered mistakes. Let's explore how we can use Agent Mode to introduce new functionality to our site.
+Copilot Agent Mode is built to act more autonomously in your IDE. It behaves in a similar fashion to a developer, starting by exploring the existing project structure, performing the necessary updates, running tasks like tests, and automatically fixing any discovered mistakes. Let's explore how we can use Agent Mode to introduce new functionality to our site.
+
+> [!NOTE]
+> While the names are similar, agent mode and coding agent are built for two different types of experiences. Agent mode performs its tasks in your IDE, allowing for quick feedback cycles and interaction. Coding agent is designed as a peer programmer, working asynchronously like a member of the team, interacting with you via issues and pull requests.
 
 In this exercise, you will learn how:
 
@@ -47,7 +50,7 @@ To make running the website easier, we have provided a script that will start bo
 > [!NOTE]
 > If a dialog box opens prompting you to open a browser window for http://localhost:5100 close it by selecting the **x**.
 
-4. Open the website by using <kbd>Ctrl</kbd>-**Click** (or <kbd>Cmd</kbd>-**Click** on a Mac) on the client address (http://localhost:4321) in the terminal.
+4. Open the website by using <kbd>Ctrl</kbd>-**Click** (or <kbd>Cmd</kbd>-**Click** on a Mac) on the client address `http://localhost:4321` in the terminal.
 
 > [!NOTE]
 > When using a codespace, selecting a link for the localhost URL from the Codespace terminal will automatically redirect you to `https://<your-codespace-name>-4321.app.github.dev/`. This is a private tunnel to your codespace, which is now hosting your web server!
@@ -111,7 +114,7 @@ In addition, the tests need to run (and pass) before we merge everything into ou
 5. Prompt Copilot to implement the functionality based on the issue we created earlier by using the following prompt:
 
    ```plaintext
-   Please update the site to include filtering by publisher and category based on the requirements from the related GitHub issue in the backlog.
+   Please update the site to include filtering by publisher and category based on the requirements from the related GitHub issue in the backlog. The server is already running, so you do not need to start it up.
    ```
 
 6. Watch as Copilot begins by exploring the project, locating the files associated with the desired functionality. You should see it finding both the API and UI definitions, as well as the tests. It then begins modifying the files and running the tests.

@@ -35,6 +35,9 @@ Next up, we will be using a codespace to complete the lab exercises. [GitHub Cod
 
 The creation of the codespace will take several minutes, although it's still far quicker than having to manually install all the services! That said, we can use this time to take advantage of our ability to assign tasks to GitHub Copilot which it can perform asynchronously, which we'll turn our attention to next!
 
+> [!IMPORTANT]
+> We will return to the codespace in a future exercise. For the time being, leave it open in a tab in your browser.
+
 ## Summary
 
 Congratulations, you have created a copy of the lab repository! You also began the creation process of your codespace, which you'll use when you begin writing code. We're going to return back to this after the next lesson, so don't worry.

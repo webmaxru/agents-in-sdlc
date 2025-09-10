@@ -53,8 +53,8 @@ To see the impact of custom instructions, we will start by sending a prompt with
 1. Return to your codespace.
 2. Close any open files in your codespace from the previous exercises. This will ensure Copilot has the context we want it to have.
 3. Open `server/routes/publishers.py`, an empty file.
-4. Open **Copilot chat** by selecting the Copilot icon towards the top of your codespace.
-5. Create a new chat session by selecting the **New Chat** button, represented by a **+**, which will remove any previous context.
+4. If **Copilot chat** is not already open, open it by selecting the Copilot icon towards the top of your codespace.
+5. Create a new chat session by typing `/clear` into the chat window and selecting <kbd>Enter</kbd> (or <kbd>return</kbd> on a Mac).
 6. Select **Ask** from the modes dropdown.
 7. Send the following prompt to create a new endpoint to return all publishers:
 
@@ -87,7 +87,7 @@ As highlighted previously, `copilot-instructions.md` is designed to provide proj
 6. Close **copilot-instructions.md**.
 7. Select **New Chat** in Copilot chat to clear the buffer and start a new conversation.
 8. Return to **server/routes/publishers.py** to ensure focus is set correctly.
-9.  Send the same prompt as before to create the endpoint.
+9. Send the same prompt as before to create the endpoint.
 
    ```plaintext
    Create a new endpoint to return a list of all publishers. It should return the name and id for all publishers.
@@ -114,8 +114,10 @@ As highlighted previously, `copilot-instructions.md` is designed to provide proj
    ```
 
 12. Also note how the existing code isn't updated, but of course we could ask Copilot to perform that operation if we so desired!
-
 13. **Don't implement the suggested changes**, as we will be doing that in the next section.
+
+> [!NOTE]
+> If you accepted the changes, you can always select the **Undo** button towards the top right of the Copilot chat window.
 
 From this section, you explored how the custom instructions file has provided Copilot with the context it needs to generate code that follows the established guidelines.
 
@@ -169,20 +171,25 @@ We want to create a new endpoint to list all publishers, and to follow the same 
 > Note that the code generated may diverge from some of the standards we set. AI tools like Copilot are non-deterministic, and may not always provide the same result. The other files in our codebase do not contain docstrings or comment headers, which could lead Copilot in another direction. Consistency is key, so making sure that your code follows the established patterns is important. You can always follow-up in chat and ask Copilot to follow your coding standards, which will help guide it in the right direction.
 
 16. After reviewing the code, select **Keep** in Copilot Chat to accept the changes.
-17. Open a terminal window by selecting <kbd>Ctl</kbd> + <kbd>\`</kbd>.
-18. Run the tests by running the script with the following command:
+17. If you are prompted to run tests select **Cancel**; we'll perform this task later.
+18. Open a terminal window by selecting <kbd>Ctl</kbd> + <kbd>\`</kbd>.
+19. Run the tests by running the script with the following command:
 
    ```sh
    ./scripts/run-server-tests.sh
    ```
 
-19. Once the code is correct, and all tests pass, open the **Source Control** panel on the left of the Codespace and review the changes made by Copilot.
-20. Stage the changes by selecting the **+** icon in the **Source Control** panel.
-21. Generate a commit message using the **Sparkle** button.
+20. Once the code is correct, and all tests pass, open the **Source Control** panel on the left of the Codespace and review the changes made by Copilot.
+
+> [!NOTE]
+> If any tests fail, ask Copilot to suggest a fix. You can use `@terminal /explain` to give Copilot the context of your terminal window.
+
+21.  Stage the changes by selecting the **+** icon in the **Source Control** panel.
+22.  Generate a commit message using the **Sparkle** button.
 
     ![Screenshot of the Source Control panel showing the changes made](images/source-control-changes.png)
 
-22. Commit the changes to your repository by selecting **Commit**.
+23.  Commit the changes to your repository by selecting **Commit**.
 
 ## Summary and next steps
 

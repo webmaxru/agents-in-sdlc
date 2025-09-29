@@ -377,5 +377,125 @@ class TestGamesRoutes(unittest.TestCase):
         self.assertEqual(response.status_code, 404)
         self.assertEqual(data['error'], "Game not found")
 
+    def test_create_game_title_too_short(self) -> None:
+        """Test creation with title that's too short (model validation)"""
+        # Arrange
+        game_data = {
+            'title': 'A',  # Too short - should fail model validation
+            'description': 'This is a test game for the API',
+            'publisher_id': 1,
+            'category_id': 1,
+            'star_rating': 4.0
+        }
+        
+        # Act
+        response = self.client.post(self.GAMES_API_PATH, json=game_data)
+        data = self._get_response_data(response)
+        
+        # Assert
+        self.assertEqual(response.status_code, 400)
+        self.assertIn("Game title must be at least 2 characters", data['error'])
+
+    def test_create_game_description_too_short(self) -> None:
+        """Test creation with description that's too short (model validation)"""
+        # Arrange
+        game_data = {
+            'title': 'Test Game',
+            'description': 'Short',  # Too short - should fail model validation
+            'publisher_id': 1,
+            'category_id': 1,
+            'star_rating': 4.0
+        }
+        
+        # Act
+        response = self.client.post(self.GAMES_API_PATH, json=game_data)
+        data = self._get_response_data(response)
+        
+        # Assert
+        self.assertEqual(response.status_code, 400)
+        self.assertIn("Description must be at least 10 characters", data['error'])
+
+    def test_create_game_without_star_rating(self) -> None:
+        """Test creation without star rating (should be allowed)"""
+        # Arrange
+        new_game_data = {
+            'title': 'Test Game No Rating',
+            'description': 'This is a test game without a rating',
+            'publisher_id': 1,
+            'category_id': 1
+            # No star_rating provided
+        }
+        
+        # Act
+        response = self.client.post(self.GAMES_API_PATH, json=new_game_data)
+        data = self._get_response_data(response)
+        
+        # Assert
+        self.assertEqual(response.status_code, 201)
+        self.assertEqual(data['title'], new_game_data['title'])
+        self.assertIsNone(data['starRating'])
+
+    def test_update_game_empty_title(self) -> None:
+        """Test update with empty title"""
+        # Get existing game ID
+        response = self.client.get(self.GAMES_API_PATH)
+        games = self._get_response_data(response)
+        game_id = games[0]['id']
+        
+        # Arrange update data with empty title
+        update_data = {
+            'title': ''  # Empty title should fail
+        }
+        
+        # Act
+        response = self.client.put(f'{self.GAMES_API_PATH}/{game_id}', json=update_data)
+        data = self._get_response_data(response)
+        
+        # Assert
+        self.assertEqual(response.status_code, 400)
+        self.assertEqual(data['error'], "Title cannot be empty")
+
+    def test_update_game_partial_update(self) -> None:
+        """Test partial update (only some fields)"""
+        # Get existing game ID
+        response = self.client.get(self.GAMES_API_PATH)
+        games = self._get_response_data(response)
+        game_id = games[0]['id']
+        original_description = games[0]['description']
+        
+        # Arrange update data - only title
+        update_data = {
+            'title': 'Partially Updated Game'
+        }
+        
+        # Act
+        response = self.client.put(f'{self.GAMES_API_PATH}/{game_id}', json=update_data)
+        data = self._get_response_data(response)
+        
+        # Assert
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(data['title'], update_data['title'])
+        self.assertEqual(data['description'], original_description)  # Should remain unchanged
+
+    def test_update_game_star_rating_to_null(self) -> None:
+        """Test updating star rating to null"""
+        # Get existing game ID
+        response = self.client.get(self.GAMES_API_PATH)
+        games = self._get_response_data(response)
+        game_id = games[0]['id']
+        
+        # Arrange update data
+        update_data = {
+            'star_rating': None
+        }
+        
+        # Act
+        response = self.client.put(f'{self.GAMES_API_PATH}/{game_id}', json=update_data)
+        data = self._get_response_data(response)
+        
+        # Assert
+        self.assertEqual(response.status_code, 200)
+        self.assertIsNone(data['starRating'])
+
 if __name__ == '__main__':
     unittest.main()

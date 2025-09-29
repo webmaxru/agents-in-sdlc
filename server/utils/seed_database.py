@@ -1,3 +1,8 @@
+"""
+Database seeding utilities for the Tailspin Toys Crowd Funding platform.
+This module provides functionality to populate the database with initial game,
+category, and publisher data from CSV files.
+"""
 import csv
 import os
 import random
@@ -15,7 +20,17 @@ def create_app():
     return app
 
 def create_games():
-    """Create games, categories and publishers from CSV data for crowd funding platform"""
+    """
+    Create games, categories and publishers from CSV data for crowd funding platform.
+    
+    Reads game data from CSV file and creates corresponding Game, Category, and Publisher
+    records in the database. Generates random star ratings for each game and enhances
+    descriptions with crowdfunding context.
+    
+    Raises:
+        FileNotFoundError: If the games.csv file is not found
+        ValueError: If CSV data is invalid or database constraints are violated
+    """
     app = create_app()
     
     with app.app_context():
@@ -78,6 +93,12 @@ def create_games():
         print(f"Added {game_count} games with {len(categories)} categories and {len(publishers)} publishers")
 
 def seed_database():
+    """
+    Entry point function to seed the database with initial data.
+    
+    This is a convenience function that calls create_games() to populate
+    the database with games, categories, and publishers.
+    """
     create_games()
 
 if __name__ == '__main__':

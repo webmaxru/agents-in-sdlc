@@ -1,3 +1,8 @@
+"""
+Models package for the Tailspin Toys Crowd Funding platform.
+This package contains all database models including Game, Publisher, Category, and base model classes,
+along with database initialization utilities.
+"""
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()

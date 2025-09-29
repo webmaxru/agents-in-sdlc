@@ -1,22 +1,35 @@
 <script lang="ts">
     import { onMount } from "svelte";
 
+
     interface Game {
         id: number;
         title: string;
         description: string;
-        publisher_name?: string;
-        category_name?: string;
+        publisher?: { id: number; name: string };
+        category?: { id: number; name: string };
+        starRating?: number;
     }
 
     export let games: Game[] = [];
     let loading = true;
     let error: string | null = null;
 
+    // Filter state
+    let selectedPublisher: number | null = null;
+    let selectedCategory: number | null = null;
+    let publishers: { id: number; name: string }[] = [];
+    let categories: { id: number; name: string }[] = [];
+
     const fetchGames = async () => {
         loading = true;
+        let url = '/api/games';
+        const params = [];
+        if (selectedPublisher) params.push(`publisher_id=${selectedPublisher}`);
+        if (selectedCategory) params.push(`category_id=${selectedCategory}`);
+        if (params.length) url += `?${params.join('&')}`;
         try {
-            const response = await fetch('/api/games');
+            const response = await fetch(url);
             if(response.ok) {
                 games = await response.json();
             } else {
@@ -29,14 +42,49 @@
         }
     };
 
+    const fetchPublishers = async () => {
+        const response = await fetch('/api/publishers');
+        if (response.ok) {
+            publishers = await response.json();
+        }
+    };
+    const fetchCategories = async () => {
+        const response = await fetch('/api/categories');
+        if (response.ok) {
+            categories = await response.json();
+        }
+    };
+
     onMount(() => {
+        fetchPublishers();
+        fetchCategories();
         fetchGames();
     });
+
+    $: if (selectedPublisher !== null || selectedCategory !== null) {
+        fetchGames();
+    }
 </script>
 
 <div>
     <h2 class="text-2xl font-medium mb-6 text-slate-100">Featured Games</h2>
-    
+
+    <!-- Filters -->
+    <div class="mb-6 flex gap-4">
+        <select class="rounded-lg bg-slate-800 text-slate-100 px-3 py-2" bind:value={selectedPublisher}>
+            <option value="">All Publishers</option>
+            {#each publishers as publisher}
+                <option value={publisher.id}>{publisher.name}</option>
+            {/each}
+        </select>
+        <select class="rounded-lg bg-slate-800 text-slate-100 px-3 py-2" bind:value={selectedCategory}>
+            <option value="">All Categories</option>
+            {#each categories as category}
+                <option value={category.id}>{category.name}</option>
+            {/each}
+        </select>
+    </div>
+
     {#if loading}
         <!-- loading animation -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

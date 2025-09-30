@@ -1,8 +1,27 @@
+"""
+Game model for the Tailspin Toys Crowd Funding platform.
+
+This module defines the Game model representing crowdfunding game projects
+with their associated publishers and categories.
+"""
 from . import db
 from .base import BaseModel
 from sqlalchemy.orm import validates, relationship
 
 class Game(BaseModel):
+    """
+    Database model representing a game available for crowdfunding.
+    
+    Attributes:
+        id: Primary key identifier
+        title: Name of the game
+        description: Detailed description of the game
+        star_rating: Average user rating (0-5 stars)
+        category_id: Foreign key to the game's category
+        publisher_id: Foreign key to the game's publisher
+        category: Relationship to Category model
+        publisher: Relationship to Publisher model
+    """
     __tablename__ = 'games'
     
     id = db.Column(db.Integer, primary_key=True)
@@ -19,19 +38,52 @@ class Game(BaseModel):
     publisher = relationship("Publisher", back_populates="games")
     
     @validates('title')
-    def validate_name(self, key, name):
+    def validate_name(self, key: str, name: str) -> str:
+        """
+        Validate game title meets length requirements.
+        
+        Args:
+            key: Field name being validated
+            name: Title value to validate
+            
+        Returns:
+            Validated title string
+            
+        Raises:
+            ValueError: If title is too short
+        """
         return self.validate_string_length('Game title', name, min_length=2)
     
     @validates('description')
-    def validate_description(self, key, description):
+    def validate_description(self, key: str, description: str | None) -> str | None:
+        """
+        Validate game description meets length requirements.
+        
+        Args:
+            key: Field name being validated
+            description: Description value to validate
+            
+        Returns:
+            Validated description string or None
+            
+        Raises:
+            ValueError: If description is too short
+        """
         if description is not None:
             return self.validate_string_length('Description', description, min_length=10, allow_none=True)
         return description
     
-    def __repr__(self):
+    def __repr__(self) -> str:
+        """Return string representation of the Game instance."""
         return f'<Game {self.title}, ID: {self.id}>'
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
+        """
+        Convert Game instance to dictionary for JSON serialization.
+        
+        Returns:
+            Dictionary containing game data with related publisher and category info
+        """
         return {
             'id': self.id,
             'title': self.title,

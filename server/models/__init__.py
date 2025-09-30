@@ -1,3 +1,9 @@
+"""
+Models package initialization for the Tailspin Toys Crowd Funding platform.
+
+This package contains all SQLAlchemy database models and provides database
+initialization functionality.
+"""
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
@@ -7,8 +13,9 @@ from .category import Category
 from .game import Game
 from .publisher import Publisher
 
-def init_db(app, testing: bool = False):
-    """Initialize the database
+def init_db(app, testing: bool = False) -> None:
+    """
+    Initialize the database with the Flask application.
     
     Args:
         app: The Flask application instance

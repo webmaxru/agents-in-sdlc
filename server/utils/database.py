@@ -1,9 +1,16 @@
+"""
+Database initialization utilities for the Tailspin Toys Crowd Funding platform.
+
+This module provides functions to initialize and configure the SQLAlchemy database
+connection for the Flask application.
+"""
 import os
 from models import init_db as models_init_db
 
-def init_db(app, connection_string=None, testing=False):
+def init_db(app, connection_string: str | None = None, testing: bool = False) -> None:
     """
-    Initializes the database with the given Flask app and connection string.
+    Initialize the database with the given Flask app and connection string.
+    
     If no connection string is provided, a default SQLite connection string is used.
     
     Args:
@@ -17,9 +24,15 @@ def init_db(app, connection_string=None, testing=False):
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     models_init_db(app, testing=testing)
 
-def __get_connection_string():
+def __get_connection_string() -> str:
     """
-    Returns the connection string for the database.
+    Get the default SQLite database connection string.
+    
+    Creates the data directory if it doesn't exist and returns a connection
+    string pointing to the database file in the project's data directory.
+    
+    Returns:
+        SQLite connection string for the application database
     """
     # Get the server directory
     server_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

@@ -1,3 +1,8 @@
+"""
+Main application entry point for the Tailspin Toys Crowd Funding platform.
+This module initializes the Flask application, configures the database,
+and registers all API route blueprints.
+"""
 import os
 from flask import Flask
 from models import init_db

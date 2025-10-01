@@ -1,3 +1,7 @@
+"""
+Database initialization utilities for the Tailspin Toys Crowd Funding platform.
+This module provides functions to configure and initialize the database connection.
+"""
 import os
 from models import init_db as models_init_db
 
@@ -19,7 +23,11 @@ def init_db(app, connection_string=None, testing=False):
 
 def __get_connection_string():
     """
-    Returns the connection string for the database.
+    Generates the default SQLite database connection string.
+    Creates the data directory if it doesn't exist.
+    
+    Returns:
+        str: SQLite connection string pointing to the database file
     """
     # Get the server directory
     server_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

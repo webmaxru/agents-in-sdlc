@@ -1,3 +1,7 @@
+"""
+Unit tests for the Games API routes.
+This module contains test cases for the games endpoints in the Tailspin Toys Crowd Funding platform.
+"""
 import unittest
 import json
 from typing import Dict, List, Any, Optional

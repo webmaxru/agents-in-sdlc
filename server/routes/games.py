@@ -1,7 +1,6 @@
 from flask import jsonify, Response, Blueprint, request
 from models import db, Game, Publisher, Category
 from sqlalchemy.orm import Query
-from sqlalchemy.exc import IntegrityError
 
 # Create a Blueprint for games routes
 games_bp = Blueprint('games', __name__)

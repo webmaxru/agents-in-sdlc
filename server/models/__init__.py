@@ -1,3 +1,7 @@
+"""
+Models package for the Tailspin Toys Crowd Funding platform.
+This package contains SQLAlchemy models for the database entities.
+"""
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()

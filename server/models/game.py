@@ -3,6 +3,7 @@ from .base import BaseModel
 from sqlalchemy.orm import validates, relationship
 
 class Game(BaseModel):
+    """Model representing a crowdfunding game with title, description, category, and publisher."""
     __tablename__ = 'games'
     
     id = db.Column(db.Integer, primary_key=True)
@@ -20,18 +21,27 @@ class Game(BaseModel):
     
     @validates('title')
     def validate_name(self, key, name):
+        """Validate that game title meets minimum length requirements."""
         return self.validate_string_length('Game title', name, min_length=2)
     
     @validates('description')
     def validate_description(self, key, description):
+        """Validate that game description meets minimum length requirements."""
         if description is not None:
             return self.validate_string_length('Description', description, min_length=10, allow_none=True)
         return description
     
     def __repr__(self):
+        """Return string representation of Game."""
         return f'<Game {self.title}, ID: {self.id}>'
 
     def to_dict(self):
+        """
+        Convert Game instance to dictionary representation.
+        
+        Returns:
+            Dictionary containing game id, title, description, publisher, category, and star rating
+        """
         return {
             'id': self.id,
             'title': self.title,

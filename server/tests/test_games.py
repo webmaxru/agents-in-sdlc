@@ -6,6 +6,7 @@ from models import Game, Publisher, Category, db
 from routes.games import games_bp
 
 class TestGamesRoutes(unittest.TestCase):
+    """Test suite for games API routes."""
     # Test data as complete objects
     TEST_DATA: Dict[str, Any] = {
         "publishers": [

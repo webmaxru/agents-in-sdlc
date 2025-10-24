@@ -84,11 +84,13 @@ def create_game() -> tuple[Response, int]:
         
     except ValueError as e:
         db.session.rollback()
-        return jsonify({"error": str(e)}), 400
-    except IntegrityError as e:
+        # ValueError from model validation contains safe, user-friendly messages
+        error_message = str(e) if e.args else "Validation error"
+        return jsonify({"error": error_message}), 400
+    except IntegrityError:
         db.session.rollback()
         return jsonify({"error": "Database integrity error"}), 400
-    except Exception as e:
+    except Exception:
         db.session.rollback()
         return jsonify({"error": "Internal server error"}), 500
 
@@ -139,11 +141,13 @@ def update_game(id: int) -> tuple[Response, int]:
         
     except ValueError as e:
         db.session.rollback()
-        return jsonify({"error": str(e)}), 400
-    except IntegrityError as e:
+        # ValueError from model validation contains safe, user-friendly messages
+        error_message = str(e) if e.args else "Validation error"
+        return jsonify({"error": error_message}), 400
+    except IntegrityError:
         db.session.rollback()
         return jsonify({"error": "Database integrity error"}), 400
-    except Exception as e:
+    except Exception:
         db.session.rollback()
         return jsonify({"error": "Internal server error"}), 500
 
@@ -161,6 +165,6 @@ def delete_game(id: int) -> tuple[Response, int]:
         
         return jsonify({"message": "Game deleted successfully"}), 200
         
-    except Exception as e:
+    except Exception:
         db.session.rollback()
         return jsonify({"error": "Internal server error"}), 500
